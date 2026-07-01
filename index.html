@@ -75,7 +75,7 @@
   .hero-cta{display:inline-block;margin-top:2.5rem;padding:.8rem 2rem;border:1px solid var(--gold);color:var(--gold);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:background .3s,color .3s;opacity:0;animation:riseIn .9s 1.1s ease forwards}
   .hero-cta:hover{background:var(--gold);color:var(--bg)}
   .hero-floats{position:absolute;right:0;top:0;width:52%;height:100%;pointer-events:none;overflow:hidden}
-  .float-img{position:absolute;border:1px solid rgba(255,255,255,0.06);object-fit:cover;opacity:0;animation:floatIn 1s ease forwards}
+  .float-img{position:absolute;height:auto;border:1px solid rgba(255,255,255,0.06);object-fit:cover;opacity:0;animation:floatIn 1s ease forwards}
   .float-img:nth-child(1){width:44%;aspect-ratio:3/4;top:12%;right:30%;animation-delay:.7s}
   .float-img:nth-child(2){width:37%;aspect-ratio:4/5;top:6%;right:6%;animation-delay:.9s}
   .float-img:nth-child(3){width:34%;aspect-ratio:1/1;top:56%;right:16%;animation-delay:1.1s}
@@ -86,7 +86,7 @@
   .gallery-grid{columns:4 260px;column-gap:1.1rem}
   .gallery-card{break-inside:avoid;margin-bottom:1.1rem;position:relative;overflow:hidden;cursor:pointer;background:var(--surface);border:1px solid var(--border);transition:transform .35s ease,box-shadow .35s ease}
   .gallery-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(0,0,0,0.65)}
-  .gallery-card img{width:100%;display:block;transition:transform .5s ease,filter .4s ease;filter:brightness(.92) saturate(.95)}
+  .gallery-card img{width:100%;height:auto;display:block;transition:transform .5s ease,filter .4s ease;filter:brightness(.92) saturate(.95)}
   .gallery-card:hover img{transform:scale(1.04);filter:brightness(1) saturate(1.05)}
   .card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,11,.88) 0%,transparent 55%);opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:1.2rem}
   .gallery-card:hover .card-overlay{opacity:1}
@@ -125,6 +125,7 @@
   .about-right{display:flex;gap:2.5rem;align-items:flex-start}
   .about-photo{
     width:42%;flex-shrink:0;
+    height:auto;
     display:block;
     border:1px solid var(--border);
     filter:brightness(.97) saturate(.95);
@@ -154,7 +155,7 @@
   .feat-card{background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;transition:transform .35s ease,box-shadow .35s ease}
   .feat-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(0,0,0,.6)}
   .feat-figure{position:relative;overflow:hidden;cursor:pointer}
-  .feat-figure img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;filter:brightness(.93) saturate(.97);transition:transform .6s ease,filter .4s ease}
+  .feat-figure img{width:100%;height:auto;display:block;aspect-ratio:4/5;object-fit:cover;filter:brightness(.93) saturate(.97);transition:transform .6s ease,filter .4s ease}
   .feat-card:hover .feat-figure img{transform:scale(1.05);filter:brightness(1) saturate(1.05)}
   .feat-status{position:absolute;top:1rem;left:1rem;background:rgba(13,13,11,.7);backdrop-filter:blur(6px)}
   .feat-body{padding:1.4rem 1.5rem 1.7rem;display:flex;flex-direction:column;gap:.9rem;flex:1}
