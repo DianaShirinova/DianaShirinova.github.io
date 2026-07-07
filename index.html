@@ -80,12 +80,12 @@
   .float-img:nth-child(1){width:44%;aspect-ratio:3/4;top:12%;right:30%;animation-delay:.7s}
   .float-img:nth-child(2){width:37%;aspect-ratio:4/5;top:6%;right:6%;animation-delay:.9s}
   .float-img:nth-child(3){width:34%;aspect-ratio:1/1;top:56%;right:16%;animation-delay:1.1s}
-  #gallery{padding:8.5rem 2.5rem;max-width:1400px;margin:0 auto}
+  #gallery{padding:12rem 4rem;max-width:1240px;margin:0 auto}
   .section-eyebrow{font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
-  .section-title{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);line-height:1.08;margin-bottom:4.5rem;color:var(--cream)}
+  .section-title{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);line-height:1.08;margin-bottom:6rem;color:var(--cream)}
   .section-title em{font-style:italic;color:var(--rose)}
-  .gallery-grid{columns:3 300px;column-gap:2.2rem}
-  .gallery-card{break-inside:avoid;margin-bottom:2.2rem;position:relative;overflow:hidden;cursor:pointer;background:var(--surface);border:1px solid var(--border);transition:transform .35s ease,box-shadow .35s ease}
+  .gallery-grid{columns:3 300px;column-gap:3.8rem}
+  .gallery-card{break-inside:avoid;margin-bottom:3.8rem;position:relative;overflow:hidden;cursor:pointer;background:var(--surface);border:1px solid var(--border);transition:transform .35s ease,box-shadow .35s ease}
   .gallery-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(0,0,0,0.65)}
   .gallery-card img{width:100%;height:auto;display:block;transition:transform .5s ease,filter .4s ease;filter:brightness(.92) saturate(.95)}
   .gallery-card:hover img{transform:scale(1.04);filter:brightness(1) saturate(1.05)}
@@ -103,6 +103,11 @@
   .card-palette{margin-top:.55rem}
   .card-palette .daub{width:15px;height:13px}
   #lightbox-palette{position:fixed;bottom:4.1rem;left:50%;transform:translateX(-50%);z-index:501}
+  #lightbox-thumbs{position:fixed;bottom:6.4rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:501}
+  .lb-thumb{width:54px;height:54px;object-fit:cover;border:1px solid rgba(255,255,255,.25);opacity:.5;cursor:pointer;transition:opacity .2s,border-color .2s}
+  .lb-thumb:hover{opacity:.85}
+  .lb-thumb.active{opacity:1;border-color:var(--gold)}
+  #lightbox.has-thumbs #lightbox-img{max-height:70vh}
   /* ── Brush cursor + paint trail (desktop only) ── */
   @media(pointer:fine){
     #gallery{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M27 2l3 3-11 12-5-5z" fill="%23c8a96e"/><path d="M14 14l4 4-3 4-6 3-2-2 3-6z" fill="%23f0e8d8"/><path d="M9 21c-2 2-4 5-5 8 3-1 6-3 8-5 1-1 1-3-1-4-1-1-2 0-2 1z" fill="%23627D86"/></svg>') 4 28, auto}
@@ -119,14 +124,14 @@
   #lightbox-prev:hover,#lightbox-next:hover{background:rgba(255,255,255,.15)}
   #lightbox-prev{left:1.5rem}
   #lightbox-next{right:1.5rem}
-  #about{padding:9rem 3rem;background:var(--surface);border-top:1px solid var(--border)}
+  #about{padding:13rem 3rem;background:var(--surface);border-top:1px solid var(--border)}
   .about-inner{max-width:940px;margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:6rem;align-items:start}
   .about-accent{width:50px;height:2px;background:var(--gold);margin-bottom:2rem}
   .about-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
   .tag{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;padding:.35rem .9rem;border:1px solid rgba(200,169,110,.35);color:var(--gold)}
   .about-text{font-size:1.05rem;line-height:1.9;color:var(--muted);font-weight:300}
   .about-text p+p{margin-top:1.2rem}
-  #contact{padding:9rem 3rem;text-align:center;border-top:1px solid var(--border)}
+  #contact{padding:13rem 3rem;text-align:center;border-top:1px solid var(--border)}
   .contact-inner{max-width:600px;margin:0 auto}
   .contact-email{display:inline-block;font-family:var(--serif);font-style:italic;font-size:1.8rem;color:var(--rose);text-decoration:none;border-bottom:1px solid rgba(212,132,122,.4);padding-bottom:.2rem;margin:2rem 0;transition:color .25s,border-color .25s}
   .contact-email:hover{color:var(--cream);border-color:var(--cream)}
@@ -135,7 +140,7 @@
   footer span{color:var(--gold)}
   @keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
   @keyframes floatIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-  @media(max-width:768px){nav{padding:1rem 1.5rem}.nav-links{display:none}.hero{padding:7rem 1.5rem 3rem}.hero-floats{display:none}#gallery{padding:5.5rem 1.4rem}.gallery-grid{columns:2 150px;column-gap:1.2rem}.about-inner{grid-template-columns:1fr;gap:3rem}#about,#contact{padding:5.5rem 1.5rem}footer{flex-direction:column;gap:.5rem;text-align:center}}
+  @media(max-width:768px){nav{padding:1rem 1.5rem}.nav-links{display:none}.hero{padding:7rem 1.5rem 3rem}.hero-floats{display:none}#gallery{padding:7rem 1.4rem}.gallery-grid{columns:2 150px;column-gap:1.6rem}.gallery-card{margin-bottom:1.6rem}.about-inner{grid-template-columns:1fr;gap:3rem}#about,#contact{padding:8rem 1.5rem}footer{flex-direction:column;gap:.5rem;text-align:center}}
 
 
   /* ── About photo ── */
@@ -167,8 +172,8 @@
   .btn-line--rose:hover{background:var(--rose);color:var(--bg)}
 
   /* ── Featured Collection ── */
-  #featured{padding:8.5rem 2.5rem;max-width:1400px;margin:0 auto;border-top:1px solid var(--border)}
-  .featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6rem;margin-top:4rem}
+  #featured{padding:12rem 4rem;max-width:1240px;margin:0 auto;border-top:1px solid var(--border)}
+  .featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4rem;margin-top:5.5rem}
   .feat-card{background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;transition:transform .35s ease,box-shadow .35s ease}
   .feat-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(0,0,0,.6)}
   .feat-figure{position:relative;overflow:hidden;cursor:pointer}
@@ -191,13 +196,13 @@
   .card-act--prints:hover{color:var(--cream)}
 
   /* ── The Process ── */
-  #process{padding:9rem 3rem;background:var(--surface);border-top:1px solid var(--border)}
+  #process{padding:13rem 3rem;background:var(--surface);border-top:1px solid var(--border)}
   .process-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:6rem;align-items:center}
   .process-text p{font-size:1.08rem;line-height:1.95;color:var(--muted);font-weight:300}
   .process-text p+p{margin-top:1.3rem}
   .process-rule{width:50px;height:2px;background:var(--gold);margin:1.5rem 0 2.2rem}
   .process-photo{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--border);filter:brightness(.95) saturate(.95)}
-  @media(max-width:768px){#process{padding:5.5rem 1.5rem}.process-inner{grid-template-columns:1fr;gap:3rem}}
+  @media(max-width:768px){#process{padding:8rem 1.5rem}.process-inner{grid-template-columns:1fr;gap:3rem}}
 
   /* ── Shop CTA + Originals ── */
   #prints{padding:7rem 3rem;text-align:center;border-top:1px solid var(--border);position:relative;overflow:hidden}
@@ -219,6 +224,9 @@
   @media(max-width:768px){
     #lightbox{padding:1rem}
     #lightbox-img{max-height:60vh}
+    #lightbox.has-thumbs #lightbox-img{max-height:44vh}
+    #lightbox-thumbs{bottom:10rem;max-width:94vw;overflow-x:auto}
+    .lb-thumb{width:46px;height:46px;flex:none}
     #lightbox-palette{bottom:8rem}
     #lightbox-title{bottom:6.2rem;font-size:.95rem;max-width:92vw;overflow:hidden;text-overflow:ellipsis}
     #lightbox-prints{left:50%;right:auto;transform:translateX(-50%);bottom:1.4rem;white-space:nowrap}
@@ -240,7 +248,7 @@
   .footer-gifts{width:100%;border-top:1px solid var(--border);padding-top:1.6rem;font-size:.72rem;line-height:1.7;color:rgba(240,232,216,.32);letter-spacing:.05em}
   .footer-gifts a{color:rgba(200,169,110,.7);text-decoration:none;border-bottom:1px solid rgba(200,169,110,.25);transition:color .25s,border-color .25s}
   .footer-gifts a:hover{color:var(--cream);border-color:var(--cream)}
-  @media(max-width:768px){#featured{padding:5.5rem 1.4rem}.featured-grid{grid-template-columns:1fr;gap:2rem}#prints,#originals,#contact{padding:5.5rem 1.5rem}footer{padding:2.5rem 1.5rem}.contact-grid{gap:.6rem}}
+  @media(max-width:768px){#featured{padding:7rem 1.4rem}.featured-grid{grid-template-columns:1fr;gap:3rem}#prints,#originals,#contact{padding:8rem 1.5rem}footer{padding:2.5rem 1.5rem}.contact-grid{gap:.6rem}}
 
   @media(prefers-reduced-motion:reduce){
     *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
@@ -389,6 +397,7 @@
   <button id="lightbox-prev" aria-label="Previous artwork">&#8249;</button>
   <img id="lightbox-img" src="" alt="">
   <button id="lightbox-next" aria-label="Next artwork">&#8250;</button>
+  <div id="lightbox-thumbs" aria-label="More photos of this artwork"></div>
   <div id="lightbox-palette" class="palette-strip" aria-hidden="true"></div>
   <p id="lightbox-title"></p>
   <button id="lightbox-prints" class="btn-line btn-line--rose">Fine Art Prints &rarr;</button>
@@ -429,6 +438,14 @@ const PAINTINGS = [
   { title: "Hibiscus Halo", src: "31-golden-hibiscus.jpg", w: 1278, h: 1280 },
   { title: "Pacific Frontier", src: "32-surf-cowboy.jpg", w: 1278, h: 1280 },
   { title: "Spotted Fish", src: "33-spotted-fish.jpg", w: 1278, h: 1280 },
+  { title: "Shark Cowboy", src: "34-shark-cowboy.jpg", w: 902, h: 1208, photos: [
+    { src: "34-shark-cowboy.jpg",       label: "Original" },
+    { src: "34-shark-cowboy-int1.jpg",  label: "In the interior" },
+    { src: "34-shark-cowboy-int2.jpg",  label: "In the interior" },
+    { src: "34-shark-cowboy-proc1.jpg", label: "In the studio" },
+    { src: "34-shark-cowboy-proc2.jpg", label: "In the studio" },
+    { src: "34-shark-cowboy-proc3.jpg", label: "In the studio" }
+  ] },
 ];
 /* ── Hand-mixed palettes: dominant pigments extracted from each work,
    ordered dark → light. Indexed in step with PAINTINGS. ── */
@@ -465,7 +482,8 @@ var PALETTES = [
   ['#47421E','#8A6651','#DEB561','#E5D0A6'],
   ['#593D30','#7E5B4C','#B16C69','#7C867E','#E4C185'],
   ['#77472E','#83835D','#A49D7B','#E9C5A3'],
-  ['#6D4534','#86624E','#839081','#D0BCAC']
+  ['#6D4534','#86624E','#839081','#D0BCAC'],
+  ['#523528','#596146','#AE786E','#B09F8C']
 ];
 
 function makePalette(idx, cls){
@@ -507,6 +525,7 @@ var lb = document.getElementById('lightbox');
 var lbImg = document.getElementById('lightbox-img');
 var lbTitle = document.getElementById('lightbox-title');
 var lbPal = document.getElementById('lightbox-palette');
+var lbThumbs = document.getElementById('lightbox-thumbs');
 var lbClose = document.getElementById('lightbox-close');
 var lastFocused = null;
 
@@ -520,12 +539,51 @@ function setLbPalette(idx){
   });
 }
 
+function getPhotos(idx){
+  var p = PAINTINGS[idx];
+  return (p.photos && p.photos.length) ? p.photos : [{ src: p.src, label: '' }];
+}
+
+function showPhoto(idx, phIdx){
+  var photos = getPhotos(idx);
+  var ph = photos[phIdx] || photos[0];
+  lbImg.src = ph.src;
+  lbImg.alt = PAINTINGS[idx].title + (ph.label ? ' — ' + ph.label : '');
+  lbTitle.textContent = PAINTINGS[idx].title +
+    (ph.label && phIdx > 0 ? ' · ' + ph.label : '');
+  var nodes = lbThumbs.querySelectorAll('.lb-thumb');
+  for (var i = 0; i < nodes.length; i++){
+    nodes[i].classList.toggle('active', i === phIdx);
+  }
+}
+
+function buildThumbs(idx){
+  lbThumbs.innerHTML = '';
+  var photos = getPhotos(idx);
+  if (photos.length < 2){
+    lb.classList.remove('has-thumbs');
+    return;
+  }
+  lb.classList.add('has-thumbs');
+  photos.forEach(function(ph, i){
+    var t = document.createElement('img');
+    t.className = 'lb-thumb';
+    t.src = ph.src;
+    t.alt = ph.label || PAINTINGS[idx].title;
+    t.loading = 'lazy';
+    t.addEventListener('click', function(e){
+      e.stopPropagation();
+      showPhoto(idx, i);
+    });
+    lbThumbs.appendChild(t);
+  });
+}
+
 function openLightbox(idx){
   currentIdx = idx;
   lastFocused = document.activeElement;
-  lbImg.src = PAINTINGS[idx].src;
-  lbImg.alt = PAINTINGS[idx].title;
-  lbTitle.textContent = PAINTINGS[idx].title;
+  buildThumbs(idx);
+  showPhoto(idx, 0);
   setLbPalette(idx);
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -538,9 +596,8 @@ function closeLightbox(){
 }
 function stepImg(dir){
   currentIdx = (currentIdx + dir + PAINTINGS.length) % PAINTINGS.length;
-  lbImg.src = PAINTINGS[currentIdx].src;
-  lbImg.alt = PAINTINGS[currentIdx].title;
-  lbTitle.textContent = PAINTINGS[currentIdx].title;
+  buildThumbs(currentIdx);
+  showPhoto(currentIdx, 0);
   setLbPalette(currentIdx);
 }
 
