@@ -60,7 +60,8 @@
   }
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--cream);font-family:var(--sans);overflow-x:hidden}
-  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(13,13,11,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(13,13,11,0.55);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+  #sunGlow{position:fixed;inset:0;pointer-events:none;z-index:5;mix-blend-mode:screen;opacity:0}
   .nav-logo{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--gold)}
   .nav-links{display:flex;gap:2.5rem;list-style:none}
   .nav-links a{font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
@@ -92,6 +93,22 @@
   .gallery-card:hover .card-overlay{opacity:1}
   .card-title{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--cream);line-height:1.2}
   .card-num{font-size:.7rem;letter-spacing:.15em;color:var(--gold);margin-top:.25rem}
+  /* ── Hand-mixed palette daubs ── */
+  .palette-strip{display:flex;gap:.55rem;align-items:center}
+  .daub{width:20px;height:17px;flex:none;box-shadow:inset 0 1px 5px rgba(0,0,0,.28);border-radius:62% 38% 55% 45%/48% 60% 40% 52%;transform:rotate(-6deg);transition:transform .45s ease,border-radius .45s ease}
+  .daub:nth-child(2n){border-radius:45% 55% 40% 60%/55% 45% 60% 40%;transform:rotate(5deg)}
+  .daub:nth-child(3n){border-radius:58% 42% 62% 38%/42% 58% 45% 55%;transform:rotate(-3deg)}
+  .palette-strip:hover .daub{transform:rotate(0) scale(1.16);border-radius:50% 50% 48% 52%/52% 48% 50% 50%}
+  .feat-palette{margin:.7rem 0 .15rem}
+  .card-palette{margin-top:.55rem}
+  .card-palette .daub{width:15px;height:13px}
+  #lightbox-palette{position:fixed;bottom:4.1rem;left:50%;transform:translateX(-50%);z-index:501}
+  /* ── Brush cursor + paint trail (desktop only) ── */
+  @media(pointer:fine){
+    #gallery{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M27 2l3 3-11 12-5-5z" fill="%23c8a96e"/><path d="M14 14l4 4-3 4-6 3-2-2 3-6z" fill="%23f0e8d8"/><path d="M9 21c-2 2-4 5-5 8 3-1 6-3 8-5 1-1 1-3-1-4-1-1-2 0-2 1z" fill="%23627D86"/></svg>') 4 28, auto}
+  }
+  .paint-dab{position:fixed;pointer-events:none;z-index:400;border-radius:62% 38% 55% 45%/48% 60% 40% 52%;animation:dabfade .9s ease-out forwards}
+  @keyframes dabfade{0%{opacity:.8;transform:scale(1) rotate(0deg)}100%{opacity:0;transform:scale(.3) rotate(28deg)}}
   #lightbox{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.95);align-items:center;justify-content:center;padding:2rem}
   #lightbox.open{display:flex}
   #lightbox-img{max-width:90vw;max-height:88vh;object-fit:contain;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 80px rgba(0,0,0,.7)}
@@ -223,6 +240,7 @@
 </style>
 </head>
 <body>
+<div id="sunGlow" aria-hidden="true"></div>
 
 <nav aria-label="Primary">
   <div class="nav-logo">Diana Shirinova</div>
@@ -362,6 +380,7 @@
   <button id="lightbox-prev" aria-label="Previous artwork">&#8249;</button>
   <img id="lightbox-img" src="" alt="">
   <button id="lightbox-next" aria-label="Next artwork">&#8250;</button>
+  <div id="lightbox-palette" class="palette-strip" aria-hidden="true"></div>
   <p id="lightbox-title"></p>
   <button id="lightbox-prints" class="btn-line btn-line--rose">Fine Art Prints &rarr;</button>
 </div>
@@ -369,39 +388,90 @@
 <script>
 const PAINTINGS = [
   { title: "Hawaiian Mermaid", src: "01-hawaiian-mermaid.jpg", w: 1278, h: 1280 },
-  { title: "Pink Flower Girl", src: "02-pink-flower-girl.jpg", w: 1278, h: 1280 },
-  { title: "Two White Birds", src: "03-two-white-birds.jpg", w: 1278, h: 1280 },
-  { title: "Masked Rider", src: "04-masked-rider.jpg", w: 1278, h: 1280 },
-  { title: "Monstera Woman", src: "05-monstera-woman.jpg", w: 1278, h: 1280 },
-  { title: "Black Hat", src: "06-black-hat.jpg", w: 1278, h: 1280 },
+  { title: "Saffron Serenity", src: "02-pink-flower-girl.jpg", w: 1278, h: 1280 },
+  { title: "Birds of Peace", src: "03-two-white-birds.jpg", w: 1278, h: 1280 },
+  { title: "The Masked Ride", src: "04-masked-rider.jpg", w: 1278, h: 1280 },
+  { title: "Island Reverie #1", src: "05-monstera-woman.jpg", w: 1278, h: 1280 },
+  { title: "The Mavericks Gaze", src: "06-black-hat.jpg", w: 1278, h: 1280 },
   { title: "Yellow Wave", src: "07-yellow-wave.jpg", w: 1278, h: 1280 },
-  { title: "Palm and Moon", src: "08-palm-and-moon.jpg", w: 1278, h: 1280 },
+  { title: "Under the Tropic Moon", src: "08-palm-and-moon.jpg", w: 1278, h: 1280 },
   { title: "Star Keeper", src: "09-star-keeper.jpg", w: 1278, h: 1280 },
   { title: "Hawaiian Icons", src: "10-hawaiian-icons.jpg", w: 1278, h: 1280 },
   { title: "Star Angel", src: "11-star-angel.jpg", w: 1280, h: 1280 },
-  { title: "Surfer Girl", src: "12-surfer-girl.jpg", w: 903, h: 1280 },
+  { title: "The Surfers Muse", src: "12-surfer-girl.jpg", w: 903, h: 1280 },
   { title: "Aloha State Bus", src: "13-aloha-state-bus.jpg", w: 1278, h: 1280 },
-  { title: "Plumeria Rain", src: "14-plumeria-rain.jpg", w: 1278, h: 1280 },
-  { title: "Hawaiian Mosaic", src: "15-hawaiian-mosaic.jpg", w: 1280, h: 1279 },
+  { title: "Jasmine Rain", src: "14-plumeria-rain.jpg", w: 1278, h: 1280 },
+  { title: "Island Quilt", src: "15-hawaiian-mosaic.jpg", w: 1280, h: 1279 },
   { title: "Pink Star Girl", src: "16-pink-star-girl.jpg", w: 1280, h: 1199 },
   { title: "Aloha Mosaic", src: "17-aloha-mosaic.jpg", w: 1278, h: 1280 },
-  { title: "Surf and Sun", src: "18-surf-and-sun.jpg", w: 1280, h: 1280 },
+  { title: "Serene Swell", src: "18-surf-and-sun.jpg", w: 1280, h: 1280 },
   { title: "Surfer at Sunset", src: "19-surfer-at-sunset.jpg", w: 1107, h: 1280 },
-  { title: "Hibiscus Garden", src: "20-hibiscus-garden.jpg", w: 1280, h: 1279 },
+  { title: "Woman with Pink Flowers", src: "20-hibiscus-garden.jpg", w: 1280, h: 1279 },
   { title: "Abstract Sunset", src: "21-abstract-sunset.jpg", w: 837, h: 1280 },
   { title: "Banana Leaf Moon", src: "22-banana-leaf-moon.jpg", w: 1023, h: 1280 },
-  { title: "Surf and Leaf", src: "23-surf-and-leaf.jpg", w: 1280, h: 1279 },
+  { title: "Alba Waves", src: "23-surf-and-leaf.jpg", w: 1280, h: 1279 },
   { title: "Hawaiian Icons II", src: "24-hawaiian-icons-ii.jpg", w: 1280, h: 1063 },
-  { title: "Garden Chair", src: "25-garden-chair.jpg", w: 1280, h: 1210 },
-  { title: "Monstera Profile", src: "26-monstera-profile.jpg", w: 979, h: 1280 },
-  { title: "Island Icons", src: "27-island-icons.jpg", w: 1278, h: 1280 },
-  { title: "Hibiscus Surfer", src: "28-hibiscus-surfer.jpg", w: 1278, h: 1280 },
+  { title: "Resort Daydreams", src: "25-garden-chair.jpg", w: 1280, h: 1210 },
+  { title: "Tropical Whispers", src: "26-monstera-profile.jpg", w: 979, h: 1280 },
+  { title: "Island Treasures", src: "27-island-icons.jpg", w: 1278, h: 1280 },
+  { title: "Coral and Clay", src: "28-hibiscus-surfer.jpg", w: 1278, h: 1280 },
   { title: "Monstera Blue", src: "29-monstera-blue.jpg", w: 1278, h: 1280 },
-  { title: "Star Cowboy", src: "30-star-cowboy.jpg", w: 1278, h: 1280 },
-  { title: "Golden Hibiscus", src: "31-golden-hibiscus.jpg", w: 1278, h: 1280 },
-  { title: "Surf Cowboy", src: "32-surf-cowboy.jpg", w: 1278, h: 1280 },
+  { title: "Starry Swell", src: "30-star-cowboy.jpg", w: 1278, h: 1280 },
+  { title: "Hibiscus Halo", src: "31-golden-hibiscus.jpg", w: 1278, h: 1280 },
+  { title: "Pacific Frontier", src: "32-surf-cowboy.jpg", w: 1278, h: 1280 },
   { title: "Spotted Fish", src: "33-spotted-fish.jpg", w: 1278, h: 1280 },
 ];
+/* ── Hand-mixed palettes: dominant pigments extracted from each work,
+   ordered dark → light. Indexed in step with PAINTINGS. ── */
+var PALETTES = [
+  ['#50423B','#6D8692','#BF8871'],
+  ['#565E65','#617C85','#A47B7A','#878F97','#DCBF8E'],
+  ['#645B59','#647F88','#8F837F','#CA917B','#A9AAA8'],
+  ['#44362E','#754E33','#627B85','#B2B9B6','#CCD4CF'],
+  ['#514B3F','#75645C','#658089','#B47875','#E9DCC2'],
+  ['#47422F','#627D86','#8A96A1','#B6AFA2'],
+  ['#3D423D','#627D86','#B5B5A4','#E3D299'],
+  ['#393B2E','#637D87','#B4A18E','#EDB89A'],
+  ['#614841','#647F88','#A0A687'],
+  ['#785C50','#627D87','#D2BFAC'],
+  ['#674935','#846B59','#AC9A8C','#D2C9C1','#F6F3F0'],
+  ['#674E3D','#8E7F74','#A9A5A0','#C9BDB1','#DAD9D8'],
+  ['#617C84','#86969E','#A5ADB1','#D9D4CB'],
+  ['#774B32','#627C86','#966D5B','#9C908A','#C3A588'],
+  ['#582B14','#9D7C63','#AF9C79','#C8B49F'],
+  ['#352A27','#6A544B','#92807A','#AF9791','#D6CDC2'],
+  ['#4D220D','#3E4F3C','#784F37','#637D86','#EDBB9B'],
+  ['#9A786A','#C19381','#D6BD99','#E6D6BE','#F9F9ED'],
+  ['#826043','#879491','#C29873','#DAB39D','#D5D5DA'],
+  ['#5C5238','#AC4574','#8A866C','#B59B80','#C6B4A1'],
+  ['#B68C97','#CFC7C2','#E2E0E1'],
+  ['#3D3428','#616356','#A4A8A4','#C7C8CB','#E4E5E9'],
+  ['#543B21','#776C41','#A8826C','#C0B0A0'],
+  ['#3C3B3A','#635D5A','#637884','#89776B','#CABBAD'],
+  ['#604B47','#9D7C77','#AA9D97','#D4CCC5','#F2EEEC'],
+  ['#383C29','#656149','#8F7C5F','#B4A790','#D1C7B5'],
+  ['#714231','#86604D','#BD787D','#D6B59A'],
+  ['#392720','#845C4A','#9C7965','#C5898A','#D8BD88'],
+  ['#302A28','#4F3F3D','#8A634F','#778386','#B96E77'],
+  ['#47421E','#8A6651','#DEB561','#E5D0A6'],
+  ['#593D30','#7E5B4C','#B16C69','#7C867E','#E4C185'],
+  ['#77472E','#83835D','#A49D7B','#E9C5A3'],
+  ['#6D4534','#86624E','#839081','#D0BCAC']
+];
+
+function makePalette(idx, cls){
+  var strip = document.createElement('div');
+  strip.className = 'palette-strip' + (cls ? ' ' + cls : '');
+  strip.setAttribute('aria-label', 'Hand-mixed palette of ' + PAINTINGS[idx].title);
+  (PALETTES[idx] || []).forEach(function(c){
+    var d = document.createElement('span');
+    d.className = 'daub';
+    d.style.background = c;
+    strip.appendChild(d);
+  });
+  return strip;
+}
+
 /* ── Config ── */
 var SHOP_URL  = 'https://dianashirinova.art';
 var INSTAGRAM = 'https://www.instagram.com/DianaShirinova_art';
@@ -427,8 +497,19 @@ var currentIdx = 0;
 var lb = document.getElementById('lightbox');
 var lbImg = document.getElementById('lightbox-img');
 var lbTitle = document.getElementById('lightbox-title');
+var lbPal = document.getElementById('lightbox-palette');
 var lbClose = document.getElementById('lightbox-close');
 var lastFocused = null;
+
+function setLbPalette(idx){
+  lbPal.innerHTML = '';
+  (PALETTES[idx] || []).forEach(function(c){
+    var d = document.createElement('span');
+    d.className = 'daub';
+    d.style.background = c;
+    lbPal.appendChild(d);
+  });
+}
 
 function openLightbox(idx){
   currentIdx = idx;
@@ -436,6 +517,7 @@ function openLightbox(idx){
   lbImg.src = PAINTINGS[idx].src;
   lbImg.alt = PAINTINGS[idx].title;
   lbTitle.textContent = PAINTINGS[idx].title;
+  setLbPalette(idx);
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
   lbClose.focus();
@@ -450,6 +532,7 @@ function stepImg(dir){
   lbImg.src = PAINTINGS[currentIdx].src;
   lbImg.alt = PAINTINGS[currentIdx].title;
   lbTitle.textContent = PAINTINGS[currentIdx].title;
+  setLbPalette(currentIdx);
 }
 
 document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
@@ -550,6 +633,7 @@ document.addEventListener('keydown', function(e){
     actions.appendChild(view);
     actions.appendChild(prints);
     body.appendChild(h);
+    body.appendChild(makePalette(f.i, 'feat-palette'));
     body.appendChild(actions);
     card.appendChild(fig);
     card.appendChild(body);
@@ -581,6 +665,7 @@ document.addEventListener('keydown', function(e){
     var meta = document.createElement('div');
     meta.innerHTML = '<div class="card-title">' + p.title +
       '</div><div class="card-num">No. ' + String(i + 1).padStart(2, '0') + '</div>';
+    meta.appendChild(makePalette(i, 'card-palette'));
 
     var actions = document.createElement('div');
     actions.className = 'card-actions';
@@ -623,6 +708,84 @@ document.addEventListener('keydown', function(e){
   }
   document.querySelectorAll('.js-commission').forEach(function(btn){
     btn.addEventListener('click', openCommission);
+  });
+})();
+/* ── Pacific light: the page background drifts from dawn to dusk as you scroll ── */
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  /* [progress, --bg rgb, --surface rgb]: dawn → midday → golden hour → dusk */
+  var stops = [
+    [0.00, [15,21,38], [25,33,52]],
+    [0.40, [10,27,29], [16,41,43]],
+    [0.62, [32,22,10], [48,33,16]],
+    [0.88, [38,16,26], [54,24,38]],
+    [1.00, [38,16,26], [54,24,38]]
+  ];
+  var root = document.documentElement, ticking = false;
+  var glow = document.getElementById('sunGlow');
+  function mix(a, b, t){
+    return 'rgb(' + Math.round(a[0]+(b[0]-a[0])*t) + ',' +
+                    Math.round(a[1]+(b[1]-a[1])*t) + ',' +
+                    Math.round(a[2]+(b[2]-a[2])*t) + ')';
+  }
+  function setGlow(p){
+    if (!glow) return;
+    /* the sun rises, peaks near midday, then reddens and sets */
+    var arc = Math.sin(Math.PI * Math.min(Math.max((p - 0.04) / 0.9, 0), 1));
+    var warm = Math.min(Math.max((p - 0.55) / 0.35, 0), 1);
+    var r = 255, g = Math.round(200 - 65 * warm), b2 = Math.round(130 - 15 * warm);
+    var a = (0.26 * arc).toFixed(3);
+    glow.style.opacity = 1;
+    glow.style.background = 'radial-gradient(ellipse 95% 60% at 50% 16%, rgba(' +
+      r + ',' + g + ',' + b2 + ',' + a + '), rgba(' +
+      r + ',' + g + ',' + b2 + ',0) 68%)';
+  }
+  function update(){
+    ticking = false;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    setGlow(p);
+    for (var i = 1; i < stops.length; i++){
+      if (p <= stops[i][0]){
+        var t = (p - stops[i-1][0]) / (stops[i][0] - stops[i-1][0]);
+        root.style.setProperty('--bg', mix(stops[i-1][1], stops[i][1], t));
+        root.style.setProperty('--surface', mix(stops[i-1][2], stops[i][2], t));
+        return;
+      }
+    }
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking){ ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+
+/* ── Brush trail: the cursor leaves fading daubs of Diana's pigments in the gallery ── */
+(function(){
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var zone = document.getElementById('gallery');
+  if (!zone) return;
+  var PIGMENTS = ['#627D86','#BF8871','#E9DCC2','#AC4574','#8A6651','#B4A18E'];
+  var lastX = null, lastY = null, live = 0, MAX = 36;
+  zone.addEventListener('mousemove', function(e){
+    if (lastX !== null){
+      var dx = e.clientX - lastX, dy = e.clientY - lastY;
+      if (dx*dx + dy*dy < 580) return;
+    }
+    lastX = e.clientX; lastY = e.clientY;
+    if (live >= MAX) return;
+    var d = document.createElement('span');
+    d.className = 'paint-dab';
+    var s = 7 + Math.random() * 8;
+    d.style.width = s + 'px';
+    d.style.height = (s * 0.85) + 'px';
+    d.style.left = (e.clientX - s / 2) + 'px';
+    d.style.top = (e.clientY - s / 2) + 'px';
+    d.style.background = PIGMENTS[(Math.random() * PIGMENTS.length) | 0];
+    document.body.appendChild(d);
+    live++;
+    d.addEventListener('animationend', function(){ d.remove(); live--; });
   });
 })();
 
