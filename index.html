@@ -60,12 +60,19 @@
   }
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--cream);font-family:var(--sans);overflow-x:hidden}
-  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(13,13,11,0.55);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+  .site-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(13,13,11,0.55);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
   #sunGlow{position:fixed;inset:0;pointer-events:none;z-index:5;mix-blend-mode:screen;opacity:0}
   .nav-logo{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--gold)}
   .nav-links{display:flex;gap:2.5rem;list-style:none}
   .nav-links a{font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
   .nav-links a:hover{color:var(--cream)}
+  .nav-toggle{display:none;width:2.75rem;height:2.75rem;border:1px solid var(--border);background:rgba(13,13,11,.72);color:var(--cream);cursor:pointer;align-items:center;justify-content:center}
+  .nav-toggle span,.nav-toggle::before,.nav-toggle::after{content:"";display:block;width:1.25rem;height:1px;background:currentColor;position:absolute;transition:transform .25s ease,opacity .25s ease}
+  .nav-toggle::before{transform:translateY(-.38rem)}
+  .nav-toggle::after{transform:translateY(.38rem)}
+  .nav-toggle[aria-expanded="true"] span{opacity:0}
+  .nav-toggle[aria-expanded="true"]::before{transform:rotate(45deg)}
+  .nav-toggle[aria-expanded="true"]::after{transform:rotate(-45deg)}
   .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:8rem 3rem 4rem;position:relative;overflow:hidden}
   .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(200,169,110,0.07) 0%,transparent 65%),radial-gradient(ellipse 40% 60% at 15% 70%,rgba(138,171,135,0.05) 0%,transparent 60%);pointer-events:none}
   .hero-tag{font-size:0.72rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:riseIn .9s .3s ease forwards}
@@ -140,7 +147,14 @@
   footer span{color:var(--gold)}
   @keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
   @keyframes floatIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-  @media(max-width:768px){nav{padding:1rem 1.5rem}.nav-links{display:none}.hero{padding:7rem 1.5rem 3rem}.hero-floats{display:none}#gallery{padding:7rem 1.4rem}.gallery-grid{columns:2 150px;column-gap:1.6rem}.gallery-card{margin-bottom:1.6rem}.about-inner{grid-template-columns:1fr;gap:3rem}#about,#contact{padding:8rem 1.5rem}footer{flex-direction:column;gap:.5rem;text-align:center}}
+  @media(max-width:768px){
+    .site-nav{padding:1rem 1.5rem}
+    .nav-toggle{display:flex;position:relative}
+    .nav-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:.5rem 1.5rem 1.25rem;background:rgba(13,13,11,.98);border-bottom:1px solid var(--border);transform:translateY(-.5rem);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility .22s}
+    .nav-links.open{transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto}
+    .nav-links a{display:block;padding:.85rem 0}
+    .hero{padding:7rem 1.5rem 3rem}.hero-floats{display:none}#gallery{padding:7rem 1.4rem}.gallery-grid{columns:2 150px;column-gap:1.6rem}.gallery-card{margin-bottom:1.6rem}.about-inner{grid-template-columns:1fr;gap:3rem}#about,#contact{padding:8rem 1.5rem}footer{flex-direction:column;gap:.5rem;text-align:center}
+  }
 
 
   /* ── About photo ── */
@@ -259,9 +273,10 @@
 <body>
 <div id="sunGlow" aria-hidden="true"></div>
 
-<nav aria-label="Primary">
+<nav class="site-nav" aria-label="Primary">
   <div class="nav-logo">Diana Shirinova</div>
-  <ul class="nav-links">
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu"><span></span></button>
+  <ul class="nav-links" id="primaryNav">
     <li><a href="#featured">Collection</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#process">Process</a></li>
@@ -446,6 +461,10 @@ const PAINTINGS = [
     { src: "34-shark-cowboy-proc2.jpg", label: "In the studio" },
     { src: "34-shark-cowboy-proc3.jpg", label: "In the studio" }
   ] },
+  { title: "Island Grace", src: "35-island-grace.jpg", w: 1080, h: 1350, photos: [
+    { src: "35-island-grace.jpg",          label: "Original" },
+    { src: "35-island-grace-interior.jpg", label: "In the interior" }
+  ] },
 ];
 /* ── Hand-mixed palettes: dominant pigments extracted from each work,
    ordered dark → light. Indexed in step with PAINTINGS. ── */
@@ -483,7 +502,8 @@ var PALETTES = [
   ['#593D30','#7E5B4C','#B16C69','#7C867E','#E4C185'],
   ['#77472E','#83835D','#A49D7B','#E9C5A3'],
   ['#6D4534','#86624E','#839081','#D0BCAC'],
-  ['#523528','#596146','#AE786E','#B09F8C']
+  ['#523528','#596146','#AE786E','#B09F8C'],
+  ['#302925','#5C5141','#A96532','#C9A875','#EEE0BE']
 ];
 
 function makePalette(idx, cls){
@@ -498,6 +518,27 @@ function makePalette(idx, cls){
   });
   return strip;
 }
+
+/* ── Mobile navigation ── */
+(function(){
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.getElementById('primaryNav');
+  if(!toggle || !links) return;
+  function closeMenu(){
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  }
+  toggle.addEventListener('click', function(){
+    var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    links.classList.toggle('open', !isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+  });
+  links.addEventListener('click', function(e){ if(e.target.closest('a')) closeMenu(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 768) closeMenu(); });
+})();
 
 /* ── Config ── */
 var SHOP_URL  = 'https://dianashirinova.art';
@@ -627,20 +668,12 @@ document.addEventListener('keydown', function(e){
   });
 })();
 
-/* ── Process photo: real studio photograph (studio.jpg in repo root). ──
-   Drop a genuine studio shot — palette, brushes, hands mixing colour, or a
-   canvas in progress — next to index.html as "studio.jpg". Until it exists,
-   a colour-led painting stands in so the layout never breaks. */
+/* ── Process photo. Replace with studio.jpg when a genuine studio shot is available. ── */
 (function(){
   var p = document.getElementById('processPhoto');
   if(!p) return;
-  p.onerror = function(){
-    p.onerror = null;
-    p.src = PAINTINGS[20].src;
-    p.alt = 'Detail of a hand-mixed palette';
-  };
-  p.alt = 'Diana Shirinova mixing colours in her Honolulu studio';
-  p.src = 'studio.jpg';
+  p.src = 'diana-portrait.jpg';
+  p.alt = 'Diana Shirinova in her Honolulu studio';
 })();
 
 /* ── Featured Collection ── */
