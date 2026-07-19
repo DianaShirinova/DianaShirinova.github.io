@@ -36,7 +36,7 @@
   "jobTitle": "Painter",
   "url": "https://dianashirinova.com",
   "image": "https://dianashirinova.com/01-hawaiian-mermaid.jpg",
-  "sameAs": ["https://www.instagram.com/DianaShirinova_art", "https://dianashirinova.art"],
+  "sameAs": ["https://www.instagram.com/DianaShirinova_art", "https://dianashirinova.art", "https://dianashirinova.pixels.com"],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Honolulu",
@@ -44,6 +44,31 @@
     "addressCountry": "US"
   },
   "knowsAbout": ["Acrylic Painting", "Fine Art Prints", "Hawaiian Art", "Contemporary Painting"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Camp Erdman Art Market — Diana Shirinova",
+  "description": "Original acrylic paintings and fine art prints by Honolulu artist Diana Shirinova at the Camp Erdman art market on O'ahu's North Shore.",
+  "startDate": "2026-08-08",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "YMCA Camp Erdman",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "69-385 Farrington Hwy",
+      "addressLocality": "Waialua",
+      "addressRegion": "HI",
+      "postalCode": "96791",
+      "addressCountry": "US"
+    }
+  },
+  "performer": { "@type": "Person", "name": "Diana Shirinova" },
+  "organizer": { "@type": "Person", "name": "Diana Shirinova", "url": "https://dianashirinova.com" }
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,19 +85,12 @@
   }
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--cream);font-family:var(--sans);overflow-x:hidden}
-  .site-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(13,13,11,0.55);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(13,13,11,0.55);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
   #sunGlow{position:fixed;inset:0;pointer-events:none;z-index:5;mix-blend-mode:screen;opacity:0}
   .nav-logo{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--gold)}
   .nav-links{display:flex;gap:2.5rem;list-style:none}
   .nav-links a{font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
   .nav-links a:hover{color:var(--cream)}
-  .nav-toggle{display:none;width:2.75rem;height:2.75rem;border:1px solid var(--border);background:rgba(13,13,11,.72);color:var(--cream);cursor:pointer;align-items:center;justify-content:center}
-  .nav-toggle span,.nav-toggle::before,.nav-toggle::after{content:"";display:block;width:1.25rem;height:1px;background:currentColor;position:absolute;transition:transform .25s ease,opacity .25s ease}
-  .nav-toggle::before{transform:translateY(-.38rem)}
-  .nav-toggle::after{transform:translateY(.38rem)}
-  .nav-toggle[aria-expanded="true"] span{opacity:0}
-  .nav-toggle[aria-expanded="true"]::before{transform:rotate(45deg)}
-  .nav-toggle[aria-expanded="true"]::after{transform:rotate(-45deg)}
   .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:8rem 3rem 4rem;position:relative;overflow:hidden}
   .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(200,169,110,0.07) 0%,transparent 65%),radial-gradient(ellipse 40% 60% at 15% 70%,rgba(138,171,135,0.05) 0%,transparent 60%);pointer-events:none}
   .hero-tag{font-size:0.72rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:riseIn .9s .3s ease forwards}
@@ -147,14 +165,7 @@
   footer span{color:var(--gold)}
   @keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
   @keyframes floatIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-  @media(max-width:768px){
-    .site-nav{padding:1rem 1.5rem}
-    .nav-toggle{display:flex;position:relative}
-    .nav-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:.5rem 1.5rem 1.25rem;background:rgba(13,13,11,.98);border-bottom:1px solid var(--border);transform:translateY(-.5rem);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility .22s}
-    .nav-links.open{transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto}
-    .nav-links a{display:block;padding:.85rem 0}
-    .hero{padding:7rem 1.5rem 3rem}.hero-floats{display:none}#gallery{padding:7rem 1.4rem}.gallery-grid{columns:2 150px;column-gap:1.6rem}.gallery-card{margin-bottom:1.6rem}.about-inner{grid-template-columns:1fr;gap:3rem}#about,#contact{padding:8rem 1.5rem}footer{flex-direction:column;gap:.5rem;text-align:center}
-  }
+  @media(max-width:768px){nav{padding:1rem 1.5rem}.nav-links{display:none}.hero{padding:7rem 1.5rem 3rem}.hero-floats{display:none}#gallery{padding:7rem 1.4rem}.gallery-grid{columns:2 150px;column-gap:1.6rem}.gallery-card{margin-bottom:1.6rem}.about-inner{grid-template-columns:1fr;gap:3rem}#about,#contact{padding:8rem 1.5rem}footer{flex-direction:column;gap:.5rem;text-align:center}}
 
 
   /* ── About photo ── */
@@ -264,6 +275,28 @@
   .footer-gifts a:hover{color:var(--cream);border-color:var(--cream)}
   @media(max-width:768px){#featured{padding:7rem 1.4rem}.featured-grid{grid-template-columns:1fr;gap:3rem}#prints,#originals,#contact{padding:8rem 1.5rem}footer{padding:2.5rem 1.5rem}.contact-grid{gap:.6rem}}
 
+  /* ── Announcement bar (auto-hides after the market date) ── */
+  .announce{position:fixed;top:0;left:0;right:0;z-index:220;display:none;justify-content:center;align-items:center;height:2.3rem;padding:0 1rem;background:var(--gold);color:#0d0d0b;font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .25s}
+  .announce:hover{background:#d9bc82}
+  body.has-announce .announce{display:flex}
+  body.has-announce nav{top:2.3rem}
+  body.has-announce .hero{padding-top:10rem}
+
+  /* ── Upcoming market ── */
+  #market{padding:9rem 3rem 7rem;text-align:center;border-top:1px solid var(--border);background:var(--surface)}
+  .market-inner{max-width:640px;margin:0 auto}
+  .market-date{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--gold);margin:1.4rem 0 1rem}
+
+  /* ── Studio list ── */
+  #studio-list{padding:6rem 3rem;text-align:center;border-top:1px solid var(--border)}
+  .list-inner{max-width:560px;margin:0 auto}
+
+  @media(max-width:768px){
+    .announce{font-size:.58rem;letter-spacing:.09em}
+    #market{padding:7rem 1.5rem 5.5rem}
+    #studio-list{padding:5rem 1.5rem}
+  }
+
   @media(prefers-reduced-motion:reduce){
     *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
     .hero-tag,.hero-title,.hero-rule,.hero-sub,.hero-types,.hero-actions,.hero-cta,.float-img{opacity:1!important;transform:none!important}
@@ -271,12 +304,24 @@
 </style>
 </head>
 <body>
+<a id="announce" class="announce" href="#market">Next Market &mdash; Camp Erdman, Waialua &middot; Sat, Aug 8 &rarr;</a>
+<script>
+/* Show the banner only until the market has passed (HST) */
+(function(){
+  if (new Date() <= new Date('2026-08-09T06:00:00-10:00')) {
+    document.body.classList.add('has-announce');
+  } else {
+    var a = document.getElementById('announce');
+    if (a) a.remove();
+  }
+})();
+</script>
 <div id="sunGlow" aria-hidden="true"></div>
 
-<nav class="site-nav" aria-label="Primary">
+<nav aria-label="Primary">
   <div class="nav-logo">Diana Shirinova</div>
-  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu"><span></span></button>
-  <ul class="nav-links" id="primaryNav">
+  <ul class="nav-links">
+    <li id="navMarket"><a href="#market">Aug 8 Market</a></li>
     <li><a href="#featured">Collection</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#process">Process</a></li>
@@ -297,6 +342,20 @@
     <a href="#prints" class="btn-line btn-line--rose">Collect Prints</a>
   </div>
   <div class="hero-floats" id="heroFloats"></div>
+</section>
+
+<section id="market">
+  <div class="market-inner">
+    <p class="section-eyebrow">Upcoming</p>
+    <h2 class="section-title" style="margin-bottom:0">Camp Erdman <em>Art Market</em></h2>
+    <p class="market-date">Saturday, August 8, 2026</p>
+    <p class="originals-text">Original paintings and a new release of Fine Art Prints &mdash; in person, on the North Shore. Come say aloha.</p>
+    <p class="originals-text" style="margin-top:.6rem">YMCA Camp Erdman &middot; 69-385 Farrington Hwy, Waialua, O&#699;ahu</p>
+    <div class="contact-grid">
+      <a href="https://maps.google.com/?q=YMCA+Camp+Erdman,+69-385+Farrington+Hwy,+Waialua,+HI+96791" target="_blank" rel="noopener" class="btn-line">Directions</a>
+      <a href="https://www.instagram.com/DianaShirinova_art" target="_blank" rel="noopener" class="btn-line btn-line--rose">Updates on Instagram</a>
+    </div>
+  </div>
 </section>
 
 <section id="featured">
@@ -343,7 +402,7 @@
       <div class="about-text">
         <p>Diana Shirinova is a contemporary painter based in Honolulu. Her work draws on the light of the Hawaiian Islands &mdash; the ocean, tropical flowers, and a quiet feminine presence.</p>
         <p>Each painting is built from a palette mixed by hand, which gives every work its own colour and atmosphere.</p>
-        <p>Most of the original paintings now reside in private collections. Selected works remain available as Fine Art Prints.</p>
+        <p>Original paintings are released at select art markets on O&#699;ahu and by direct inquiry &mdash; many earlier works now reside in private collections. Selected works are also available as Fine Art Prints.</p>
       </div>
     </div>
   </div>
@@ -351,11 +410,11 @@
 
 <section id="originals">
   <div class="originals-inner">
-    <p class="section-eyebrow">Private Collections</p>
+    <p class="section-eyebrow">Originals</p>
     <h2 class="section-title" style="margin-bottom:1.2rem">Original <em>Paintings</em></h2>
     <div class="about-accent" style="margin:0 auto 1.6rem"></div>
-    <p class="originals-text">Many original paintings now reside in private collections. Selected works remain available as Fine Art Prints.</p>
-    <p class="originals-text" style="margin-top:.8rem">An original work may occasionally become available through <a href="mailto:hello@dianashirinova.com?subject=Original%20Work%20Inquiry">direct inquiry</a>.</p>
+    <p class="originals-text">New originals are released at select art markets on O&#699;ahu &mdash; the next one is <a href="#market">Camp Erdman on August 8</a>. Many earlier works now reside in private collections.</p>
+    <p class="originals-text" style="margin-top:.8rem">Between markets, an original work may become available through <a href="mailto:hello@dianashirinova.com?subject=Original%20Work%20Inquiry">direct inquiry</a>.</p>
   </div>
 </section>
 
@@ -363,8 +422,25 @@
   <div class="shop-inner">
     <p class="section-eyebrow">Fine Art Prints</p>
     <h2 class="section-title">Fine Art <em>Prints</em></h2>
-    <p class="shop-text">The original paintings are held in private collections. Fine Art Prints remain available &mdash; selected works, printed and shipped worldwide.</p>
+    <p class="shop-text">Selected works are available as Fine Art Prints &mdash; printed to order and shipped worldwide.</p>
     <a href="https://dianashirinova.art" target="_blank" rel="noopener" class="btn-line btn-line--rose">View the Print Collection &rarr;</a>
+  </div>
+</section>
+
+<!-- Studio List: mailto works with zero setup. To upgrade to a real form later,
+     create a free form at formspree.io and replace this block with:
+     <form action="https://formspree.io/f/YOUR_ID" method="POST">
+       <input type="email" name="email" required placeholder="Your email">
+       <button type="submit" class="btn-line btn-line--rose">Join</button>
+     </form> -->
+<section id="studio-list">
+  <div class="list-inner">
+    <p class="section-eyebrow">Studio List</p>
+    <h2 class="section-title" style="margin-bottom:1.2rem">First <em>Look</em></h2>
+    <p class="originals-text">New paintings, print releases and market dates &mdash; a short note from the studio, a few times a year.</p>
+    <div class="contact-grid">
+      <a href="mailto:hello@dianashirinova.com?subject=Studio%20List&amp;body=Aloha%20Diana%2C%20please%20add%20me%20to%20your%20studio%20list!" class="btn-line btn-line--rose">Join the Studio List</a>
+    </div>
   </div>
 </section>
 
@@ -461,10 +537,6 @@ const PAINTINGS = [
     { src: "34-shark-cowboy-proc2.jpg", label: "In the studio" },
     { src: "34-shark-cowboy-proc3.jpg", label: "In the studio" }
   ] },
-  { title: "Island Grace", src: "35-island-grace.jpg", w: 1080, h: 1350, photos: [
-    { src: "35-island-grace.jpg",          label: "Original" },
-    { src: "35-island-grace-interior.jpg", label: "In the interior" }
-  ] },
 ];
 /* ── Hand-mixed palettes: dominant pigments extracted from each work,
    ordered dark → light. Indexed in step with PAINTINGS. ── */
@@ -502,8 +574,7 @@ var PALETTES = [
   ['#593D30','#7E5B4C','#B16C69','#7C867E','#E4C185'],
   ['#77472E','#83835D','#A49D7B','#E9C5A3'],
   ['#6D4534','#86624E','#839081','#D0BCAC'],
-  ['#523528','#596146','#AE786E','#B09F8C'],
-  ['#302925','#5C5141','#A96532','#C9A875','#EEE0BE']
+  ['#523528','#596146','#AE786E','#B09F8C']
 ];
 
 function makePalette(idx, cls){
@@ -518,27 +589,6 @@ function makePalette(idx, cls){
   });
   return strip;
 }
-
-/* ── Mobile navigation ── */
-(function(){
-  var toggle = document.querySelector('.nav-toggle');
-  var links = document.getElementById('primaryNav');
-  if(!toggle || !links) return;
-  function closeMenu(){
-    links.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open menu');
-  }
-  toggle.addEventListener('click', function(){
-    var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-    links.classList.toggle('open', !isOpen);
-    toggle.setAttribute('aria-expanded', String(!isOpen));
-    toggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
-  });
-  links.addEventListener('click', function(e){ if(e.target.closest('a')) closeMenu(); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
-  window.addEventListener('resize', function(){ if(window.innerWidth > 768) closeMenu(); });
-})();
 
 /* ── Config ── */
 var SHOP_URL  = 'https://dianashirinova.art';
@@ -559,6 +609,14 @@ function openPrints(){ window.open(SHOP_URL, '_blank', 'noopener'); }
 
 var copyYearEl = document.getElementById('copyYear');
 if (copyYearEl) copyYearEl.textContent = new Date().getFullYear();
+
+/* ── After the market date, remove the market section and its nav link ── */
+if (new Date() > new Date('2026-08-09T06:00:00-10:00')) {
+  ['market', 'navMarket'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.remove();
+  });
+}
 
 /* ── Lightbox (declared first so featured + gallery can call it) ── */
 var currentIdx = 0;
@@ -668,12 +726,20 @@ document.addEventListener('keydown', function(e){
   });
 })();
 
-/* ── Process photo. Replace with studio.jpg when a genuine studio shot is available. ── */
+/* ── Process photo: real studio photograph (studio.jpg in repo root). ──
+   Drop a genuine studio shot — palette, brushes, hands mixing colour, or a
+   canvas in progress — next to index.html as "studio.jpg". Until it exists,
+   a colour-led painting stands in so the layout never breaks. */
 (function(){
   var p = document.getElementById('processPhoto');
   if(!p) return;
-  p.src = 'diana-portrait.jpg';
-  p.alt = 'Diana Shirinova in her Honolulu studio';
+  p.onerror = function(){
+    p.onerror = null;
+    p.src = PAINTINGS[20].src;
+    p.alt = 'Detail of a hand-mixed palette';
+  };
+  p.alt = 'Diana Shirinova mixing colours in her Honolulu studio';
+  p.src = 'studio.jpg';
 })();
 
 /* ── Featured Collection ── */
