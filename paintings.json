@@ -1,4 +1,44 @@
 {
   "_comment": "Коллекция сайта dianashirinova.com. Управляется через admin.html — руками лучше не править. featured: порядок в Featured Collection (1..6), hero: порядок в шапке (1..3), status: подпись на бейдже. description: текст под картиной в лайтбоксе. shopifyHandle: handle товара в Shopify (из /products/<handle>) — если задан, на сайте появляется кнопка Buy Print. Файлы картин лежат в images/paintings/.",
-  "paintings": []
+  "paintings": [
+    {
+      "title": "The Quiet Within",
+      "src": "images/paintings/01-the-quiet-within.jpg",
+      "w": 2814,
+      "h": 3748,
+      "palette": [
+        "#473A37",
+        "#854C2A",
+        "#866A5A",
+        "#B39A7C",
+        "#D2BDA5"
+      ],
+      "description": "The Quiet Within\n\nThere are moments when the world becomes unexpectedly quiet.\n\nNot because life has slowed, but because, for an instant, we stop resisting it. The noise fades into the background. The light feels softer. We remember that peace is not something we find—it is something we uncover.\n\n*The Quiet Within* is a reflection of that moment.\n\nInspired by the warmth of tropical light and the calm rhythm of nature, this painting is an invitation to pause. To breathe. To reconnect with the still place that exists beneath expectations, distractions, and constant movement.\n\nEvery viewer brings a different story to the canvas. This work does not ask for interpretation. It simply offers space—for reflection, for presence, and for silence.\n\nSometimes the most meaningful conversations happen without words.",
+      "shopifyHandle": "The-Quiet-Within",
+      "photos": [
+        {
+          "src": "images/paintings/01-the-quiet-within.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/01-the-quiet-within-alt1.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/01-the-quiet-within-alt2.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/01-the-quiet-within-alt3.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/01-the-quiet-within-alt4.jpg",
+          "label": "In the interior"
+        }
+      ],
+      "featured": 1,
+      "status": "Available"
+    }
+  ]
 }
