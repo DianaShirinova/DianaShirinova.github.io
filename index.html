@@ -539,18 +539,17 @@ var STOREFRONT_TOKEN = '54353ed6395e8fb72951829bb43613ce';
 var INSTAGRAM = 'https://www.instagram.com/DianaShirinova_art';
 var EMAIL     = 'hello@dianashirinova.com';
 
-var shopifyClient = null, shopifyUI = null, shopifyReady = null;
-function initShopify(){
-  if (!SHOP_DOMAIN || !STOREFRONT_TOKEN) return;
+var shopifyClient = null, shopifyUI = null;
+var shopifyReady = (SHOP_DOMAIN && STOREFRONT_TOKEN) ? new Promise(function(resolve, reject){
   var s = document.createElement('script');
   s.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
   s.onload = function(){
     shopifyClient = window.ShopifyBuy.buildClient({ domain: SHOP_DOMAIN, storefrontAccessToken: STOREFRONT_TOKEN });
-    shopifyReady = window.ShopifyBuy.UI.onReady(shopifyClient).then(function(ui){ shopifyUI = ui; });
+    window.ShopifyBuy.UI.onReady(shopifyClient).then(function(ui){ shopifyUI = ui; resolve(); }).catch(reject);
   };
+  s.onerror = reject;
   document.head.appendChild(s);
-}
-initShopify();
+}) : null;
 
 function renderBuyButton(handle){
   lbBuy.innerHTML = '';
