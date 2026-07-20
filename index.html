@@ -91,6 +91,37 @@
   .nav-links{display:flex;gap:2.5rem;list-style:none}
   .nav-links a{font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
   .nav-links a:hover{color:var(--cream)}
+  .nav-cart{position:relative;background:none;border:1px solid var(--border);color:var(--cream);width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .25s}
+  .nav-cart:hover{border-color:var(--gold)}
+  .nav-cart svg{width:1.15rem;height:1.15rem;stroke:var(--cream)}
+  .cart-badge{position:absolute;top:-7px;right:-7px;background:var(--rose);color:var(--bg);font-size:.65rem;font-weight:500;min-width:1.15rem;height:1.15rem;border-radius:50%;display:none;align-items:center;justify-content:center;padding:0 3px;font-family:var(--sans);line-height:1}
+  #cart-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:600;opacity:0;pointer-events:none;transition:opacity .3s}
+  #cart-backdrop.open{opacity:1;pointer-events:auto}
+  #cart-drawer{position:fixed;top:0;right:0;bottom:0;width:400px;max-width:92vw;background:var(--surface);border-left:1px solid var(--border);z-index:601;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s ease}
+  #cart-drawer.open{transform:translateX(0)}
+  .cart-drawer-header{display:flex;justify-content:space-between;align-items:center;padding:1.6rem 1.7rem;border-bottom:1px solid var(--border);flex:none}
+  .cart-drawer-header h3{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--cream);font-weight:400}
+  #cart-drawer-close{background:none;border:none;color:var(--cream);font-size:1.7rem;cursor:pointer;opacity:.6;transition:opacity .2s;line-height:1}
+  #cart-drawer-close:hover{opacity:1}
+  #cart-drawer-body{flex:1;overflow-y:auto;padding:1.5rem 1.7rem;display:flex;flex-direction:column;gap:1.4rem}
+  .cart-empty{color:var(--muted);font-size:.92rem;font-weight:300}
+  .cart-line{display:flex;gap:1rem}
+  .cart-line-img{width:66px;height:66px;object-fit:cover;border:1px solid var(--border);flex:none;background:var(--bg)}
+  .cart-line-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:.3rem}
+  .cart-line-title{font-family:var(--serif);font-style:italic;font-size:.98rem;color:var(--cream);line-height:1.2}
+  .cart-line-variant{font-size:.74rem;color:var(--muted);letter-spacing:.03em}
+  .cart-line-price{font-size:.8rem;color:var(--gold)}
+  .cart-line-qty{display:flex;align-items:center;gap:.6rem;margin-top:.2rem}
+  .cart-line-qty button{width:1.6rem;height:1.6rem;border:1px solid var(--border);background:none;color:var(--cream);cursor:pointer;font-size:.85rem;line-height:1;transition:border-color .2s}
+  .cart-line-qty button:hover{border-color:var(--gold)}
+  .cart-line-qty span{font-size:.85rem;min-width:1.2rem;text-align:center}
+  .cart-line-remove{align-self:flex-start;background:none;border:none;color:var(--muted);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:underline;cursor:pointer;padding:0;margin-top:.2rem;font-family:var(--sans)}
+  .cart-line-remove:hover{color:var(--rose)}
+  #cart-drawer-footer{padding:1.5rem 1.7rem 2rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:1rem;flex:none}
+  .cart-subtotal{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--cream);display:flex;justify-content:space-between}
+  .cart-checkout-btn{text-align:center;justify-content:center;display:flex}
+  .cart-note{font-size:.72rem;color:var(--muted);text-align:center}
+  @media(max-width:768px){#cart-drawer{width:100vw;max-width:100vw}}
   .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:8rem 3rem 4rem;position:relative;overflow:hidden}
   .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(200,169,110,0.07) 0%,transparent 65%),radial-gradient(ellipse 40% 60% at 15% 70%,rgba(138,171,135,0.05) 0%,transparent 60%);pointer-events:none}
   .hero-tag{font-size:0.72rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:riseIn .9s .3s ease forwards}
@@ -338,7 +369,21 @@
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button id="cart-toggle" class="nav-cart" type="button" aria-label="Open cart">
+    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.1 11a2 2 0 0 1-2 1.8H9.1a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <span id="cart-badge" class="cart-badge">0</span>
+  </button>
 </nav>
+
+<div id="cart-backdrop"></div>
+<div id="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+  <div class="cart-drawer-header">
+    <h3>Your Cart</h3>
+    <button id="cart-drawer-close" aria-label="Close cart">&times;</button>
+  </div>
+  <div id="cart-drawer-body"></div>
+  <div id="cart-drawer-footer"></div>
+</div>
 
 <main>
 <section class="hero">
@@ -566,9 +611,222 @@ var PRODUCT_QUERY =
   'variants(first: 12){ edges{ node{ id availableForSale price{ amount currencyCode } ' +
   'selectedOptions{ name value } } } } } }';
 
+/* ── Cart: one persistent Shopify cart per visitor, so multiple prints
+   accumulate before a single checkout, instead of each "Buy" starting a
+   fresh one-item checkout. Cart id is kept in localStorage. ── */
+var CART_FIELDS =
+  'id checkoutUrl totalQuantity ' +
+  'lines(first: 50){ edges{ node{ id quantity merchandise{ ... on ProductVariant{ ' +
+  'id title image{ url } price{ amount currencyCode } ' +
+  'product{ title handle } selectedOptions{ name value } } } } } } ' +
+  'cost{ subtotalAmount{ amount currencyCode } }';
+
 var CART_CREATE_MUTATION =
   'mutation($lines: [CartLineInput!]){ cartCreate(input:{ lines: $lines }){ ' +
-  'cart{ checkoutUrl } userErrors{ message } } }';
+  'cart{ ' + CART_FIELDS + ' } userErrors{ message } } }';
+
+var CART_QUERY =
+  'query($id: ID!){ cart(id: $id){ ' + CART_FIELDS + ' } }';
+
+var CART_LINES_ADD_MUTATION =
+  'mutation($cartId: ID!, $lines: [CartLineInput!]!){ cartLinesAdd(cartId: $cartId, lines: $lines){ ' +
+  'cart{ ' + CART_FIELDS + ' } userErrors{ message } } }';
+
+var CART_LINES_UPDATE_MUTATION =
+  'mutation($cartId: ID!, $lines: [CartLineUpdateInput!]!){ cartLinesUpdate(cartId: $cartId, lines: $lines){ ' +
+  'cart{ ' + CART_FIELDS + ' } userErrors{ message } } }';
+
+var CART_LINES_REMOVE_MUTATION =
+  'mutation($cartId: ID!, $lineIds: [ID!]!){ cartLinesRemove(cartId: $cartId, lineIds: $lineIds){ ' +
+  'cart{ ' + CART_FIELDS + ' } userErrors{ message } } }';
+
+var CART_ID_KEY = 'dianaShirinovaCartId';
+var CURRENT_CART = null;
+
+function cartGetId(){ try{ return localStorage.getItem(CART_ID_KEY); }catch(e){ return null; } }
+function cartSetId(id){ try{ localStorage.setItem(CART_ID_KEY, id); }catch(e){} }
+function cartClearId(){ try{ localStorage.removeItem(CART_ID_KEY); }catch(e){} }
+
+function fmtMoney(amount, currency){
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: currency }).format(amount);
+}
+
+function updateCartBadge(){
+  var badge = document.getElementById('cart-badge');
+  if (!badge) return;
+  var qty = (CURRENT_CART && CURRENT_CART.totalQuantity) || 0;
+  badge.textContent = qty;
+  badge.style.display = qty > 0 ? 'flex' : 'none';
+}
+
+function renderCartDrawer(){
+  var body = document.getElementById('cart-drawer-body');
+  var footer = document.getElementById('cart-drawer-footer');
+  if (!body || !footer) return;
+  body.innerHTML = '';
+  footer.innerHTML = '';
+  var edges = (CURRENT_CART && CURRENT_CART.lines && CURRENT_CART.lines.edges) || [];
+  if (!edges.length){
+    body.innerHTML = '<p class="cart-empty">Your cart is empty.</p>';
+    return;
+  }
+  edges.forEach(function(edge){
+    var line = edge.node;
+    var v = line.merchandise;
+    var row = document.createElement('div');
+    row.className = 'cart-line';
+
+    var img = document.createElement('img');
+    img.className = 'cart-line-img';
+    img.src = (v.image && v.image.url) || '';
+    img.alt = v.product.title;
+    img.loading = 'lazy';
+
+    var info = document.createElement('div');
+    info.className = 'cart-line-info';
+
+    var title = document.createElement('p');
+    title.className = 'cart-line-title';
+    title.textContent = v.product.title;
+
+    var variant = document.createElement('p');
+    variant.className = 'cart-line-variant';
+    variant.textContent = (v.selectedOptions || []).map(function(o){ return o.value; }).join(' / ');
+
+    var price = document.createElement('p');
+    price.className = 'cart-line-price';
+    price.textContent = fmtMoney(v.price.amount, v.price.currencyCode);
+
+    var qtyRow = document.createElement('div');
+    qtyRow.className = 'cart-line-qty';
+    var minus = document.createElement('button');
+    minus.type = 'button'; minus.textContent = '\u2212'; minus.setAttribute('aria-label', 'Decrease quantity');
+    minus.addEventListener('click', function(){ cartUpdateLine(line.id, line.quantity - 1); });
+    var qtyVal = document.createElement('span');
+    qtyVal.textContent = line.quantity;
+    var plus = document.createElement('button');
+    plus.type = 'button'; plus.textContent = '+'; plus.setAttribute('aria-label', 'Increase quantity');
+    plus.addEventListener('click', function(){ cartUpdateLine(line.id, line.quantity + 1); });
+    qtyRow.appendChild(minus); qtyRow.appendChild(qtyVal); qtyRow.appendChild(plus);
+
+    var remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'cart-line-remove';
+    remove.textContent = 'Remove';
+    remove.addEventListener('click', function(){ cartRemoveLine(line.id); });
+
+    info.appendChild(title);
+    if (variant.textContent) info.appendChild(variant);
+    info.appendChild(price);
+    info.appendChild(qtyRow);
+    info.appendChild(remove);
+    row.appendChild(img);
+    row.appendChild(info);
+    body.appendChild(row);
+  });
+
+  var subtotal = CURRENT_CART.cost && CURRENT_CART.cost.subtotalAmount;
+  if (subtotal){
+    var sub = document.createElement('p');
+    sub.className = 'cart-subtotal';
+    sub.innerHTML = '<span>Subtotal</span><span>' + fmtMoney(subtotal.amount, subtotal.currencyCode) + '</span>';
+    footer.appendChild(sub);
+  }
+  var checkoutBtn = document.createElement('a');
+  checkoutBtn.className = 'btn-line btn-line--rose cart-checkout-btn';
+  checkoutBtn.textContent = 'Checkout \u2192';
+  checkoutBtn.href = CURRENT_CART.checkoutUrl || '#';
+  footer.appendChild(checkoutBtn);
+  var note = document.createElement('p');
+  note.className = 'cart-note';
+  note.textContent = 'Shipping and taxes calculated at checkout.';
+  footer.appendChild(note);
+}
+
+function renderCart(cart){
+  CURRENT_CART = cart;
+  updateCartBadge();
+  renderCartDrawer();
+}
+
+function cartAdd(variantId, qty){
+  var id = cartGetId();
+  var request = id
+    ? shopifyGraphQL(CART_LINES_ADD_MUTATION, { cartId: id, lines: [{ merchandiseId: variantId, quantity: qty }] })
+        .then(function(res){ return res && res.data && res.data.cartLinesAdd; })
+    : Promise.resolve(null);
+
+  return request.then(function(payload){
+    if (payload && payload.cart) return payload;
+    /* No existing cart, or it was invalid/expired — start a fresh one */
+    return shopifyGraphQL(CART_CREATE_MUTATION, { lines: [{ merchandiseId: variantId, quantity: qty }] })
+      .then(function(res){ return res && res.data && res.data.cartCreate; });
+  }).then(function(payload){
+    if (payload && payload.cart){
+      cartSetId(payload.cart.id);
+      renderCart(payload.cart);
+      return payload.cart;
+    }
+    var msg = (payload && payload.userErrors && payload.userErrors[0] && payload.userErrors[0].message) || 'Could not add to cart.';
+    throw new Error(msg);
+  });
+}
+
+function cartUpdateLine(lineId, qty){
+  var id = cartGetId();
+  if (!id) return;
+  if (qty < 1) return cartRemoveLine(lineId);
+  shopifyGraphQL(CART_LINES_UPDATE_MUTATION, { cartId: id, lines: [{ id: lineId, quantity: qty }] })
+    .then(function(res){
+      var payload = res && res.data && res.data.cartLinesUpdate;
+      if (payload && payload.cart) renderCart(payload.cart);
+    });
+}
+
+function cartRemoveLine(lineId){
+  var id = cartGetId();
+  if (!id) return;
+  shopifyGraphQL(CART_LINES_REMOVE_MUTATION, { cartId: id, lineIds: [lineId] })
+    .then(function(res){
+      var payload = res && res.data && res.data.cartLinesRemove;
+      if (payload && payload.cart) renderCart(payload.cart);
+    });
+}
+
+function cartInit(){
+  var id = cartGetId();
+  if (!id){ updateCartBadge(); return; }
+  shopifyGraphQL(CART_QUERY, { id: id }).then(function(res){
+    var cart = res && res.data && res.data.cart;
+    if (cart){ renderCart(cart); } else { cartClearId(); updateCartBadge(); }
+  }).catch(function(){ updateCartBadge(); });
+}
+
+function openCartDrawer(){
+  var d = document.getElementById('cart-drawer'), b = document.getElementById('cart-backdrop');
+  if (d) d.classList.add('open');
+  if (b) b.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCartDrawer(){
+  var d = document.getElementById('cart-drawer'), b = document.getElementById('cart-backdrop');
+  if (d) d.classList.remove('open');
+  if (b) b.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+(function(){
+  var toggle = document.getElementById('cart-toggle');
+  var closeBtn = document.getElementById('cart-drawer-close');
+  var backdrop = document.getElementById('cart-backdrop');
+  if (toggle) toggle.addEventListener('click', openCartDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeCartDrawer);
+  if (backdrop) backdrop.addEventListener('click', closeCartDrawer);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeCartDrawer();
+  });
+  cartInit();
+})();
 
 function renderBuyButton(handle){
   lbBuy.innerHTML = '';
@@ -603,7 +861,7 @@ function buildBuyPanel(product){
   var btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'btn-line btn-line--rose buy-cta';
-  btn.textContent = 'Buy Print';
+  btn.textContent = 'Add to Cart';
   wrap.appendChild(btn);
 
   var status = document.createElement('p');
@@ -635,18 +893,15 @@ function buildBuyPanel(product){
   btn.addEventListener('click', function(){
     btn.disabled = true;
     status.textContent = 'Adding to cart\u2026';
-    shopifyGraphQL(CART_CREATE_MUTATION, { lines: [{ merchandiseId: picked.id, quantity: 1 }] })
-      .then(function(res){
-        var cart = res && res.data && res.data.cartCreate;
-        var url = cart && cart.cart && cart.cart.checkoutUrl;
-        if (url){ window.location.href = url; return; }
-        var msg = (cart && cart.userErrors && cart.userErrors[0] && cart.userErrors[0].message) || 'Could not start checkout.';
-        status.textContent = msg;
+    cartAdd(picked.id, 1)
+      .then(function(){
+        status.textContent = 'Added to cart \u2713';
         btn.disabled = false;
+        openCartDrawer();
       })
       .catch(function(err){
-        console.error('Shopify checkout failed:', err);
-        status.textContent = 'Could not start checkout \u2014 please try again.';
+        console.error('Add to cart failed:', err);
+        status.textContent = err.message || 'Could not add to cart \u2014 please try again.';
         btn.disabled = false;
       });
   });
