@@ -149,6 +149,16 @@
   #lightbox-desc{font-size:.9rem;line-height:1.85;color:var(--muted);font-weight:300;white-space:pre-line}
   #lightbox-desc:empty{display:none}
   #lightbox-buy:empty{display:none}
+  .buy-panel{display:flex;flex-direction:column;gap:.9rem}
+  .buy-price{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--gold)}
+  .buy-sizes{display:flex;flex-wrap:wrap;gap:.5rem}
+  .buy-size{background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--sans);
+    font-size:.74rem;letter-spacing:.06em;padding:.45rem .8rem;cursor:pointer;transition:all .2s}
+  .buy-size:hover{border-color:var(--muted);color:var(--cream)}
+  .buy-size.active{border-color:var(--gold);color:var(--gold)}
+  .buy-cta{align-self:flex-start}
+  .buy-cta:disabled{opacity:.5;cursor:wait}
+  .buy-status{font-size:.8rem;color:var(--muted);min-height:1.1em;margin:0}
   #lightbox-inquire{align-self:flex-start;margin-top:auto;padding-top:1.3rem}
   #lightbox-prev,#lightbox-next{position:absolute;top:50%;transform:translateY(-50%);z-index:501;background:rgba(255,255,255,.07);border:1px solid var(--border);color:var(--cream);font-size:1.5rem;width:3rem;height:3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
   #lightbox-prev:hover,#lightbox-next:hover{background:rgba(255,255,255,.15)}
@@ -528,52 +538,121 @@ function makePalette(idx, cls){
 }
 
 /* ── Config ── */
-/* Shopify Buy Button: fill in once after creating a Storefront API token
-   (Shopify Admin → Settings → Apps and sales channels → Develop apps →
-   create an app → Configure Storefront API scopes → Install → copy the
-   "Storefront API access token"). SHOP_DOMAIN is the *.myshopify.com domain,
-   not the custom domain. Until both are filled in, print purchases simply
-   don't render — nothing breaks. */
+/* Print purchases: fill in once after creating a Storefront API token
+   (Shopify Admin → Sales channels → Headless → Create storefront → Manage
+   Storefront API → copy the Public access token). SHOP_DOMAIN is the
+   *.myshopify.com domain, not the custom domain. Until both are filled in,
+   print purchases simply don't render — nothing breaks. No external Shopify
+   script is loaded — this talks to the Storefront GraphQL API directly. */
 var SHOP_DOMAIN      = 'dianashirinova.myshopify.com';
 var STOREFRONT_TOKEN = '54353ed6395e8fb72951829bb43613ce';
 var INSTAGRAM = 'https://www.instagram.com/DianaShirinova_art';
 var EMAIL     = 'hello@dianashirinova.com';
 
-var shopifyClient = null, shopifyUI = null;
-var shopifyReady = (SHOP_DOMAIN && STOREFRONT_TOKEN) ? new Promise(function(resolve, reject){
-  var s = document.createElement('script');
-  s.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  s.onload = function(){
-    shopifyClient = window.ShopifyBuy.buildClient({ domain: SHOP_DOMAIN, storefrontAccessToken: STOREFRONT_TOKEN });
-    window.ShopifyBuy.UI.onReady(shopifyClient).then(function(ui){ shopifyUI = ui; resolve(); }).catch(reject);
-  };
-  s.onerror = reject;
-  document.head.appendChild(s);
-}) : null;
+var SHOPIFY_API_VERSION = '2025-01';
+function shopifyGraphQL(query, variables){
+  return fetch('https://' + SHOP_DOMAIN + '/api/' + SHOPIFY_API_VERSION + '/graphql.json', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN
+    },
+    body: JSON.stringify({ query: query, variables: variables || {} })
+  }).then(function(r){ return r.json(); });
+}
+
+var PRODUCT_QUERY =
+  'query($handle: String!){ product(handle: $handle){ id title availableForSale ' +
+  'variants(first: 12){ edges{ node{ id availableForSale price{ amount currencyCode } ' +
+  'selectedOptions{ name value } } } } } }';
+
+var CART_CREATE_MUTATION =
+  'mutation($lines: [CartLineInput!]){ cartCreate(input:{ lines: $lines }){ ' +
+  'cart{ checkoutUrl } userErrors{ message } } }';
 
 function renderBuyButton(handle){
   lbBuy.innerHTML = '';
-  if (!handle || !SHOP_DOMAIN || !STOREFRONT_TOKEN || !shopifyReady) return;
-  shopifyReady.then(function(){
-    return shopifyClient.product.fetchByHandle(handle);
-  }).then(function(product){
-    if (!product) return;
-    shopifyUI.createComponent('product', {
-      id: product.id, node: lbBuy, product: product,
-      options: {
-        product: {
-          iframe: false,
-          contents: { img: false, title: false, price: true },
-          text: { button: 'Buy Print' },
-          styles: {
-            button: { 'background-color': '#c8a96e', ':hover': { 'background-color': '#d9bc82' }, 'border-radius': '0px', 'font-family': 'DM Sans, sans-serif', 'font-size': '13px', 'letter-spacing': '.12em', 'text-transform': 'uppercase' },
-            price: { color: '#f0e8d8', 'font-family': 'DM Sans, sans-serif' }
-          }
-        },
-        cart: { styles: { button: { 'background-color': '#c8a96e', 'border-radius': '0px' } } }
-      }
+  if (!handle || !SHOP_DOMAIN || !STOREFRONT_TOKEN) return;
+  lbBuy.innerHTML = '<p class="buy-status">Loading&hellip;</p>';
+  shopifyGraphQL(PRODUCT_QUERY, { handle: handle }).then(function(res){
+    var product = res && res.data && res.data.product;
+    if (!product || !product.availableForSale){ lbBuy.innerHTML = ''; return; }
+    buildBuyPanel(product);
+  }).catch(function(err){
+    console.error('Shopify product fetch failed:', handle, err);
+    lbBuy.innerHTML = '';
+  });
+}
+
+function buildBuyPanel(product){
+  var variants = product.variants.edges.map(function(e){ return e.node; }).filter(function(v){ return v.availableForSale; });
+  if (!variants.length){ lbBuy.innerHTML = ''; return; }
+  var picked = variants[0];
+
+  var wrap = document.createElement('div');
+  wrap.className = 'buy-panel';
+
+  var price = document.createElement('div');
+  price.className = 'buy-price';
+  wrap.appendChild(price);
+
+  var sizes = document.createElement('div');
+  sizes.className = 'buy-sizes';
+  wrap.appendChild(sizes);
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'btn-line btn-line--rose buy-cta';
+  btn.textContent = 'Buy Print';
+  wrap.appendChild(btn);
+
+  var status = document.createElement('p');
+  status.className = 'buy-status';
+  wrap.appendChild(status);
+
+  function fmt(v){
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: v.price.currencyCode }).format(v.price.amount);
+  }
+  function select(v){
+    picked = v;
+    price.textContent = fmt(v);
+    sizes.querySelectorAll('.buy-size').forEach(function(el){
+      el.classList.toggle('active', el.dataset.id === v.id);
     });
-  }).catch(function(err){ console.error('Shopify product not found:', handle, err); });
+  }
+  variants.forEach(function(v){
+    var label = v.selectedOptions.map(function(o){ return o.value; }).join(' / ') || 'Print';
+    var opt = document.createElement('button');
+    opt.type = 'button';
+    opt.className = 'buy-size';
+    opt.dataset.id = v.id;
+    opt.textContent = label;
+    opt.addEventListener('click', function(){ select(v); });
+    sizes.appendChild(opt);
+  });
+  select(variants[0]);
+
+  btn.addEventListener('click', function(){
+    btn.disabled = true;
+    status.textContent = 'Adding to cart\u2026';
+    shopifyGraphQL(CART_CREATE_MUTATION, { lines: [{ merchandiseId: picked.id, quantity: 1 }] })
+      .then(function(res){
+        var cart = res && res.data && res.data.cartCreate;
+        var url = cart && cart.cart && cart.cart.checkoutUrl;
+        if (url){ window.location.href = url; return; }
+        var msg = (cart && cart.userErrors && cart.userErrors[0] && cart.userErrors[0].message) || 'Could not start checkout.';
+        status.textContent = msg;
+        btn.disabled = false;
+      })
+      .catch(function(err){
+        console.error('Shopify checkout failed:', err);
+        status.textContent = 'Could not start checkout \u2014 please try again.';
+        btn.disabled = false;
+      });
+  });
+
+  lbBuy.innerHTML = '';
+  lbBuy.appendChild(wrap);
 }
 
 var copyYearEl = document.getElementById('copyYear');
