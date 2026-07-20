@@ -34,7 +34,8 @@
           "src": "images/paintings/01-the-quiet-within-alt4.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "featured": 1
     }
   ]
 }
