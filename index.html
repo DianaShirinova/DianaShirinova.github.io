@@ -327,6 +327,11 @@
   #market{padding:9rem 3rem 7rem;text-align:center;border-top:1px solid var(--border);background:var(--surface)}
   .market-inner{max-width:640px;margin:0 auto}
   .market-date{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--gold);margin:1.4rem 0 1rem}
+  .market-layout{display:flex;align-items:center;gap:3rem;text-align:left;margin-top:2.4rem}
+  .market-flyer{flex:none;width:220px;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .market-copy{flex:1}
+  .market-copy .market-date{margin-top:0}
+  @media(max-width:768px){.market-layout{flex-direction:column;text-align:center;gap:2rem}.market-flyer{width:170px}}
 
   /* ── Studio list ── */
   #studio-list{padding:6rem 3rem;text-align:center;border-top:1px solid var(--border)}
@@ -403,12 +408,17 @@
   <div class="market-inner">
     <p class="section-eyebrow">Upcoming</p>
     <h2 class="section-title" style="margin-bottom:0">Camp Erdman <em>Art Market</em></h2>
-    <p class="market-date">Saturday, August 8, 2026</p>
-    <p class="originals-text">Original paintings and a new release of Fine Art Prints &mdash; in person, on the North Shore. Come say aloha.</p>
-    <p class="originals-text" style="margin-top:.6rem">YMCA Camp Erdman &middot; 69-385 Farrington Hwy, Waialua, O&#699;ahu</p>
-    <div class="contact-grid">
-      <a href="https://maps.google.com/?q=YMCA+Camp+Erdman,+69-385+Farrington+Hwy,+Waialua,+HI+96791" target="_blank" rel="noopener" class="btn-line">Directions</a>
-      <a href="https://www.instagram.com/DianaShirinova_art" target="_blank" rel="noopener" class="btn-line btn-line--rose">Updates on Instagram</a>
+    <div class="market-layout">
+      <img class="market-flyer" src="images/market/camp-erdman-flyer.png" alt="Art Market at the Camp — YMCA Camp Erdman, Saturday August 8th, 3–8pm">
+      <div class="market-copy">
+        <p class="market-date">Saturday, August 8, 2026</p>
+        <p class="originals-text">Original paintings and a new release of Fine Art Prints &mdash; in person, on the North Shore. Come say aloha.</p>
+        <p class="originals-text" style="margin-top:.6rem">YMCA Camp Erdman &middot; 69-385 Farrington Hwy, Waialua, O&#699;ahu</p>
+        <div class="contact-grid" style="justify-content:flex-start">
+          <a href="https://maps.google.com/?q=YMCA+Camp+Erdman,+69-385+Farrington+Hwy,+Waialua,+HI+96791" target="_blank" rel="noopener" class="btn-line">Directions</a>
+          <a href="https://www.instagram.com/DianaShirinova_art" target="_blank" rel="noopener" class="btn-line btn-line--rose">Updates on Instagram</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
