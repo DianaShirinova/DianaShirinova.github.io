@@ -3,7 +3,21 @@
    Each page's own trailing inline script calls initPaintings(cb) with whatever
    it needs built (see comment above that function below). ── */
 
-/* Announcement banner — auto-hides itself once the market date has passed (HST) */
+(function(){
+  var toggle = document.getElementById('mobile-menu-toggle');
+  var closeBtn = document.getElementById('mobile-menu-close');
+  var backdrop = document.getElementById('mobile-menu-backdrop');
+  var menu = document.getElementById('mobile-menu');
+  if (!toggle || !menu) return;
+  function open(){ menu.classList.add('open'); backdrop.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close(){ menu.classList.remove('open'); backdrop.classList.remove('open'); document.body.style.overflow = ''; }
+  toggle.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+})();
+
 (function(){
   if (new Date() <= new Date('2026-08-09T06:00:00-10:00')) {
     document.body.classList.add('has-announce');

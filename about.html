@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=3">
 </head>
 <body>
 <a id="announce" class="announce" href="index.html#market">Next Market &mdash; Camp Erdman, Waialua &middot; Sat, Aug 8 &rarr;</a>
@@ -43,10 +43,15 @@
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <button id="cart-toggle" class="nav-cart" type="button" aria-label="Open cart">
-    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.1 11a2 2 0 0 1-2 1.8H9.1a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-    <span id="cart-badge" class="cart-badge">0</span>
-  </button>
+  <div class="nav-actions">
+    <button id="mobile-menu-toggle" class="nav-burger" type="button" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <button id="cart-toggle" class="nav-cart" type="button" aria-label="Open cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.1 11a2 2 0 0 1-2 1.8H9.1a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span id="cart-badge" class="cart-badge">0</span>
+    </button>
+  </div>
 </nav>
 
 <div id="cart-backdrop"></div>
@@ -58,6 +63,16 @@
   <div id="cart-drawer-body"></div>
   <div id="cart-drawer-footer"></div>
 </div>
+
+<div id="mobile-menu-backdrop"></div>
+<nav id="mobile-menu" aria-label="Mobile">
+  <button id="mobile-menu-close" aria-label="Close menu">&times;</button>
+  <a href="originals.html">Original Artwork</a>
+  <a href="prints.html">Fine Art Prints</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://www.instagram.com/DianaShirinova_art" target="_blank" rel="noopener">Instagram</a>
+</nav>
 <main>
 <section id="about" style="padding-top:11rem">
   <div class="about-inner">
@@ -103,6 +118,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js" defer></script>
+<script src="assets/site.js?v=3" defer></script>
 </body>
 </html>
