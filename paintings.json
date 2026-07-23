@@ -38,8 +38,22 @@
         }
       ],
       "featured": 1,
-      "status": "Available",
-      "hero": 1
+      "status": "Available"
+    },
+    {
+      "title": "Wild Companion",
+      "src": "images/paintings/02-wild-companion.jpg",
+      "w": 890,
+      "h": 1196,
+      "palette": [
+        "#1A0300",
+        "#372A27",
+        "#5A6347",
+        "#B87B73",
+        "#B8A796"
+      ],
+      "description": "Wild Companion\n\nNot everything wild is meant to be feared.\n\nWild Companion explores the quiet relationship between humanity and the untamed world. The shark, often seen as a symbol of danger, becomes something entirely different—a companion carried with care, strength, and respect.\n\nThrough bold shapes, warm coastal colors, and minimalist composition, the painting invites us to reconsider what we call wild. Sometimes the greatest connections are found where fear once lived.\n\nA celebration of trust, curiosity, and the enduring bond between people and the sea.",
+      "shopifyHandle": "wild-companion-1"
     }
   ]
 }
