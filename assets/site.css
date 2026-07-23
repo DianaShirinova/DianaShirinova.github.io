@@ -8,7 +8,7 @@
   }
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--cream);font-family:var(--sans);overflow-x:hidden}
-  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(13,13,11,0.88);border-bottom:1px solid var(--border)}
+  nav[aria-label="Primary"]{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(13,13,11,0.88);border-bottom:1px solid var(--border)}
   #sunGlow{position:fixed;inset:0;pointer-events:none;z-index:5;mix-blend-mode:screen;opacity:0}
   .nav-logo{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--gold)}
   .nav-links{display:flex;gap:2.5rem;list-style:none}
@@ -146,7 +146,7 @@
   footer span{color:var(--gold)}
   @keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
   @keyframes floatIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-  @media(max-width:768px){nav{padding:1rem 1.5rem}.nav-links{display:none}.nav-burger{display:flex}.hero{padding:7rem 1.5rem 3rem}.hero-floats{display:none}#gallery{padding:7rem 1.4rem}.gallery-grid{columns:2 150px;column-gap:1.6rem}.gallery-card{margin-bottom:1.6rem}.about-inner{grid-template-columns:1fr;gap:3rem}#about,#contact{padding:8rem 1.5rem}footer{flex-direction:column;gap:.5rem;text-align:center}}
+  @media(max-width:768px){nav[aria-label="Primary"]{padding:1rem 1.5rem}.nav-links{display:none}.nav-burger{display:flex}.hero{padding:7rem 1.5rem 3rem}.hero-floats{display:none}#gallery{padding:7rem 1.4rem}.gallery-grid{columns:2 150px;column-gap:1.6rem}.gallery-card{margin-bottom:1.6rem}.about-inner{grid-template-columns:1fr;gap:3rem}#about,#contact{padding:8rem 1.5rem}footer{flex-direction:column;gap:.5rem;text-align:center}}
 
 
   /* ── About photo ── */
@@ -255,7 +255,7 @@
   .announce{position:fixed;top:0;left:0;right:0;z-index:220;display:none;justify-content:center;align-items:center;height:2.3rem;padding:0 1rem;background:var(--gold);color:#0d0d0b;font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .25s}
   .announce:hover{background:#d9bc82}
   body.has-announce .announce{display:flex}
-  body.has-announce nav{top:2.3rem}
+  body.has-announce nav[aria-label="Primary"]{top:2.3rem}
   body.has-announce .hero{padding-top:10rem}
 
   /* ── Upcoming market ── */
