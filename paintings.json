@@ -38,7 +38,8 @@
         }
       ],
       "featured": 1,
-      "status": "Available"
+      "status": "Available",
+      "hero": 1
     }
   ]
 }
