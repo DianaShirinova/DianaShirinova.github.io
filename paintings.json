@@ -102,8 +102,7 @@
         "#E9C5A4"
       ],
       "description": "Ride the Tide\nThe tide never stands still.\nIt rises, recedes, and returns again, reminding us that life is meant to move—not to be controlled, but embraced.\n\nRide the Tide is a reflection of that quiet confidence. The surfboard symbolizes adventure, while the wide-brimmed hat speaks to a life shaped by open skies, warm sun, and endless horizons. Together, they tell the story of someone who trusts the journey as much as the destination.\n\nInspired by the rhythm of the ocean and the ease of coastal living, this painting celebrates the courage to follow your own current. It invites us to welcome change with grace, find balance in uncertainty, and discover freedom in simply moving forward.\n\nSometimes the best direction is the one carried by the tide.",
-      "status": "Sold",
-      "hero": 4
+      "status": "Sold"
     },
     {
       "title": "Hibiscus Light",
@@ -454,8 +453,7 @@
           "src": "images/paintings/27-the-coastal-rider-alt7.jpg",
           "label": "In the interior"
         }
-      ],
-      "hero": 6
+      ]
     },
     {
       "title": "The Coastal rider",
@@ -630,7 +628,7 @@
       ]
     },
     {
-      "title": "Island Bloom",
+      "title": "island-bloom-1",
       "src": "images/paintings/32-island-bloom-1.jpg",
       "w": 2400,
       "h": 2399,
