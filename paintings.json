@@ -86,8 +86,7 @@
         "#E3CAB5"
       ],
       "description": "Island Waters\nThe ocean speaks in quiet ways.\nIn the gentle movement of the tide, in the shifting light beneath the surface, and in the life it carries with effortless grace.\n\nIsland Waters is a celebration of that quiet rhythm. Inspired by the colors and simplicity of tropical coastal life, this painting reflects the peaceful connection between nature and the sea. The fish becomes more than a subject—it becomes a symbol of abundance, balance, and the enduring beauty found in the everyday.\n\nPainted with clean lines and a contemporary palette, the work captures the calm spirit of island living, where time slows, the horizon stretches endlessly, and the ocean is both a companion and a way of life.\n\nSometimes all we need is a reminder that life's greatest treasures have always been close to the water.",
-      "status": "Sold",
-      "hero": 2
+      "status": "Sold"
     },
     {
       "title": "Ride the Tide",
@@ -453,7 +452,8 @@
           "src": "images/paintings/27-the-coastal-rider-alt7.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "hero": 2
     },
     {
       "title": "The Coastal rider",
@@ -587,7 +587,8 @@
           "src": "images/paintings/30-wild-companion-alt6.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "hero": 2
     },
     {
       "title": "The Quiet Within",
@@ -628,7 +629,7 @@
       ]
     },
     {
-      "title": "island-bloom-1",
+      "title": "Island Bloom",
       "src": "images/paintings/32-island-bloom-1.jpg",
       "w": 2400,
       "h": 2399,
@@ -641,95 +642,8 @@
       ],
       "description": "Island Bloom\n\nSome beauty asks to be noticed.\n\nOther beauty simply exists—quietly, confidently, without seeking attention.\n\nIsland Bloom is a celebration of that quiet confidence.\n\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\n\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\n\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
       "listing": "print",
-      "shopifyHandle": "island-bloom-1"
-    },
-    {
-      "title": "Aloha Road",
-      "src": "images/paintings/33-aloha-road.jpg",
-      "w": 2400,
-      "h": 2399,
-      "palette": [
-        "#342B27",
-        "#55595A",
-        "#767B7B",
-        "#B9A695",
-        "#DBC8B4"
-      ],
-      "description": "Aloha Road\n\nEvery great island adventure begins with an open road.\n\nAloha Road celebrates the timeless spirit of exploration through the iconic vintage surf van—a symbol of freedom, sunshine, and the simple joy of discovering new places. Parked as if waiting for its next journey, the classic green-and-cream bus invites memories of coastal drives, surfboards on the roof, and golden sunsets shared with friends.\n\nInspired by the relaxed rhythm of Hawaii, this painting captures more than a vehicle; it reflects a lifestyle built around slowing down, embracing spontaneity, and enjoying every mile along the way. Its clean lines, soft coastal palette, and minimalist composition create a nostalgic yet contemporary feel that fits effortlessly into modern interiors.\n\nBlending mid-century charm with a tropical aesthetic, Aloha Road brings warmth, adventure, and island nostalgia into any home. It is a reminder that the best destinations are often found when we simply choose to keep driving toward the horizon.",
-      "listing": "print",
-      "shopifyHandle": "aloha-road-copy",
-      "photos": [
-        {
-          "src": "images/paintings/33-aloha-road.jpg",
-          "label": "Original"
-        },
-        {
-          "src": "images/paintings/33-aloha-road-alt1.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/33-aloha-road-alt2.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/33-aloha-road-alt3.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/33-aloha-road-alt4.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/33-aloha-road-alt5.jpg",
-          "label": "In the interior"
-        }
-      ]
-    },
-    {
-      "title": "Aloha Road",
-      "src": "images/paintings/34-aloha-road.jpg",
-      "w": 2400,
-      "h": 2399,
-      "palette": [
-        "#342B27",
-        "#55595A",
-        "#767B7B",
-        "#B9A695",
-        "#DBC8B4"
-      ],
-      "description": "Aloha Road\n\nEvery great island adventure begins with an open road.\n\nAloha Road celebrates the timeless spirit of exploration through the iconic vintage surf van—a symbol of freedom, sunshine, and the simple joy of discovering new places. Parked as if waiting for its next journey, the classic green-and-cream bus invites memories of coastal drives, surfboards on the roof, and golden sunsets shared with friends.\n\nInspired by the relaxed rhythm of Hawaii, this painting captures more than a vehicle; it reflects a lifestyle built around slowing down, embracing spontaneity, and enjoying every mile along the way. Its clean lines, soft coastal palette, and minimalist composition create a nostalgic yet contemporary feel that fits effortlessly into modern interiors.\n\nBlending mid-century charm with a tropical aesthetic, Aloha Road brings warmth, adventure, and island nostalgia into any home. It is a reminder that the best destinations are often found when we simply choose to keep driving toward the horizon.",
-      "shopifyHandle": "aloha-road",
-      "photos": [
-        {
-          "src": "images/paintings/34-aloha-road.jpg",
-          "label": "Original"
-        },
-        {
-          "src": "images/paintings/34-aloha-road-alt1.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/34-aloha-road-alt2.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/34-aloha-road-alt3.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/34-aloha-road-alt4.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/34-aloha-road-alt5.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/34-aloha-road-alt6.jpg",
-          "label": "In the interior"
-        }
-      ],
-      "status": "Available"
+      "shopifyHandle": "island-bloom-1",
+      "hero": 3
     }
   ]
 }
