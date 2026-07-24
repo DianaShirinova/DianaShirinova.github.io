@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Кабинет коллекции — Diana Shirinova</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230d0d0b'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-style='italic' font-size='60' fill='%23c8a96e' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0d0d0b;--surface:#161612;--surface2:#1d1d18;--border:rgba(255,255,255,.08);
+    --gold:#c8a96e;--rose:#d4847a;--sage:#8aab87;--cream:#f0e8d8;
+    --muted:rgba(240,232,216,.5);--faint:rgba(240,232,216,.28);
+    --serif:"DM Serif Display",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  }
+  body{background:var(--bg);color:var(--cream);font-family:var(--sans);font-size:15px;line-height:1.5;padding-bottom:6rem}
+  header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;padding:1.6rem 2rem;border-bottom:1px solid var(--border)}
+  .logo{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--gold)}
+  .logo small{font-family:var(--sans);font-style:normal;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-left:.9rem}
+  .wrap{max-width:1060px;margin:0 auto;padding:2rem}
+  .card{background:var(--surface);border:1px solid var(--border);padding:1.6rem;margin-bottom:1.6rem}
+  h2{font-family:var(--serif);font-weight:400;font-size:1.35rem;margin-bottom:1rem}
+  h2 em{font-style:italic;color:var(--rose)}
+  label{display:block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  input[type=text],input[type=password],input[type=number],select{
+    width:100%;background:var(--bg);border:1px solid var(--border);color:var(--cream);
+    font-family:var(--sans);font-size:.95rem;padding:.55rem .7rem;outline:none;transition:border-color .2s}
+  input:focus,select:focus{border-color:var(--gold)}
+  input[type=number]{width:4.2rem;text-align:center}
+  .grid4{display:grid;grid-template-columns:1fr 1fr .7fr;gap:1rem}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.4rem;border:1px solid var(--gold);
+    background:none;color:var(--gold);font-family:var(--sans);font-size:.74rem;letter-spacing:.16em;
+    text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,opacity .2s;text-decoration:none}
+  .btn:hover{background:var(--gold);color:var(--bg)}
+  .btn--rose{border-color:var(--rose);color:var(--rose)}
+  .btn--rose:hover{background:var(--rose);color:var(--bg)}
+  .btn--ghost{border-color:var(--border);color:var(--muted)}
+  .btn--ghost:hover{background:rgba(255,255,255,.06);color:var(--cream)}
+  .btn:disabled{opacity:.35;cursor:not-allowed}
+  .btn:disabled:hover{background:none;color:var(--gold)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-bottom:1rem}
+  .toolbar .spacer{flex:1}
+  .hint{font-size:.8rem;color:var(--faint);line-height:1.7}
+  .hint a{color:var(--gold)}
+  details{margin-top:1rem}
+  summary{cursor:pointer;font-size:.8rem;color:var(--muted)}
+  details[open] summary{margin-bottom:.6rem}
+  .status-line{font-size:.82rem;color:var(--muted);min-height:1.2em}
+  .status-line.ok{color:var(--sage)}
+  .status-line.err{color:var(--rose)}
+  /* ── статистика и фильтры ── */
+  .statbar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:1.2rem}
+  .chip{border:1px solid var(--border);background:none;color:var(--muted);font-family:var(--sans);
+    font-size:.72rem;letter-spacing:.08em;padding:.35rem .8rem;cursor:pointer;transition:all .2s}
+  .chip b{color:var(--cream);font-weight:500;margin-left:.35rem}
+  .chip:hover{border-color:var(--muted)}
+  .chip.active{border-color:var(--gold);color:var(--gold)}
+  .chip.active b{color:var(--gold)}
+  .searchbox{flex:1;min-width:180px;max-width:300px;margin-left:auto}
+  .searchbox input{font-size:.85rem;padding:.4rem .7rem}
+  /* ── строки картин ── */
+  .row{display:grid;grid-template-columns:86px 1fr auto;gap:1.1rem;align-items:center;
+    background:var(--surface);border:1px solid var(--border);padding:.9rem 1.1rem;margin-bottom:.7rem;
+    transition:border-color .2s}
+  .row.is-new{border-color:rgba(138,171,135,.5)}
+  .row.is-dirty{border-color:rgba(200,169,110,.4)}
+  .row img{width:86px;height:86px;object-fit:cover;display:block;border:1px solid var(--border);background:var(--surface2)}
+  .row-main{min-width:0}
+  .row-title{display:flex;gap:.7rem;align-items:center;margin-bottom:.55rem}
+  .row-num{font-size:.68rem;letter-spacing:.15em;color:var(--gold);flex:none}
+  .row-title input{font-family:var(--serif);font-style:italic;font-size:1.05rem;padding:.35rem .6rem}
+  .row-ctrls{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center;font-size:.78rem;color:var(--muted)}
+  .row-ctrls select{width:auto;font-size:.8rem;padding:.3rem .5rem}
+  .row-ctrls input[type=text]{width:11rem;font-size:.8rem;padding:.3rem .5rem}
+  .row-desc{display:none;margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--border);gap:.8rem;flex-wrap:wrap}
+  .row-desc.open{display:flex}
+  .row-desc>div{flex:1;min-width:220px}
+  .row-desc textarea{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--cream);
+    font-family:var(--sans);font-size:.85rem;padding:.5rem .65rem;outline:none;resize:vertical;min-height:4.2em;transition:border-color .2s}
+  .row-desc textarea:focus,.row-desc input:focus{border-color:var(--gold)}
+  .row-desc input{font-size:.85rem;padding:.5rem .65rem}
+  .has-content{color:var(--sage) !important;border-color:rgba(138,171,135,.5) !important}
+  .chk{display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;user-select:none}
+  .chk input{accent-color:var(--gold)}
+  .chk--print{color:var(--gold)}
+  .badge-photos{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);border:1px solid rgba(138,171,135,.4);padding:.15rem .5rem}
+  .badge-prints{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(200,169,110,.45);padding:.15rem .5rem}
+  .palette-strip{display:flex;gap:.45rem;align-items:center}
+  .daub{width:17px;height:14px;flex:none;box-shadow:inset 0 1px 4px rgba(0,0,0,.3);
+    border-radius:62% 38% 55% 45%/48% 60% 40% 52%;transform:rotate(-6deg)}
+  .daub:nth-child(2n){border-radius:45% 55% 40% 60%/55% 45% 60% 40%;transform:rotate(5deg)}
+  .daub:nth-child(3n){border-radius:58% 42% 62% 38%/42% 58% 45% 55%;transform:rotate(-3deg)}
+  .icon-btn{background:none;border:1px solid var(--border);color:var(--muted);width:2rem;height:2rem;
+    cursor:pointer;font-size:.95rem;line-height:1;transition:color .2s,border-color .2s}
+  .icon-btn:hover{color:var(--cream);border-color:var(--muted)}
+  .icon-btn--del:hover{color:var(--rose);border-color:var(--rose)}
+  .icon-btn:disabled{opacity:.25;cursor:not-allowed}
+  .row-side{display:flex;flex-direction:column;gap:.4rem}
+  /* ── форма добавления ── */
+  #addCard{display:none;border-color:rgba(200,169,110,.35)}
+  #addCard.open{display:block}
+  #addCard.dragover{border-color:var(--sage);background:rgba(138,171,135,.05)}
+  .add-grid{display:grid;grid-template-columns:150px 1fr;gap:1.4rem;align-items:start}
+  .dropzone{width:150px;height:150px;border:1px dashed var(--border);background:var(--surface2);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+    cursor:pointer;overflow:hidden;transition:border-color .2s}
+  .dropzone:hover{border-color:var(--gold);color:var(--muted)}
+  .dropzone img{width:100%;height:100%;object-fit:cover}
+  .add-fields{display:grid;gap:.9rem}
+  .field-inline{display:flex;gap:1rem;flex-wrap:wrap;align-items:end}
+  .field-inline>div{flex:1;min-width:180px}
+  .file-label{display:inline-block;padding:.5rem 1rem;border:1px dashed var(--border);color:var(--muted);cursor:pointer;font-size:.8rem;transition:border-color .2s,color .2s}
+  .file-label:hover{border-color:var(--gold);color:var(--gold)}
+  input[type=file]{display:none}
+  .extra-photo{display:flex;gap:.7rem;align-items:center;font-size:.82rem;color:var(--muted);margin-top:.4rem}
+  .extra-photo input[type=text]{width:220px;font-size:.82rem;padding:.35rem .5rem}
+  /* ── модальное окно ревью ── */
+  .modal-veil{position:fixed;inset:0;background:rgba(13,13,11,.82);backdrop-filter:blur(3px);
+    display:none;align-items:center;justify-content:center;z-index:300;padding:1.5rem}
+  .modal-veil.open{display:flex}
+  .modal{background:var(--surface);border:1px solid var(--border);max-width:560px;width:100%;
+    max-height:80vh;display:flex;flex-direction:column}
+  .modal-head{padding:1.3rem 1.6rem 0}
+  .modal-body{padding:1rem 1.6rem;overflow:auto;font-size:.86rem;line-height:1.9}
+  .modal-foot{padding:1rem 1.6rem 1.4rem;display:flex;gap:.8rem;border-top:1px solid var(--border)}
+  .diff-add{color:var(--sage)}
+  .diff-del{color:var(--rose)}
+  .diff-mod{color:var(--gold)}
+  .diff-h{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:.8rem 0 .3rem}
+  #log{font-family:ui-monospace,Menlo,monospace;font-size:.76rem;line-height:1.8;color:var(--muted);
+    background:var(--bg);border:1px solid var(--border);padding:1rem;max-height:220px;overflow:auto;display:none;white-space:pre-wrap}
+  #log.open{display:block}
+  .pending-pill{font-size:.68rem;letter-spacing:.14em;color:var(--bg);background:var(--gold);padding:.15rem .55rem;border-radius:2px}
+  @media(max-width:700px){
+    .grid4{grid-template-columns:1fr 1fr}
+    .row{grid-template-columns:64px 1fr}
+    .row img{width:64px;height:64px}
+    .row-side{flex-direction:row;grid-column:1/-1;justify-content:flex-end}
+    .add-grid{grid-template-columns:1fr}
+    .dropzone{width:100%}
+    .wrap{padding:1.2rem}
+    .searchbox{max-width:none;width:100%;margin-left:0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Diana Shirinova <small>Кабинет коллекции</small></div>
+  <a class="hint" href="https://dianashirinova.com" target="_blank" rel="noopener">dianashirinova.com ↗</a>
+</header>
+
+<div class="wrap">
+
+  <!-- ── Вход ── -->
+  <section class="card" id="connectCard">
+    <h2>Вход в <em>кабинет</em></h2>
+    <div class="grid4">
+      <div><label for="fOwner">Владелец (owner)</label><input type="text" id="fOwner" placeholder="username"></div>
+      <div><label for="fRepo">Репозиторий</label><input type="text" id="fRepo" placeholder="dianashirinova.com"></div>
+      <div><label for="fBranch">Ветка</label><input type="text" id="fBranch" value="main"></div>
+    </div>
+    <div class="grid4" style="margin-top:1rem" id="tokenRow">
+      <div style="grid-column:1/3"><label for="fToken">Токен GitHub</label><input type="password" id="fToken" placeholder="github_pat_…"></div>
+      <div><label for="fPass">Пароль (чтобы запомнить)</label><input type="password" id="fPass" placeholder="необязательно"></div>
+    </div>
+    <div class="grid4" style="margin-top:1rem;display:none" id="passRow">
+      <div><label for="fPassOnly">Пароль</label><input type="password" id="fPassOnly" placeholder="••••••"></div>
+      <div style="align-self:end"><button class="btn btn--ghost" id="btnForget" type="button">Ввести токен заново</button></div>
+    </div>
+    <div style="margin-top:1.2rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap">
+      <button class="btn" id="btnConnect">Войти</button>
+      <span class="status-line" id="connStatus"></span>
+    </div>
+    <details>
+      <summary>Как получить токен (один раз, ~2 минуты)</summary>
+      <p class="hint">
+        GitHub → Settings → Developer settings → <b>Fine-grained tokens</b> → Generate new token.<br>
+        Repository access: <b>Only select repositories</b> → выбрать репозиторий сайта.<br>
+        Permissions → Repository permissions → <b>Contents: Read and write</b>. Остальное не нужно.<br>
+        Если задать пароль, токен сохранится на этом компьютере в зашифрованном виде (AES-256),
+        и дальше для входа хватит одного пароля. Без пароля токен живёт только до закрытия вкладки.
+      </p>
+    </details>
+  </section>
+
+  <!-- ── Панель ── -->
+  <div id="panel" style="display:none">
+    <div class="toolbar">
+      <button class="btn" id="btnAdd">+ Добавить картину</button>
+      <button class="btn btn--rose" id="btnPublish" disabled>Опубликовать <span class="pending-pill" id="pendingCount" style="display:none">0</span></button>
+      <button class="btn btn--ghost" id="btnPreview">Предпросмотр сайта</button>
+      <span class="spacer"></span>
+      <button class="btn btn--ghost" id="btnReload">Обновить с GitHub</button>
+      <button class="btn btn--ghost" id="btnBackup">Скачать копию</button>
+    </div>
+
+    <div class="statbar" id="statbar"></div>
+
+    <!-- ── Служебные фото: фиксированные пути, публикуются вместе с картинами ── -->
+    <section class="card">
+      <h2>Служебные <em>фото</em></h2>
+      <div class="add-grid" style="grid-template-columns:1fr 1fr;gap:1.6rem">
+        <div>
+          <label>Фото студии <span class="hint">(images/studio/studio.jpg — секция Process)</span></label>
+          <div class="dropzone" id="dropStudio" style="width:100%;height:150px" title="Перетащи фото сюда или нажми">
+            <img id="imgStudio" style="display:none">
+            <span id="hintStudio">Перетащи фото сюда<br>или нажми</span>
+          </div>
+          <input type="file" id="fileStudio" accept="image/jpeg,image/png,image/webp">
+        </div>
+        <div>
+          <label>Портрет художника <span class="hint">(images/artist/diana-portrait.jpg — секция About)</span></label>
+          <div class="dropzone" id="dropArtist" style="width:100%;height:150px" title="Перетащи фото сюда или нажми">
+            <img id="imgArtist" style="display:none">
+            <span id="hintArtist">Перетащи фото сюда<br>или нажми</span>
+          </div>
+          <input type="file" id="fileArtist" accept="image/jpeg,image/png,image/webp">
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Свободное хранилище для соцсетей (не привязано к сайту) ── -->
+    <section class="card">
+      <h2>Файлы для <em>соцсетей</em> <span class="hint">(images/social/ — хранилище, на сайте не используется)</span></h2>
+      <div class="dropzone" id="dropSocial" style="width:100%;height:90px" title="Перетащи одно или несколько фото">
+        <span id="hintSocial">Перетащи фото сюда или нажми</span>
+      </div>
+      <input type="file" id="fileSocial" accept="image/*" multiple>
+      <div id="socialList" style="margin-top:.8rem"></div>
+    </section>
+
+    <!-- ── Уборка: старые файлы в корне репозитория ── -->
+    <details class="card" id="cleanupCard">
+      <summary style="font-size:.9rem;color:var(--cream)">🧹 Уборка — старые файлы в корне репозитория</summary>
+      <p class="hint" style="margin-top:.8rem">Ищет изображения прямо в корне репозитория (до перехода на папки) и позволяет удалить их без терминала.</p>
+      <div style="margin-top:.8rem;display:flex;gap:.8rem;align-items:center">
+        <button class="btn btn--ghost" id="btnScanRoot">Проверить корень</button>
+        <span class="status-line" id="cleanupStatus"></span>
+      </div>
+      <div id="cleanupList" style="margin-top:1rem"></div>
+    </details>
+
+    <!-- ── Продажа принтов через Shopify ── -->
+    <details class="card">
+      <summary style="font-size:.9rem;color:var(--cream)">🛍 Продажа принтов (Shopify)</summary>
+      <p class="hint" style="margin-top:.8rem">
+        Кнопка «Buy Print» появляется на сайте у конкретной картины, только если у неё заполнен
+        <b>товар Shopify</b> (значок ✎ у строки картины ниже) — и один раз настроен сам сайт:<br><br>
+        1. Shopify Admin → Settings → Apps and sales channels → Develop apps → создать приложение →
+        Configure Storefront API scopes → включить нужные (read_products, unauthenticated_checkouts) → Install<br>
+        2. Скопировать <b>Storefront API access token</b><br>
+        3. В файле <code>assets/site.js</code> найти строки <code>SHOP_DOMAIN</code> и <code>STOREFRONT_TOKEN</code>
+        (в начале блока <code>&lt;script&gt;</code>) и вписать домен вида <code>dianashirinova.myshopify.com</code> и токен<br><br>
+        Оригиналы работают иначе — по кнопке «Inquire About the Original» в лайтбоксе уходит письмо тебе, без Shopify.
+      </p>
+    </details>
+
+    <!-- форма добавления -->
+    <section class="card" id="addCard">
+      <h2>Новая <em>картина</em></h2>
+      <div class="add-grid">
+        <div class="dropzone" id="dropMain" title="Перетащи фото сюда или нажми">
+          <span id="dropHint">Перетащи фото сюда<br>или нажми</span>
+        </div>
+        <div class="add-fields">
+          <input type="file" id="addFile" accept="image/jpeg,image/png,image/webp">
+          <div class="field-inline">
+            <div><label for="addTitle">Название</label><input type="text" id="addTitle" placeholder="Golden Hibiscus"></div>
+            <div><label for="addFilename">Имя файла <span class="hint">(в images/paintings/)</span></label><input type="text" id="addFilename" placeholder="35-golden-hibiscus.jpg"></div>
+          </div>
+          <div>
+            <label>Палитра (снята с фото автоматически) <span class="hint" id="addDims"></span></label>
+            <div class="palette-strip" id="addPalette"></div>
+          </div>
+          <div class="field-inline">
+            <div><label for="addDescription">Описание <span class="hint">(необязательно)</span></label><textarea id="addDescription" placeholder="Расскажи об этой картине…" style="width:100%;min-height:4.2em;background:var(--bg);border:1px solid var(--border);color:var(--cream);font-family:var(--sans);font-size:.9rem;padding:.5rem .65rem;outline:none;resize:vertical"></textarea></div>
+            <div>
+              <label style="margin-bottom:.4rem;display:block">Раздел сайта</label>
+              <label class="chk" style="margin-right:1rem"><input type="radio" name="addListing" id="addListingOriginal" checked> Original</label>
+              <label class="chk chk--print"><input type="radio" name="addListing" id="addListingPrint"> Fine Art Print</label>
+              <div id="addStatusWrap" style="margin-top:.6rem">
+                <label for="addStatusSelect">Статус</label>
+                <select id="addStatusSelect">
+                  <option value="">статус…</option>
+                  <option value="Available">Available</option>
+                  <option value="Available by Inquiry">Available by Inquiry</option>
+                  <option value="Private Collection">Private Collection</option>
+                  <option value="Sold">Sold</option>
+                </select>
+              </div>
+              <div id="addShopifyWrap" style="margin-top:.6rem">
+                <label for="addShopify">Товар в Shopify <span class="hint">(handle из URL: /products/&lt;handle&gt;, необязательно)</span></label>
+                <input type="text" id="addShopify" placeholder="golden-hibiscus-print">
+              </div>
+              <p class="hint" style="margin-top:.4rem">Original показывается на <b>Original Artwork</b> (статус виден в лайтбоксе, если Sold/Private Collection). Fine Art Print — только на <b>Fine Art Prints</b>, нужен handle товара.</p>
+            </div>
+          </div>
+          <div>
+            <label class="file-label" for="addExtraFile">+ доп. фото (интерьер, процесс) — или перетащи несколько сразу</label>
+            <input type="file" id="addExtraFile" accept="image/jpeg,image/png,image/webp" multiple>
+            <div id="addExtras"></div>
+          </div>
+          <div style="display:flex;gap:.8rem;align-items:center">
+            <button class="btn" id="btnAddConfirm" disabled>Добавить в очередь</button>
+            <button class="btn btn--ghost" id="btnAddCancel">Отмена</button>
+            <span class="status-line" id="addStatus"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="rows"></div>
+    <pre id="log"></pre>
+    <p class="hint" style="margin-top:1.2rem">
+      Изменения копятся локально: «Предпросмотр» показывает будущий сайт, «Опубликовать» сначала
+      покажет список изменений. После публикации GitHub Pages пересобирает сайт до минуты.
+      Перестановка ↑↓ доступна, когда фильтр и поиск сброшены. Бейдж статуса виден только у Featured-работ.
+    </p>
+  </div>
+</div>
+
+<!-- ── Ревью изменений ── -->
+<div class="modal-veil" id="reviewVeil">
+  <div class="modal">
+    <div class="modal-head"><h2>Что уйдёт <em>на сайт</em></h2></div>
+    <div class="modal-body" id="reviewBody"></div>
+    <div class="modal-foot">
+      <button class="btn btn--rose" id="btnPublishGo">Опубликовать</button>
+      <button class="btn btn--ghost" id="btnReviewClose">Назад</button>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+/* ═══════════ состояние ═══════════ */
+var S = {
+  owner: '', repo: '', branch: 'main', token: '',
+  jsonPath: 'paintings.json',
+  sha: null, meta: null,
+  paintings: [], orig: [],
+  newFiles: {}, delFiles: [],
+  dirty: false,
+  filter: 'all', search: ''
+};
+
+/* ═══════════ утилиты ═══════════ */
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function b64encodeUtf8(str){
+  var bytes = new TextEncoder().encode(str), bin = '';
+  for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin);
+}
+function b64decodeUtf8(b64){
+  var bin = atob(b64.replace(/\n/g, '')), bytes = new Uint8Array(bin.length);
+  for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+function luminance(hex){
+  var n = parseInt(hex.slice(1), 16);
+  return 0.2126*((n>>16)&255) + 0.7152*((n>>8)&255) + 0.0722*(n&255);
+}
+function slugify(s){
+  return s.toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') || 'untitled';
+}
+var PAINTINGS_DIR = 'images/paintings/';
+function basename(path){ return path.split('/').pop(); }
+function nextNumber(){
+  var max = 0;
+  S.paintings.forEach(function(p){
+    var m = /^(\d+)-/.exec(basename(p.src));
+    if (m) max = Math.max(max, parseInt(m[1], 10));
+  });
+  return String(max + 1).padStart(2, '0');
+}
+function mimeOf(path){
+  if (/\.png$/i.test(path)) return 'image/png';
+  if (/\.webp$/i.test(path)) return 'image/webp';
+  return 'image/jpeg';
+}
+/* Кодирует путь по сегментам, чтобы слэши папок (images/paintings/...) не превращались в %2F */
+function encodePath(path){
+  return path.split('/').map(encodeURIComponent).join('/');
+}
+function rawUrl(src){
+  return 'https://raw.githubusercontent.com/' + S.owner + '/' + S.repo + '/' + S.branch + '/' + encodePath(src);
+}
+function thumbSrc(p){
+  return S.newFiles[p.src] ? 'data:' + mimeOf(p.src) + ';base64,' + S.newFiles[p.src] : rawUrl(p.src);
+}
+/* Некоторые репозитории приватные — raw.githubusercontent.com отдаёт их только
+   публично, поэтому превью может не загрузиться напрямую. В этом случае
+   подтягиваем файл через авторизованный Contents API и показываем как blob-URL. */
+var authThumbCache = {};
+function authFetchThumb(path){
+  if (authThumbCache[path]) return Promise.resolve(authThumbCache[path]);
+  return getFile(path).then(function(f){
+    if (f.__404 || !f.content) return null;
+    var bytes = b64ToBuf(f.content.replace(/\n/g, ''));
+    var blob = new Blob([bytes], { type: mimeOf(path) });
+    var url = URL.createObjectURL(blob);
+    authThumbCache[path] = url;
+    return url;
+  }).catch(function(){ return null; });
+}
+function pendingTotal(){
+  return Object.keys(S.newFiles).length + S.delFiles.length + (S.dirty ? 1 : 0);
+}
+
+/* ═══════════ защита от потери изменений ═══════════ */
+window.addEventListener('beforeunload', function(e){
+  if (pendingTotal() > 0){ e.preventDefault(); e.returnValue = ''; }
+});
+
+/* ═══════════ шифрование токена (WebCrypto) ═══════════ */
+var TOK_KEY = 'ds-admin-tok';
+function deriveKey(pass, salt){
+  return crypto.subtle.importKey('raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveKey'])
+    .then(function(base){
+      return crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: salt, iterations: 150000, hash: 'SHA-256' },
+        base, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
+    });
+}
+function bufToB64(buf){
+  var bytes = new Uint8Array(buf), bin = '';
+  for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin);
+}
+function b64ToBuf(b64){
+  var bin = atob(b64), bytes = new Uint8Array(bin.length);
+  for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return bytes;
+}
+function saveTokenEncrypted(token, pass){
+  var salt = crypto.getRandomValues(new Uint8Array(16));
+  var iv = crypto.getRandomValues(new Uint8Array(12));
+  return deriveKey(pass, salt).then(function(key){
+    return crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, new TextEncoder().encode(token));
+  }).then(function(ct){
+    localStorage.setItem(TOK_KEY, JSON.stringify({ s: bufToB64(salt), i: bufToB64(iv), c: bufToB64(ct) }));
+  });
+}
+function loadTokenEncrypted(pass){
+  var blob = JSON.parse(localStorage.getItem(TOK_KEY));
+  return deriveKey(pass, b64ToBuf(blob.s)).then(function(key){
+    return crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(blob.i) }, key, b64ToBuf(blob.c));
+  }).then(function(pt){ return new TextDecoder().decode(pt); });
+}
+function hasStoredToken(){
+  try { return !!localStorage.getItem(TOK_KEY); } catch(e){ return false; }
+}
+
+/* ═══════════ GitHub API ═══════════ */
+function api(path, opts){
+  opts = opts || {};
+  opts.headers = Object.assign({
+    'Authorization': 'Bearer ' + S.token,
+    'Accept': 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28'
+  }, opts.headers || {});
+  return fetch('https://api.github.com/repos/' + S.owner + '/' + S.repo + '/' + path, opts)
+    .then(function(r){
+      if (r.status === 404) return { __404: true };
+      if (!r.ok) return r.json().catch(function(){ return {}; }).then(function(b){
+        throw new Error('GitHub ' + r.status + (b.message ? ': ' + b.message : ''));
+      });
+      return r.json();
+    });
+}
+function getFile(path){
+  return api('contents/' + encodePath(path) + '?ref=' + S.branch);
+}
+function putFile(path, base64, message, sha){
+  var body = { message: message, content: base64, branch: S.branch };
+  if (sha) body.sha = sha;
+  return api('contents/' + encodePath(path), { method: 'PUT', body: JSON.stringify(body) });
+}
+function deleteFile(path, message){
+  return getFile(path).then(function(f){
+    if (f.__404) return { skipped: true };
+    return api('contents/' + encodePath(path), {
+      method: 'DELETE',
+      body: JSON.stringify({ message: message, sha: f.sha, branch: S.branch })
+    });
+  });
+}
+function listRoot(){
+  return api('contents');
+}
+
+/* ═══════════ вход ═══════════ */
+try {
+  var saved = JSON.parse(localStorage.getItem('ds-admin') || '{}');
+  if (saved.owner) $('fOwner').value = saved.owner;
+  if (saved.repo) $('fRepo').value = saved.repo;
+  if (saved.branch) $('fBranch').value = saved.branch;
+} catch(e){}
+
+function refreshAuthUI(){
+  var stored = hasStoredToken();
+  $('tokenRow').style.display = stored ? 'none' : 'grid';
+  $('passRow').style.display = stored ? 'grid' : 'none';
+}
+refreshAuthUI();
+
+$('btnForget').addEventListener('click', function(){
+  try { localStorage.removeItem(TOK_KEY); } catch(e){}
+  refreshAuthUI();
+  setConn('Сохранённый токен удалён — введи новый.', '');
+});
+
+$('btnConnect').addEventListener('click', function(){
+  S.owner = $('fOwner').value.trim();
+  S.repo = $('fRepo').value.trim();
+  S.branch = $('fBranch').value.trim() || 'main';
+  if (!S.owner || !S.repo) return setConn('Заполни владельца и репозиторий.', 'err');
+  try { localStorage.setItem('ds-admin', JSON.stringify({ owner: S.owner, repo: S.repo, branch: S.branch })); } catch(e){}
+
+  var auth;
+  if (hasStoredToken()){
+    var pass = $('fPassOnly').value;
+    if (!pass) return setConn('Введи пароль.', 'err');
+    setConn('Расшифровываю токен…');
+    auth = loadTokenEncrypted(pass).catch(function(){ throw new Error('Пароль не подошёл.'); });
+  } else {
+    var tok = $('fToken').value.trim();
+    if (!tok) return setConn('Введи токен GitHub.', 'err');
+    var newPass = $('fPass').value;
+    auth = (newPass ? saveTokenEncrypted(tok, newPass) : Promise.resolve()).then(function(){ return tok; });
+  }
+
+  auth.then(function(tok){
+    S.token = tok;
+    setConn('Подключаюсь…');
+    return loadCollection();
+  }).then(function(){
+    setConn('Подключено: ' + S.paintings.length + ' работ в коллекции.', 'ok');
+    $('panel').style.display = 'block';
+    refreshAuthUI();
+  }).catch(function(err){ setConn(err.message, 'err'); });
+});
+
+function setConn(msg, cls){
+  var el = $('connStatus');
+  el.textContent = msg;
+  el.className = 'status-line' + (cls ? ' ' + cls : '');
+}
+
+function loadCollection(){
+  return getFile(S.jsonPath).then(function(f){
+    if (f.__404) throw new Error('Файл ' + S.jsonPath + ' не найден — сначала закоммить его вместе с новым index.html.');
+    S.sha = f.sha;
+    var data = JSON.parse(b64decodeUtf8(f.content));
+    S.paintings = data.paintings || [];
+    S.orig = JSON.parse(JSON.stringify(S.paintings));
+    /* Раньше показ на Fine Art Prints определялся просто наличием shopifyHandle,
+       из-за чего картина могла попасть и в Originals, и в Prints одновременно.
+       Теперь за это отвечает явное поле listing — один раз доставляем его старым
+       записям, у которых уже был задан товар, чтобы они не выпали из Prints. */
+    var migrated = false;
+    S.paintings.forEach(function(p){
+      if (p.shopifyHandle && !p.listing){ p.listing = 'print'; migrated = true; }
+    });
+    delete data.paintings;
+    S.meta = data;
+    S.newFiles = {}; S.delFiles = []; S.dirty = migrated;
+    render();
+  });
+}
+
+/* ═══════════ статистика + фильтры ═══════════ */
+var FILTERS = [
+  { id: 'all',       label: 'Все',       test: function(){ return true; } },
+  { id: 'featured',  label: 'Featured',  test: function(p){ return !!p.featured; } },
+  { id: 'hero',      label: 'Шапка',     test: function(p){ return !!p.hero; } },
+  { id: 'prints',    label: 'Prints',    test: function(p){ return p.listing === 'print'; } },
+  { id: 'available', label: 'Available', test: function(p){ return /^Available/.test(p.status || ''); } },
+  { id: 'private',   label: 'Private',   test: function(p){ return (p.status || '') === 'Private Collection'; } },
+  { id: 'sold',      label: 'Sold',      test: function(p){ return (p.status || '') === 'Sold'; } },
+  { id: 'photos',    label: 'Доп. фото', test: function(p){ return p.photos && p.photos.length > 1; } }
+];
+function renderStats(){
+  var bar = $('statbar');
+  bar.innerHTML = '';
+  FILTERS.forEach(function(f){
+    var n = S.paintings.filter(f.test).length;
+    var chip = document.createElement('button');
+    chip.className = 'chip' + (S.filter === f.id ? ' active' : '');
+    chip.innerHTML = f.label + '<b>' + n + '</b>';
+    chip.addEventListener('click', function(){
+      S.filter = f.id;
+      render();
+    });
+    bar.appendChild(chip);
+  });
+  var sb = document.createElement('div');
+  sb.className = 'searchbox';
+  sb.innerHTML = '<input type="text" id="fSearch" placeholder="Поиск по названию…" value="' + esc(S.search) + '">';
+  bar.appendChild(sb);
+  var inp = sb.querySelector('input');
+  inp.addEventListener('input', function(){
+    S.search = inp.value;
+    renderRows();
+  });
+}
+
+/* ═══════════ отрисовка списка ═══════════ */
+function render(){ renderStats(); renderRows(); updatePending(); }
+
+function visibleIdx(){
+  var f = FILTERS.filter(function(x){ return x.id === S.filter; })[0] || FILTERS[0];
+  var q = S.search.trim().toLowerCase();
+  var out = [];
+  S.paintings.forEach(function(p, i){
+    if (!f.test(p)) return;
+    if (q && p.title.toLowerCase().indexOf(q) === -1) return;
+    out.push(i);
+  });
+  return out;
+}
+
+function renderRows(){
+  var host = $('rows');
+  host.innerHTML = '';
+  var canReorder = S.filter === 'all' && !S.search.trim();
+  var idxs = visibleIdx();
+  if (!idxs.length){
+    host.innerHTML = '<p class="hint">Ничего не найдено — смени фильтр или запрос.</p>';
+    return;
+  }
+  idxs.forEach(function(i){
+    var p = S.paintings[i];
+    var row = document.createElement('div');
+    row.className = 'row' + (S.newFiles[p.src] ? ' is-new' : '');
+    row.innerHTML =
+      '<img loading="lazy" alt="" src="' + thumbSrc(p) + '">' +
+      '<div class="row-main">' +
+        '<div class="row-title">' +
+          '<span class="row-num">' + String(i + 1).padStart(2, '0') + '</span>' +
+          '<input type="text" data-k="title" value="' + esc(p.title) + '">' +
+          (p.photos && p.photos.length > 1 ? '<span class="badge-photos">' + p.photos.length + ' фото</span>' : '') +
+          (p.listing === 'print' ? '<span class="badge-prints" data-el="printsBadge">Prints</span>' : '') +
+        '</div>' +
+        '<div class="row-ctrls">' +
+          '<span class="palette-strip"></span>' +
+          '<button class="icon-btn" data-act="repal" title="Пересобрать палитру с фото">↻</button>' +
+          '<label class="chk"><input type="checkbox" data-k="featured"' + (p.featured ? ' checked' : '') + '> Featured</label>' +
+          '<input type="number" data-k="featuredN" min="1" max="9" value="' + (p.featured || '') + '" style="display:' + (p.featured ? 'inline-block' : 'none') + '">' +
+          '<label class="chk"><input type="checkbox" data-k="hero"' + (p.hero ? ' checked' : '') + '> Шапка</label>' +
+          '<input type="number" data-k="heroN" min="1" max="3" value="' + (p.hero || '') + '" style="display:' + (p.hero ? 'inline-block' : 'none') + '">' +
+          '<label class="chk"><input type="radio" name="listing-' + i + '" data-k="listingOriginal"' + (p.listing !== 'print' ? ' checked' : '') + '> Original</label>' +
+          '<label class="chk chk--print"><input type="radio" name="listing-' + i + '" data-k="listingPrint"' + (p.listing === 'print' ? ' checked' : '') + '> Fine Art Print</label>' +
+          '<select data-k="status" style="display:' + (p.listing !== 'print' ? 'inline-block' : 'none') + '">' +
+            ['','Available','Available by Inquiry','Private Collection','Sold'].map(function(s){
+              return '<option value="' + s + '"' + ((p.status || '') === s ? ' selected' : '') + '>' + (s || 'статус…') + '</option>';
+            }).join('') +
+          '</select>' +
+          '<input type="text" data-k="shopifyHandle" value="' + esc(p.shopifyHandle || '') + '" placeholder="handle товара в Shopify">' +
+          '<button class="icon-btn' + (p.description ? ' has-content' : '') + '" data-act="desc" title="Описание для страницы картины">✎</button>' +
+        '</div>' +
+        '<div class="row-desc">' +
+          '<div><label>Описание (для страницы картины)</label><textarea data-k="description" placeholder="Расскажи об этой картине…">' + esc(p.description || '') + '</textarea></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="row-side">' +
+        '<button class="icon-btn" data-act="up" title="Выше"' + (canReorder ? '' : ' disabled title="Сбрось фильтр и поиск"') + '>↑</button>' +
+        '<button class="icon-btn" data-act="down" title="Ниже"' + (canReorder ? '' : ' disabled') + '>↓</button>' +
+        '<button class="icon-btn icon-btn--del" data-act="del" title="Удалить">✕</button>' +
+      '</div>';
+
+    var strip = row.querySelector('.palette-strip');
+    (p.palette || []).forEach(function(c){
+      var d = document.createElement('span');
+      d.className = 'daub'; d.style.background = c;
+      strip.appendChild(d);
+    });
+
+    row.querySelector('[data-k=title]').addEventListener('change', function(e){
+      p.title = e.target.value.trim(); markDirty(row);
+    });
+    row.querySelector('[data-k=featured]').addEventListener('change', function(e){
+      if (e.target.checked){ p.featured = nextOrder('featured'); }
+      else { delete p.featured; }
+      markDirty(); render();
+    });
+    row.querySelector('[data-k=featuredN]').addEventListener('change', function(e){
+      p.featured = parseInt(e.target.value, 10) || 1; markDirty(row);
+    });
+    row.querySelector('[data-k=hero]').addEventListener('change', function(e){
+      if (e.target.checked){ p.hero = nextOrder('hero'); }
+      else delete p.hero;
+      markDirty(); render();
+    });
+    row.querySelector('[data-k=heroN]').addEventListener('change', function(e){
+      p.hero = parseInt(e.target.value, 10) || 1; markDirty(row);
+    });
+    row.querySelector('[data-k=status]').addEventListener('change', function(e){
+      if (e.target.value) p.status = e.target.value; else delete p.status;
+      markDirty(row); renderStats();
+    });
+    function syncListingUI(){
+      row.querySelector('[data-act=desc]').classList.toggle('has-content', !!p.description);
+      row.querySelector('[data-k=listingOriginal]').checked = (p.listing !== 'print');
+      row.querySelector('[data-k=listingPrint]').checked = (p.listing === 'print');
+      row.querySelector('[data-k=status]').style.display = (p.listing !== 'print') ? 'inline-block' : 'none';
+      var existingBadge = row.querySelector('[data-el=printsBadge]');
+      if (p.listing === 'print' && !existingBadge){
+        var b = document.createElement('span');
+        b.className = 'badge-prints';
+        b.setAttribute('data-el', 'printsBadge');
+        b.textContent = 'Prints';
+        row.querySelector('.row-title').appendChild(b);
+      } else if (p.listing !== 'print' && existingBadge){
+        existingBadge.remove();
+      }
+    }
+    row.querySelector('[data-k=listingOriginal]').addEventListener('change', function(e){
+      if (e.target.checked) delete p.listing;
+      syncListingUI();
+      markDirty(row);
+    });
+    row.querySelector('[data-k=listingPrint]').addEventListener('change', function(e){
+      if (e.target.checked){
+        p.listing = 'print';
+        row.querySelector('[data-k=shopifyHandle]').focus();
+      }
+      syncListingUI();
+      markDirty(row);
+    });
+    row.querySelector('[data-act=desc]').addEventListener('click', function(e){
+      row.querySelector('.row-desc').classList.toggle('open');
+    });
+    row.querySelector('[data-k=description]').addEventListener('change', function(e){
+      var v = e.target.value.trim();
+      if (v) p.description = v; else delete p.description;
+      syncListingUI();
+      markDirty(row);
+    });
+    row.querySelector('[data-k=shopifyHandle]').addEventListener('change', function(e){
+      var v = e.target.value.trim();
+      if (v) p.shopifyHandle = v; else delete p.shopifyHandle;
+      markDirty(row);
+    });
+    var rowImg = row.querySelector('img');
+    if (!S.newFiles[p.src]){
+      rowImg.addEventListener('error', function onErr(){
+        rowImg.removeEventListener('error', onErr);
+        authFetchThumb(p.src).then(function(url){ if (url) rowImg.src = url; });
+      });
+    }
+
+    row.querySelector('[data-act=up]').addEventListener('click', function(){ move(i, -1); });
+    row.querySelector('[data-act=down]').addEventListener('click', function(){ move(i, 1); });
+    row.querySelector('[data-act=del]').addEventListener('click', function(){ removePainting(i); });
+    row.querySelector('[data-act=repal]').addEventListener('click', function(){ rebuildPalette(p, row); });
+
+    host.appendChild(row);
+  });
+}
+
+function nextOrder(key){
+  var used = S.paintings.map(function(p){ return p[key] || 0; }).filter(Boolean);
+  var n = 1;
+  while (used.indexOf(n) !== -1) n++;
+  return n;
+}
+function markDirty(row){
+  S.dirty = true;
+  if (row) row.classList.add('is-dirty');
+  updatePending();
+}
+function move(i, dir){
+  var j = i + dir;
+  if (j < 0 || j >= S.paintings.length) return;
+  var t = S.paintings[i]; S.paintings[i] = S.paintings[j]; S.paintings[j] = t;
+  markDirty(); render();
+}
+function removePainting(i){
+  var p = S.paintings[i];
+  if (!confirm('Убрать «' + p.title + '» из коллекции?')) return;
+  var files = [p.src].concat((p.photos || []).map(function(ph){ return ph.src; }));
+  files = files.filter(function(v, k, a){ return a.indexOf(v) === k; });
+  if (S.newFiles[p.src]){
+    files.forEach(function(f){ delete S.newFiles[f]; });
+  } else if (confirm('Также удалить файл(ы) изображения из репозитория?\n' + files.join('\n'))){
+    S.delFiles = S.delFiles.concat(files);
+  }
+  S.paintings.splice(i, 1);
+  markDirty(); render();
+}
+function updatePending(){
+  var n = pendingTotal();
+  $('btnPublish').disabled = n === 0;
+  $('pendingCount').style.display = n ? 'inline-block' : 'none';
+  $('pendingCount').textContent = n;
+}
+
+/* ═══════════ палитра с изображения ═══════════ */
+function extractPalette(img){
+  var c = document.createElement('canvas'), size = 96;
+  var k = Math.min(size / img.naturalWidth, size / img.naturalHeight, 1);
+  c.width = Math.max(1, Math.round(img.naturalWidth * k));
+  c.height = Math.max(1, Math.round(img.naturalHeight * k));
+  var ctx = c.getContext('2d');
+  ctx.drawImage(img, 0, 0, c.width, c.height);
+  var d = ctx.getImageData(0, 0, c.width, c.height).data, buckets = {};
+  for (var i = 0; i < d.length; i += 4){
+    if (d[i + 3] < 128) continue;
+    var key = (d[i] >> 4) + ',' + (d[i+1] >> 4) + ',' + (d[i+2] >> 4);
+    var b = buckets[key] || (buckets[key] = [0, 0, 0, 0]);
+    b[0] += d[i]; b[1] += d[i+1]; b[2] += d[i+2]; b[3]++;
+  }
+  var cands = Object.keys(buckets).map(function(k2){
+    var b = buckets[k2];
+    return { n: b[3], hex: '#' + [b[0], b[1], b[2]].map(function(v){
+      return Math.round(v / b[3]).toString(16).padStart(2, '0');
+    }).join('').toUpperCase() };
+  }).sort(function(a, b){ return b.n - a.n; });
+  var out = [];
+  cands.forEach(function(cd){
+    if (out.length >= 5) return;
+    var close = out.some(function(h){
+      var a = parseInt(h.slice(1), 16), b = parseInt(cd.hex.slice(1), 16);
+      var dr = ((a>>16)&255)-((b>>16)&255), dg = ((a>>8)&255)-((b>>8)&255), db = (a&255)-(b&255);
+      return Math.sqrt(dr*dr + dg*dg + db*db) < 56;
+    });
+    if (!close) out.push(cd.hex);
+  });
+  return out.sort(function(a, b){ return luminance(a) - luminance(b); });
+}
+function paintStrip(host, colors){
+  host.innerHTML = '';
+  colors.forEach(function(c){
+    var d = document.createElement('span');
+    d.className = 'daub'; d.style.background = c;
+    host.appendChild(d);
+  });
+}
+function applyRebuiltPalette(p, row, img){
+  p.palette = extractPalette(img);
+  paintStrip(row.querySelector('.palette-strip'), p.palette);
+  markDirty(row);
+}
+function rebuildPalette(p, row){
+  var img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = function(){ applyRebuiltPalette(p, row, img); };
+  img.onerror = function(){
+    if (S.newFiles[p.src]){ alert('Не удалось загрузить изображение для анализа.'); return; }
+    authFetchThumb(p.src).then(function(url){
+      if (!url){ alert('Не удалось загрузить изображение для анализа.'); return; }
+      var img2 = new Image();
+      img2.onload = function(){ applyRebuiltPalette(p, row, img2); };
+      img2.onerror = function(){ alert('Не удалось загрузить изображение для анализа.'); };
+      img2.src = url;
+    });
+  };
+  img.src = thumbSrc(p) + (S.newFiles[p.src] ? '' : '?v=' + Date.now());
+}
+
+/* ═══════════ служебные фото: фиксированные пути ═══════════ */
+var FIXED_PHOTOS = {
+  studio: { path: 'images/studio/studio.jpg', img: 'imgStudio', hint: 'hintStudio', drop: 'dropStudio', file: 'fileStudio' },
+  artist: { path: 'images/artist/diana-portrait.jpg', img: 'imgArtist', hint: 'hintArtist', drop: 'dropArtist', file: 'fileArtist' }
+};
+function initFixedPhoto(key){
+  var cfg = FIXED_PHOTOS[key];
+  var preview = function(url){
+    $(cfg.img).src = url; $(cfg.img).style.display = 'block'; $(cfg.hint).style.display = 'none';
+  };
+  var img = new Image();
+  img.onload = function(){ preview(img.src); };
+  img.onerror = function(){
+    /* могло не загрузиться из-за приватного репозитория — проверяем через API,
+       прежде чем решить, что файла действительно ещё нет */
+    authFetchThumb(cfg.path).then(function(url){ if (url) preview(url); });
+  };
+  img.src = rawUrl(cfg.path) + '?v=' + Date.now();
+
+  $(cfg.drop).addEventListener('click', function(){ $(cfg.file).click(); });
+  $(cfg.drop).addEventListener('dragover', function(e){ e.preventDefault(); e.stopPropagation(); });
+  $(cfg.drop).addEventListener('drop', function(e){
+    e.preventDefault(); e.stopPropagation();
+    if (e.dataTransfer.files[0]) setFixedPhoto(key, e.dataTransfer.files[0]);
+  });
+  $(cfg.file).addEventListener('change', function(e){
+    if (e.target.files[0]) setFixedPhoto(key, e.target.files[0]);
+  });
+}
+function setFixedPhoto(key, file){
+  var cfg = FIXED_PHOTOS[key];
+  return readImage(file).then(function(r){
+    S.newFiles[cfg.path] = r.b64;
+    $(cfg.img).src = r.img.src; $(cfg.img).style.display = 'block'; $(cfg.hint).style.display = 'none';
+    markDirty();
+  });
+}
+initFixedPhoto('studio');
+initFixedPhoto('artist');
+
+/* ═══════════ соцсети: свободное хранилище ═══════════ */
+function slugFilename(name){
+  var m = /^(.*?)(\.[a-z0-9]+)?$/i.exec(name);
+  return slugify(m[1]) + (m[2] ? m[2].toLowerCase().replace('.jpeg', '.jpg') : '.jpg');
+}
+function renderSocialList(){
+  var host = $('socialList');
+  host.innerHTML = '';
+  Object.keys(S.newFiles).filter(function(p){ return p.indexOf('images/social/') === 0; }).forEach(function(path){
+    var row = document.createElement('div');
+    row.className = 'extra-photo';
+    row.innerHTML = '<span>' + esc(basename(path)) + '</span><button class="icon-btn icon-btn--del" title="Убрать из очереди">✕</button>';
+    row.querySelector('button').addEventListener('click', function(){
+      delete S.newFiles[path]; markDirty(); renderSocialList(); updatePending();
+    });
+    host.appendChild(row);
+  });
+}
+$('dropSocial').addEventListener('click', function(){ $('fileSocial').click(); });
+$('dropSocial').addEventListener('dragover', function(e){ e.preventDefault(); e.stopPropagation(); });
+$('dropSocial').addEventListener('drop', function(e){
+  e.preventDefault(); e.stopPropagation();
+  if (e.dataTransfer.files.length){
+    Array.prototype.forEach.call(e.dataTransfer.files, function(file){
+      readImage(file).then(function(r){
+        var path = 'images/social/' + slugFilename(file.name);
+        S.newFiles[path] = r.b64;
+        markDirty(); renderSocialList();
+      });
+    });
+  }
+});
+$('fileSocial').addEventListener('change', function(e){
+  Array.prototype.forEach.call(e.target.files, function(file){
+    readImage(file).then(function(r){
+      var path = 'images/social/' + slugFilename(file.name);
+      S.newFiles[path] = r.b64;
+      markDirty(); renderSocialList();
+    });
+  });
+  e.target.value = '';
+});
+
+/* ═══════════ уборка: файлы в корне репозитория ═══════════ */
+var IMG_EXT = /\.(jpe?g|png|webp|gif|svg)$/i;
+$('btnScanRoot').addEventListener('click', function(){
+  var st = $('cleanupStatus'); st.textContent = 'Проверяю…'; st.className = 'status-line';
+  listRoot().then(function(items){
+    if (!Array.isArray(items)){ st.textContent = 'Корень пуст или недоступен.'; return; }
+    var images = items.filter(function(it){ return it.type === 'file' && IMG_EXT.test(it.name); });
+    st.textContent = images.length ? (images.length + ' файлов найдено.') : 'В корне нет изображений — уборка не нужна.';
+    st.className = 'status-line ok';
+    renderCleanupList(images);
+  }).catch(function(err){ st.textContent = err.message; st.className = 'status-line err'; });
+});
+function renderCleanupList(images){
+  var host = $('cleanupList');
+  host.innerHTML = '';
+  if (!images.length) return;
+  var moveTargets = { 'diana-portrait.jpg': 'images/artist/diana-portrait.jpg', 'studio.jpg': 'images/studio/studio.jpg' };
+  images.forEach(function(it){
+    var row = document.createElement('div');
+    row.className = 'extra-photo';
+    if (moveTargets[it.name]){
+      row.innerHTML = '<span>' + esc(it.name) + ' <i class="hint">— служебное фото</i></span>' +
+        '<button class="btn btn--ghost" data-act="move" style="padding:.3rem .8rem">→ переместить в ' + moveTargets[it.name] + '</button>';
+      row.querySelector('[data-act=move]').addEventListener('click', function(ev){
+        var btn = ev.target;
+        btn.disabled = true; btn.textContent = 'Переношу…';
+        getFile(it.path).then(function(f){
+          return putFile(moveTargets[it.name], f.content, 'Move ' + it.name + ' into folder structure')
+            .then(function(){ return deleteFile(it.path, 'Remove legacy root file: ' + it.name); });
+        }).then(function(){
+          row.innerHTML = '<span class="diff-add">✓ ' + esc(it.name) + ' перенесён</span>';
+        }).catch(function(err){ alert('Не удалось перенести: ' + err.message); btn.disabled = false; btn.textContent = '→ переместить в ' + moveTargets[it.name]; });
+      });
+    } else {
+      row.innerHTML = '<label class="chk"><input type="checkbox" checked data-path="' + esc(it.path) + '"> ' + esc(it.name) + '</label>';
+    }
+    host.appendChild(row);
+  });
+  if (images.some(function(it){ return !moveTargets[it.name]; })){
+    var btnRow = document.createElement('div');
+    btnRow.style.marginTop = '.8rem';
+    btnRow.innerHTML = '<button class="btn btn--rose" id="btnDeleteRoot">Удалить отмеченные из репозитория</button>';
+    host.appendChild(btnRow);
+    $('btnDeleteRoot').addEventListener('click', function(){
+      var checked = Array.prototype.slice.call(host.querySelectorAll('input[type=checkbox]:checked'));
+      if (!checked.length) return;
+      if (!confirm('Удалить ' + checked.length + ' файл(ов) безвозвратно из репозитория?')) return;
+      this.disabled = true; this.textContent = 'Удаляю…';
+      var chain = Promise.resolve();
+      checked.forEach(function(cb){
+        chain = chain.then(function(){ return deleteFile(cb.dataset.path, 'Remove legacy root image'); });
+      });
+      chain.then(function(){ $('btnScanRoot').click(); })
+        .catch(function(err){ alert('Ошибка удаления: ' + err.message); });
+    });
+  }
+}
+
+/* ═══════════ добавление: форма + drag & drop ═══════════ */
+var addState = null;
+
+function openAddForm(){
+  addState = { main: null, extras: [] };
+  $('addCard').classList.add('open');
+  var dz = $('dropMain');
+  dz.innerHTML = '<span id="dropHint">Перетащи фото сюда<br>или нажми</span>';
+  $('addTitle').value = ''; $('addFilename').value = '';
+  $('addDescription').value = ''; $('addShopify').value = '';
+  $('addListingOriginal').checked = true; $('addListingPrint').checked = false;
+  $('addStatusSelect').value = ''; $('addStatusWrap').style.display = 'block';
+  $('addDims').textContent = ''; $('addStatus').textContent = '';
+  $('addPalette').innerHTML = ''; $('addExtras').innerHTML = '';
+  $('addFile').value = ''; $('addExtraFile').value = '';
+  $('btnAddConfirm').disabled = true;
+}
+$('btnAdd').addEventListener('click', openAddForm);
+$('btnAddCancel').addEventListener('click', function(){ $('addCard').classList.remove('open'); });
+$('addListingOriginal').addEventListener('change', function(e){
+  if (e.target.checked) $('addStatusWrap').style.display = 'block';
+});
+$('addListingPrint').addEventListener('change', function(e){
+  if (e.target.checked){ $('addStatusWrap').style.display = 'none'; $('addShopify').focus(); }
+});
+
+/* GitHub's Contents API (used for every upload) rejects files much over ~1MB,
+   and phone photos routinely come in at 3-10MB — so every image is downscaled
+   and re-compressed to JPEG on a canvas before it's queued for upload. */
+var UPLOAD_MAX_DIM = 2400;      // px, longest side
+var UPLOAD_MAX_BYTES = 900000;  // decoded bytes, safely under the API's ~1MB cap
+function compressImage(img, maxDim, maxBytes){
+  var scale = Math.min(1, maxDim / Math.max(img.naturalWidth, img.naturalHeight));
+  var quality = 0.88, dataUrl, w, h, canvas, ctx;
+  for (var attempt = 0; attempt < 8; attempt++){
+    w = Math.max(1, Math.round(img.naturalWidth * scale));
+    h = Math.max(1, Math.round(img.naturalHeight * scale));
+    canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, w, h);
+    dataUrl = canvas.toDataURL('image/jpeg', quality);
+    if (dataUrl.length * 0.75 <= maxBytes) break;
+    if (quality > 0.5) quality -= 0.12; else scale *= 0.82;
+  }
+  return { b64: dataUrl.split(',')[1], w: w, h: h };
+}
+function readImage(file){
+  return new Promise(function(res, rej){
+    var fr = new FileReader();
+    fr.onerror = rej;
+    fr.onload = function(){
+      var img = new Image();
+      img.onload = function(){
+        var c = compressImage(img, UPLOAD_MAX_DIM, UPLOAD_MAX_BYTES);
+        res({ b64: c.b64, img: img, w: c.w, h: c.h, ext: 'jpg' });
+      };
+      img.onerror = rej;
+      img.src = fr.result;
+    };
+    fr.readAsDataURL(file);
+  });
+}
+
+function setMainPhoto(file){
+  return readImage(file).then(function(r){
+    addState.main = { b64: r.b64, w: r.w, h: r.h,
+                      palette: extractPalette(r.img), ext: r.ext };
+    var dz = $('dropMain');
+    dz.innerHTML = '';
+    var im = document.createElement('img');
+    im.src = r.img.src;
+    dz.appendChild(im);
+    $('addDims').textContent = '· ' + r.w + ' × ' + r.h;
+    paintStrip($('addPalette'), addState.main.palette);
+    if (!$('addTitle').value) $('addTitle').value = file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+    syncFilename();
+    $('btnAddConfirm').disabled = false;
+  }).catch(function(){ $('addStatus').textContent = 'Не удалось прочитать файл.'; });
+}
+function addExtraPhoto(file){
+  return readImage(file).then(function(r){
+    var idx = addState.extras.length;
+    addState.extras.push({ b64: r.b64, ext: r.ext, label: 'In the interior' });
+    var line = document.createElement('div');
+    line.className = 'extra-photo';
+    line.innerHTML = '<span>доп. фото ' + (idx + 1) + '</span>' +
+      '<input type="text" value="In the interior" placeholder="Подпись (EN)">' +
+      '<button class="icon-btn icon-btn--del" title="Убрать">✕</button>';
+    line.querySelector('input').addEventListener('input', function(ev){
+      addState.extras[idx].label = ev.target.value;
+    });
+    line.querySelector('button').addEventListener('click', function(){
+      addState.extras[idx] = null; line.remove();
+    });
+    $('addExtras').appendChild(line);
+  });
+}
+function takeFiles(fileList){
+  var files = Array.prototype.filter.call(fileList, function(f){ return /^image\//.test(f.type); });
+  if (!files.length) return;
+  if (!$('addCard').classList.contains('open')) openAddForm();
+  var chain = Promise.resolve();
+  files.forEach(function(f){
+    chain = chain.then(function(){
+      return (addState.main ? addExtraPhoto(f) : setMainPhoto(f));
+    });
+  });
+}
+
+$('dropMain').addEventListener('click', function(){ $('addFile').click(); });
+$('addFile').addEventListener('change', function(e){
+  if (e.target.files[0]) setMainPhoto(e.target.files[0]);
+});
+$('addExtraFile').addEventListener('change', function(e){
+  Array.prototype.forEach.call(e.target.files, addExtraPhoto);
+  e.target.value = '';
+});
+$('addTitle').addEventListener('input', syncFilename);
+function syncFilename(){
+  if (!addState || !addState.main) return;
+  $('addFilename').value = nextNumber() + '-' + slugify($('addTitle').value) + '.' + addState.main.ext;
+}
+/* глобальный drag & drop: бросил фото куда угодно — открылась форма */
+['dragover', 'drop'].forEach(function(ev){
+  document.addEventListener(ev, function(e){ e.preventDefault(); });
+});
+document.addEventListener('dragover', function(){
+  if ($('panel').style.display !== 'none') $('addCard').classList.add('dragover');
+});
+document.addEventListener('dragleave', function(e){
+  if (!e.relatedTarget) $('addCard').classList.remove('dragover');
+});
+document.addEventListener('drop', function(e){
+  $('addCard').classList.remove('dragover');
+  if ($('panel').style.display === 'none') return;
+  if (e.dataTransfer && e.dataTransfer.files.length) takeFiles(e.dataTransfer.files);
+});
+
+function sanitizeFilename(name){
+  name = name.replace(/^images\/paintings\//, '');
+  name = name.split(/[\/\\]/).pop() || '';   // drop any directory components (incl. ..)
+  name = name.replace(/[^a-zA-Z0-9._-]/g, '-');
+  return name;
+}
+$('btnAddConfirm').addEventListener('click', function(){
+  var title = $('addTitle').value.trim();
+  var base = sanitizeFilename($('addFilename').value.trim());
+  if (!title || !base || !addState.main){
+    return $('addStatus').textContent = 'Нужны фото, название и имя файла.';
+  }
+  var fname = PAINTINGS_DIR + base;
+  var taken = S.paintings.some(function(p){ return p.src === fname; }) || S.newFiles[fname];
+  if (taken) return $('addStatus').textContent = 'Файл с таким именем уже есть — поменяй имя.';
+
+  var p = { title: title, src: fname, w: addState.main.w, h: addState.main.h, palette: addState.main.palette };
+  var descVal = $('addDescription').value.trim();
+  var shopVal = $('addShopify').value.trim();
+  var statusVal = $('addStatusSelect').value;
+  if (descVal) p.description = descVal;
+  if ($('addListingPrint').checked) p.listing = 'print';
+  else if (statusVal) p.status = statusVal;
+  if (shopVal) p.shopifyHandle = shopVal;
+  S.newFiles[fname] = addState.main.b64;
+
+  var extras = addState.extras.filter(Boolean);
+  if (extras.length){
+    p.photos = [{ src: fname, label: 'Original' }];
+    var stem = base.replace(/\.[^.]+$/, '');
+    extras.forEach(function(x, n){
+      var xname = PAINTINGS_DIR + stem + '-alt' + (n + 1) + '.' + x.ext;
+      S.newFiles[xname] = x.b64;
+      p.photos.push({ src: xname, label: x.label || '' });
+    });
+  }
+  S.paintings.push(p);
+  markDirty();
+  $('addCard').classList.remove('open');
+  render();
+});
+
+/* ═══════════ предпросмотр сайта ═══════════ */
+$('btnPreview').addEventListener('click', function(){
+  var btn = $('btnPreview');
+  btn.disabled = true;
+  getFile('index.html').then(function(f){
+    if (f.__404) throw new Error('index.html не найден в репозитории.');
+    var html = b64decodeUtf8(f.content);
+
+    /* картины: для ещё не загруженных файлов подставляем data-URI прямо из памяти */
+    var pv = JSON.parse(JSON.stringify(S.paintings));
+    pv.forEach(function(p){
+      if (S.newFiles[p.src]) p.src = 'data:' + mimeOf(p.src) + ';base64,' + S.newFiles[p.src];
+      (p.photos || []).forEach(function(ph){
+        if (S.newFiles[ph.src]) ph.src = 'data:' + mimeOf(ph.src) + ';base64,' + S.newFiles[ph.src];
+      });
+    });
+    var payload = JSON.stringify({ paintings: pv }).replace(/<\//g, '<\\/');
+    var base = 'https://raw.githubusercontent.com/' + S.owner + '/' + S.repo + '/' + S.branch + '/';
+
+    /* служебные фото ещё не опубликованы — подставляем прямо из очереди */
+    if (S.newFiles['images/artist/diana-portrait.jpg']){
+      html = html.replace('src="images/artist/diana-portrait.jpg"',
+        'src="data:' + mimeOf('a.jpg') + ';base64,' + S.newFiles['images/artist/diana-portrait.jpg'] + '"');
+    }
+    if (S.newFiles['images/studio/studio.jpg']){
+      html = html.replace("p.src = 'images/studio/studio.jpg';",
+        "p.src = 'data:" + mimeOf('a.jpg') + ";base64," + S.newFiles['images/studio/studio.jpg'] + "';");
+    }
+
+    var ribbon = '<div style="position:fixed;bottom:14px;left:14px;z-index:999;background:#c8a96e;' +
+      'color:#0d0d0b;font:600 11px/1 -apple-system,sans-serif;letter-spacing:.14em;' +
+      'text-transform:uppercase;padding:7px 12px;border-radius:2px">Предпросмотр — не опубликовано</div>';
+
+    html = html.replace('<head>', '<head><base href="' + base + '">' +
+      '<script>window.__PREVIEW_DATA=' + payload + ';<\/script>');
+    html = html.replace('</body>', ribbon + '</body>');
+
+    var url = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+    var w = window.open(url, '_blank');
+    if (!w) alert('Браузер заблокировал вкладку предпросмотра — разреши всплывающие окна для этой страницы.');
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 60000);
+  }).catch(function(err){ alert('Предпросмотр: ' + err.message); })
+    .finally(function(){ btn.disabled = false; });
+});
+
+/* ═══════════ ревью изменений ═══════════ */
+function buildDiff(){
+  var bySrc = function(list){
+    var m = {}; list.forEach(function(p, i){ m[p.src] = { p: p, i: i }; }); return m;
+  };
+  var was = bySrc(S.orig), now = bySrc(S.paintings);
+  var added = [], removed = [], changed = [];
+
+  S.paintings.forEach(function(p, i){
+    var o = was[p.src];
+    if (!o){ added.push(p); return; }
+    var fields = [];
+    if (o.p.title !== p.title) fields.push('название');
+    if ((o.p.featured || 0) !== (p.featured || 0)) fields.push('featured');
+    if ((o.p.hero || 0) !== (p.hero || 0)) fields.push('шапка');
+    if ((o.p.status || '') !== (p.status || '')) fields.push('статус');
+    if ((o.p.description || '') !== (p.description || '')) fields.push('описание');
+    if ((o.p.shopifyHandle || '') !== (p.shopifyHandle || '')) fields.push('товар Shopify');
+    if ((o.p.listing || '') !== (p.listing || '')) fields.push('раздел (Original/Prints)');
+    if (JSON.stringify(o.p.palette) !== JSON.stringify(p.palette)) fields.push('палитра');
+    if (JSON.stringify(o.p.photos || null) !== JSON.stringify(p.photos || null)) fields.push('фото');
+    if (o.i !== i) fields.push('порядок');
+    if (fields.length) changed.push({ p: p, fields: fields });
+  });
+  S.orig.forEach(function(p){ if (!now[p.src]) removed.push(p); });
+  return { added: added, removed: removed, changed: changed };
+}
+
+$('btnPublish').addEventListener('click', function(){
+  var d = buildDiff();
+  var body = [];
+  var uploads = Object.keys(S.newFiles);
+  if (d.added.length){
+    body.push('<div class="diff-h">Новые картины</div>');
+    d.added.forEach(function(p){ body.push('<div class="diff-add">＋ ' + esc(p.title) + ' <span class="hint">(' + esc(p.src) + ')</span></div>'); });
+  }
+  if (d.changed.length){
+    body.push('<div class="diff-h">Изменения</div>');
+    d.changed.forEach(function(c){ body.push('<div class="diff-mod">± ' + esc(c.p.title) + ' <span class="hint">— ' + c.fields.join(', ') + '</span></div>'); });
+  }
+  if (d.removed.length){
+    body.push('<div class="diff-h">Убраны из коллекции</div>');
+    d.removed.forEach(function(p){ body.push('<div class="diff-del">− ' + esc(p.title) + '</div>'); });
+  }
+  if (uploads.length){
+    body.push('<div class="diff-h">Файлы к загрузке (' + uploads.length + ')</div>');
+    uploads.forEach(function(f){ body.push('<div class="diff-add hint">↑ ' + esc(f) + '</div>'); });
+  }
+  if (S.delFiles.length){
+    body.push('<div class="diff-h">Файлы к удалению (' + S.delFiles.length + ')</div>');
+    S.delFiles.forEach(function(f){ body.push('<div class="diff-del hint">🗑 ' + esc(f) + '</div>'); });
+  }
+  if (!body.length) body.push('<p class="hint">Изменений не обнаружено.</p>');
+  $('reviewBody').innerHTML = body.join('');
+  $('reviewVeil').classList.add('open');
+});
+$('btnReviewClose').addEventListener('click', function(){ $('reviewVeil').classList.remove('open'); });
+$('reviewVeil').addEventListener('click', function(e){ if (e.target === e.currentTarget) $('reviewVeil').classList.remove('open'); });
+
+/* ═══════════ публикация ═══════════ */
+function log(msg){
+  var el = $('log');
+  el.classList.add('open');
+  el.textContent += msg + '\n';
+  el.scrollTop = el.scrollHeight;
+}
+
+$('btnPublishGo').addEventListener('click', function(){
+  $('reviewVeil').classList.remove('open');
+  var btn = $('btnPublish');
+  btn.disabled = true;
+  $('log').textContent = ''; $('log').classList.add('open');
+  var chain = Promise.resolve();
+
+  Object.keys(S.newFiles).forEach(function(path){
+    chain = chain.then(function(){
+      log('Загружаю ' + path + '…');
+      return getFile(path).then(function(f){
+        return putFile(path, S.newFiles[path], 'Add artwork image: ' + path, f.__404 ? null : f.sha);
+      });
+    });
+  });
+
+  chain = chain.then(function(){
+    log('Обновляю ' + S.jsonPath + '…');
+    return getFile(S.jsonPath).then(function(f){
+      var data = Object.assign({}, S.meta, { paintings: S.paintings });
+      var body = b64encodeUtf8(JSON.stringify(data, null, 2) + '\n');
+      return putFile(S.jsonPath, body, 'Update collection via admin panel', f.__404 ? null : f.sha);
+    });
+  });
+
+  S.delFiles.forEach(function(path){
+    chain = chain.then(function(){
+      log('Удаляю ' + path + '…');
+      return deleteFile(path, 'Remove artwork image: ' + path);
+    });
+  });
+
+  chain.then(function(){
+    log('Готово. Сайт обновится в течение минуты.');
+    return loadCollection();
+  }).catch(function(err){
+    log('ОШИБКА: ' + err.message);
+    log('Очередь сохранена — исправь причину и нажми «Опубликовать» ещё раз.');
+    btn.disabled = false;
+  });
+});
+
+/* ═══════════ сервисные кнопки ═══════════ */
+$('btnReload').addEventListener('click', function(){
+  if (pendingTotal() > 0 && !confirm('Несохранённые изменения будут потеряны. Продолжить?')) return;
+  loadCollection().then(function(){ log('Коллекция перечитана с GitHub.'); });
+});
+$('btnBackup').addEventListener('click', function(){
+  var data = Object.assign({}, S.meta, { paintings: S.paintings });
+  var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'paintings-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+</script>
+</body>
+</html>
