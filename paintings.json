@@ -1,19 +1,4 @@
 {
   "_comment": "Коллекция сайта dianashirinova.com. Управляется через admin.html — руками лучше не править. featured: порядок в Featured Collection (1..6), hero: порядок в шапке (1..3), status: подпись на бейдже. description: текст под картиной в лайтбоксе. shopifyHandle: handle товара в Shopify (из /products/<handle>) — если задан, на сайте появляется кнопка Buy Print. Файлы картин лежат в images/paintings/.",
-  "paintings": [
-    {
-      "title": "Surf Cowboy",
-      "src": "images/paintings/01-surf-cowboy.jpg",
-      "w": 915,
-      "h": 1221,
-      "palette": [
-        "#471A08",
-        "#77452D",
-        "#84835D",
-        "#AAA585",
-        "#E8C5A4"
-      ],
-      "shopifyHandle": "the-coastal-rider-1"
-    }
-  ]
+  "paintings": []
 }
