@@ -120,6 +120,6 @@
   </aside>
 </div>
 <script src="assets/site.js?v=3" defer></script>
-<script>document.addEventListener('DOMContentLoaded', function(){ initPaintings(function(){ buildGallery(null, { showStatus: true, hidePrintAction: true }); }); });</script>
+<script>document.addEventListener('DOMContentLoaded', function(){ initPaintings(function(){ buildGallery(function(p){ return p.listing !== 'print'; }, { showStatus: true, hidePrintAction: true }); }); });</script>
 </body>
 </html>
