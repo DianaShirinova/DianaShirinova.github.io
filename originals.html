@@ -120,7 +120,7 @@
 </div>
 <script src="assets/site.js?v=3" defer></script>
 <script>document.addEventListener('DOMContentLoaded', function(){ initPaintings(function(){ buildGallery(function(p){ return p.listing !== 'print'; }, { showStatus: true, hidePrintAction: true, sortBy: function(a, b){
-  function rank(p){ var s = p.status || 'Available'; return (s === 'Sold' || s === 'Private Collection') ? 1 : 0; }
+  function rank(p){ var s = p.status || 'Private Collection'; return (s === 'Sold' || s === 'Private Collection') ? 1 : 0; }
   return rank(a) - rank(b);
 } }); }); });</script>
 </body>
