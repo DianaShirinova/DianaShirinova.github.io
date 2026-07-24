@@ -623,8 +623,12 @@ function buildGallery(predicate, opts){
   var grid = document.getElementById('galleryGrid');
   if (!grid) return;
   grid.innerHTML = '';
-  PAINTINGS.forEach(function(p, i){
-    if (GALLERY_FILTER && !GALLERY_FILTER(p)) return;
+  var idxs = PAINTINGS
+    .map(function(p, i){ return i; })
+    .filter(function(i){ return !GALLERY_FILTER || GALLERY_FILTER(PAINTINGS[i]); });
+  if (opts.sortBy) idxs.sort(function(a, b){ return opts.sortBy(PAINTINGS[a], PAINTINGS[b]); });
+  idxs.forEach(function(i){
+    var p = PAINTINGS[i];
     var card = document.createElement('div');
     card.className = 'gallery-card';
     card.setAttribute('role', 'button');
