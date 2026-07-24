@@ -308,8 +308,16 @@ function closeCartDrawer(){
   cartInit();
 })();
 
-function renderBuyButton(handle){
+function renderBuyButton(p){
   lbBuy.innerHTML = '';
+  if (p.status === 'Sold' || p.status === 'Private Collection'){
+    var tag = document.createElement('span');
+    tag.className = 'pill pill--' + p.status.toLowerCase().split(' ')[0] + ' buy-status-pill';
+    tag.textContent = p.status;
+    lbBuy.appendChild(tag);
+    return;
+  }
+  var handle = p.shopifyHandle;
   if (!handle || !SHOP_DOMAIN || !STOREFRONT_TOKEN) return;
   lbBuy.innerHTML = '<p class="buy-status">Loading&hellip;</p>';
   shopifyGraphQL(PRODUCT_QUERY, { handle: handle }).then(function(res){
@@ -410,7 +418,6 @@ var lbDesc = document.getElementById('lightbox-desc');
 var lbPal = document.getElementById('lightbox-palette');
 var lbThumbs = document.getElementById('lightbox-thumbs');
 var lbBuy = document.getElementById('lightbox-buy');
-var lbInquire = document.getElementById('lightbox-inquire');
 var lbClose = document.getElementById('lightbox-close');
 var lastFocused = null;
 
@@ -444,9 +451,7 @@ function updateLightboxPanel(idx){
   var p = PAINTINGS[idx];
   lbTitle.textContent = p.title;
   lbDesc.textContent = p.description || '';
-  renderBuyButton(p.shopifyHandle);
-  lbInquire.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Original Inquiry: ' + p.title) +
-    '&body=' + encodeURIComponent('Aloha Diana, I\'d love to know more about the original of "' + p.title + '".');
+  renderBuyButton(p);
 }
 
 function buildThumbs(idx){
