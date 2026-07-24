@@ -15,8 +15,7 @@
       ],
       "status": "Available",
       "shopifyHandle": "the-quiet-within-1",
-      "featured": 2,
-      "hero": 1,
+      "featured": 4,
       "description": "## The Quiet Within\n\nThere are moments when the world becomes unexpectedly quiet.\n\nNot because life has slowed, but because, for an instant, we stop resisting it. The noise fades into the background. The light feels softer. We remember that peace is not something we find—it is something we uncover.\n\n*The Quiet Within* is a reflection of that moment.\n\nInspired by the warmth of tropical light and the calm rhythm of nature, this painting is an invitation to pause. To breathe. To reconnect with the still place that exists beneath expectations, distractions, and constant movement.\n\nEvery viewer brings a different story to the canvas. This work does not ask for interpretation. It simply offers space—for reflection, for presence, and for silence.\n\nSometimes the most meaningful conversations happen without words.",
       "photos": [
         {
@@ -71,7 +70,8 @@
       ],
       "description": "Some beauty asks to be noticed.\nOther beauty simply exists—quietly, confidently, without seeking attention.\nIsland Bloom is a celebration of that quiet confidence.\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
       "status": "Available",
-      "shopifyHandle": "island-bloom"
+      "shopifyHandle": "island-bloom",
+      "hero": 5
     },
     {
       "title": "Island Waters",
@@ -86,7 +86,7 @@
         "#E3CAB5"
       ],
       "description": "Island Waters\nThe ocean speaks in quiet ways.\nIn the gentle movement of the tide, in the shifting light beneath the surface, and in the life it carries with effortless grace.\n\nIsland Waters is a celebration of that quiet rhythm. Inspired by the colors and simplicity of tropical coastal life, this painting reflects the peaceful connection between nature and the sea. The fish becomes more than a subject—it becomes a symbol of abundance, balance, and the enduring beauty found in the everyday.\n\nPainted with clean lines and a contemporary palette, the work captures the calm spirit of island living, where time slows, the horizon stretches endlessly, and the ocean is both a companion and a way of life.\n\nSometimes all we need is a reminder that life's greatest treasures have always been close to the water.",
-      "status": "Private Collection",
+      "status": "Sold",
       "hero": 2
     },
     {
@@ -102,7 +102,8 @@
         "#E9C5A4"
       ],
       "description": "Ride the Tide\nThe tide never stands still.\nIt rises, recedes, and returns again, reminding us that life is meant to move—not to be controlled, but embraced.\n\nRide the Tide is a reflection of that quiet confidence. The surfboard symbolizes adventure, while the wide-brimmed hat speaks to a life shaped by open skies, warm sun, and endless horizons. Together, they tell the story of someone who trusts the journey as much as the destination.\n\nInspired by the rhythm of the ocean and the ease of coastal living, this painting celebrates the courage to follow your own current. It invites us to welcome change with grace, find balance in uncertainty, and discover freedom in simply moving forward.\n\nSometimes the best direction is the one carried by the tide.",
-      "status": "Sold"
+      "status": "Sold",
+      "hero": 4
     },
     {
       "title": "Hibiscus Light",
@@ -117,7 +118,7 @@
         "#E9C487"
       ],
       "description": "Hibiscus Light\nLight has a way of changing everything it touches.\nIt softens the ordinary, reveals quiet beauty, and reminds us to see the world with gentleness.\n\nHibiscus Light is inspired by the warmth of tropical mornings, when blossoms open to the sun and every color feels alive. The hibiscus flowers surrounding the figure become more than a symbol of island life—they reflect grace, resilience, and the quiet confidence that grows from within.\n\nPainted with a contemporary simplicity and a calming palette, this work celebrates the beauty of presence. It is an invitation to slow down, embrace the light around us, and remember that our brightest moments often come from simply being ourselves.\n\nLike sunlight through petals, true beauty is never forced—it simply shines.",
-      "status": "Private Collection"
+      "status": "Sold"
     },
     {
       "title": "Chasing the Swell",
@@ -193,7 +194,7 @@
         "#CCCBC3"
       ],
       "description": "Breathe\nSometimes the most meaningful journeys happen without taking a single step.\nBreathe is an invitation to pause—to close your eyes, let the warmth settle on your skin, and remember that peace is often closer than we think.\nSurrounded by lush tropical leaves and a single white bloom, the figure rests in a moment of complete presence. There is no destination to reach, no expectation to meet—only the quiet rhythm of breath, light, and nature.\nInspired by the calm spirit of island life, this painting celebrates the beauty of slowing down. It reminds us that restoration is found in simple moments: the shade of broad leaves, the scent of flowers, and the silence that allows us to hear ourselves again.\nSometimes all we need is one deep breath to remember what truly matters.",
-      "status": "Private Collection"
+      "status": "Sold"
     },
     {
       "title": "Island Pause",
@@ -222,7 +223,8 @@
         "#868689",
         "#B9A695"
       ],
-      "description": "Moonlit Canopy\nThere is a quiet confidence that comes from knowing exactly who you are.\nMoonlit Canopy is a portrait of inner calm, framed by oversized tropical leaves and the gentle glow of the evening moon. The soft pink sky and lush greenery create a dreamlike space where nature becomes both shelter and companion.\nRather than seeking attention, the figure stands comfortably within the moment—grounded, peaceful, and unhurried. The textured garment echoes the rhythm of palm fronds and ocean breezes, while the subtle palette reflects the warmth of tropical evenings after the sun begins to fade.\nInspired by Hawaii's tranquil landscapes and slower pace of life, this painting celebrates the beauty of stillness and the quiet strength found in simply being present.\nA timeless reminder that serenity often grows where nature and the soul meet."
+      "description": "Moonlit Canopy\nThere is a quiet confidence that comes from knowing exactly who you are.\nMoonlit Canopy is a portrait of inner calm, framed by oversized tropical leaves and the gentle glow of the evening moon. The soft pink sky and lush greenery create a dreamlike space where nature becomes both shelter and companion.\nRather than seeking attention, the figure stands comfortably within the moment—grounded, peaceful, and unhurried. The textured garment echoes the rhythm of palm fronds and ocean breezes, while the subtle palette reflects the warmth of tropical evenings after the sun begins to fade.\nInspired by Hawaii's tranquil landscapes and slower pace of life, this painting celebrates the beauty of stillness and the quiet strength found in simply being present.\nA timeless reminder that serenity often grows where nature and the soul meet.",
+      "status": "Sold"
     },
     {
       "title": "Blooming Quiet",
@@ -237,7 +239,7 @@
         "#E4C8A8"
       ],
       "description": "Blooming Quiet\nSome of the most beautiful things never ask to be noticed.\nBlooming Quiet is a celebration of gentle strength and quiet presence. Against a warm earth-toned sky, delicate blossoms drift like soft memories, surrounding the figure with an atmosphere of calm and quiet wonder. There is no movement to chase—only the feeling of being completely at peace.\nThe flowing garment echoes the lightness of petals carried by a warm island breeze, while the rich, natural palette reflects the warmth of tropical evenings and sunlit earth. Every element invites the viewer to slow down and appreciate the beauty found in simplicity.\nInspired by Hawaii's effortless harmony between nature and everyday life, this painting reminds us that stillness is not empty—it is where grace quietly unfolds.\nA timeless expression of serenity, warmth, and the quiet beauty that surrounds us every day.",
-      "status": "Private Collection"
+      "status": "Sold"
     },
     {
       "title": "Surfside Serenity",
@@ -252,7 +254,7 @@
         "#B9A696"
       ],
       "description": "Surfside Serenity\nSome places stay with us long after we've left them.\nSurfside Serenity captures the quiet joy of island living, where the ocean is never far away and every day carries the promise of warm sun and gentle waves. A vintage surfboard rests behind the figure like a familiar companion, while flowing forms and soft tropical colors evoke the calm rhythm of life by the sea.\n\nThe composition is intentionally simple, allowing space for the feeling itself—the warmth of salt air, the glow of afternoon light, and the peaceful confidence that comes from living close to nature. The flowing garment mirrors the movement of the ocean, while the soft palette reflects the timeless beauty of Hawaii's coastline.\n\nInspired by slow mornings, endless summers, and the effortless elegance of coastal life, this painting invites the viewer to pause, breathe deeply, and carry a little of that island peace home.\n\nA celebration of sunshine, simplicity, and the enduring spirit of the ocean.",
-      "status": "Private Collection"
+      "status": "Sold"
     },
     {
       "title": "Island Mosaic",
@@ -267,7 +269,7 @@
         "#BAA796"
       ],
       "description": "Island Mosaic\nEvery island tells its story through simple things.\nIsland Mosaic brings together the symbols of tropical life into a playful, modern composition inspired by Hawaii's landscapes and traditions. Palm trees, rolling waves, tropical flowers, sea turtles, fish, pottery, fruit, sunshine, and hand-drawn motifs become a visual collection of memories—each square representing a small piece of island living.\nThe balanced geometric layout gives the artwork a timeless, mid-century feel while the soft coastal palette evokes warm afternoons, ocean breezes, and the relaxed rhythm of life by the sea. Every element stands on its own, yet together they create a harmonious celebration of nature, culture, and everyday beauty.\nRather than depicting a single place or moment, Island Mosaic captures the feeling of an island itself—a place where the ocean, tropical gardens, wildlife, and handcrafted traditions exist in effortless harmony.\nA joyful celebration of coastal living, designed to bring warmth, color, and the spirit of the islands into any space.",
-      "status": "Private Collection"
+      "status": "Sold"
     },
     {
       "title": "Coastal Daydream",
@@ -297,7 +299,7 @@
         "#C5C4CB"
       ],
       "description": "Hibiscus Bloom\nSome flowers don't simply bloom—they transform the atmosphere around them.\nHibiscus Bloom is a celebration of color, grace, and the joyful spirit of the tropics. Surrounded by vibrant pink hibiscus blossoms, the figure radiates quiet confidence, as though nature itself has paused to frame a single beautiful moment.\n\nThe soft sage background allows the brilliant flowers to glow, while the flowing white garment brings balance and lightness to the composition. Delicate details—the subtle gaze, gentle expression, and sparkling earrings—add warmth and personality without disturbing the painting's peaceful rhythm.\n\nInspired by Hawaii's lush gardens and the iconic hibiscus flower, this artwork captures the feeling of walking through warm island air filled with blossoms, sunshine, and gentle breezes. It is a reminder that beauty is often found in the simplest moments, when we allow ourselves to slow down and notice what is already around us.\n\nA timeless tribute to tropical elegance, feminine strength, and the vibrant spirit of island life.",
-      "status": "Private Collection"
+      "status": "Sold"
     },
     {
       "title": "Island Symbols",
@@ -312,7 +314,7 @@
         "#E4CBA9"
       ],
       "description": "Island Symbols\nEvery island has its own language—spoken not through words, but through shapes, colors, and memories.\nIsland Symbols is a modern visual collection of tropical life, bringing together familiar elements of the islands in a playful geometric composition. The sun, palms, ocean, birds, flowers, fish, fruit, and handcrafted forms become a series of simple icons that celebrate the beauty of everyday moments.\nInspired by mid-century design and the relaxed spirit of Hawaii, each panel tells a small story while contributing to a larger rhythm of color and balance. The warm earth tones, soft pinks, ocean blues, and lush greens evoke long summer days, gentle trade winds, and the timeless connection between land and sea.\nRather than depicting a single landscape, Island Symbols captures the essence of island living—a place where nature, culture, and quiet joy exist in perfect harmony.\nA contemporary celebration of tropical life, designed to bring warmth, color, and a sense of effortless coastal living into any home.",
-      "status": "Private Collection"
+      "status": "Sold"
     },
     {
       "title": "Soft Horizon",
@@ -452,7 +454,8 @@
           "src": "images/paintings/27-the-coastal-rider-alt7.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "hero": 6
     },
     {
       "title": "The Coastal rider",
@@ -587,6 +590,60 @@
           "label": "In the interior"
         }
       ]
+    },
+    {
+      "title": "The Quiet Within",
+      "src": "images/paintings/31-the-quiet-within.jpg",
+      "w": 1800,
+      "h": 2400,
+      "palette": [
+        "#382B28",
+        "#764429",
+        "#876857",
+        "#B89974",
+        "#CBB5A1"
+      ],
+      "description": "The Quiet Within\n\nThere are moments when the world becomes unexpectedly quiet.\n\nNot because life has slowed, but because, for an instant, we stop resisting it. The noise fades into the background. The light feels softer. We remember that peace is not something we find—it is something we uncover.\n\nThe Quiet Within is a reflection of that moment.\n\nInspired by the warmth of tropical light and the calm rhythm of nature, this painting is an invitation to pause. To breathe. To reconnect with the still place that exists beneath expectations, distractions, and constant movement.\n\nEvery viewer brings a different story to the canvas. This work does not ask for interpretation. It simply offers space—for reflection, for presence, and for silence.\n\nSometimes the most meaningful conversations happen without words",
+      "listing": "print",
+      "shopifyHandle": "the-quiet-within",
+      "photos": [
+        {
+          "src": "images/paintings/31-the-quiet-within.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/31-the-quiet-within-alt1.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/31-the-quiet-within-alt2.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/31-the-quiet-within-alt3.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/31-the-quiet-within-alt4.jpg",
+          "label": "In the interior"
+        }
+      ]
+    },
+    {
+      "title": "island-bloom-1",
+      "src": "images/paintings/32-island-bloom-1.jpg",
+      "w": 2400,
+      "h": 2399,
+      "palette": [
+        "#3A231B",
+        "#656A4A",
+        "#B76749",
+        "#8C8C72",
+        "#B9A695"
+      ],
+      "description": "Island Bloom\n\nSome beauty asks to be noticed.\n\nOther beauty simply exists—quietly, confidently, without seeking attention.\n\nIsland Bloom is a celebration of that quiet confidence.\n\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\n\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\n\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
+      "listing": "print",
+      "shopifyHandle": "island-bloom-1"
     }
   ]
 }
