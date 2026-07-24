@@ -1,39 +1,4 @@
 {
   "_comment": "Коллекция сайта dianashirinova.com. Управляется через admin.html — руками лучше не править. featured: порядок в Featured Collection (1..6), hero: порядок в шапке (1..3), status: подпись на бейдже. description: текст под картиной в лайтбоксе. shopifyHandle: handle товара в Shopify (из /products/<handle>) — если задан, на сайте появляется кнопка Buy Print. Файлы картин лежат в images/paintings/.",
-  "paintings": [
-    {
-      "title": "01 the quiet within",
-      "src": "images/paintings/01-the-quiet-within.jpg",
-      "w": 1802,
-      "h": 2400,
-      "palette": [
-        "#463A37",
-        "#864B28",
-        "#856A5A",
-        "#AC9477",
-        "#C9B6A5"
-      ],
-      "description": "Original Painting",
-      "featured": 1,
-      "hero": 1,
-      "status": "Available"
-    },
-    {
-      "title": "Wild Companion",
-      "src": "images/paintings/02-wild-companion.jpg",
-      "w": 890,
-      "h": 1196,
-      "palette": [
-        "#1A0300",
-        "#372A27",
-        "#5A6347",
-        "#B87B73",
-        "#B8A796"
-      ],
-      "hero": 2,
-      "featured": 2,
-      "status": "Available",
-      "shopifyHandle": "wild-companion-1"
-    }
-  ]
+  "paintings": []
 }
