@@ -120,6 +120,6 @@
   </aside>
 </div>
 <script src="assets/site.js?v=3" defer></script>
-<script defer>initPaintings(function(){ buildGallery(function(p){ return !!p.shopifyHandle; }); });</script>
+<script>document.addEventListener('DOMContentLoaded', function(){ initPaintings(function(){ buildGallery(function(p){ return !!p.shopifyHandle; }); }); });</script>
 </body>
 </html>
