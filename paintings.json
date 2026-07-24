@@ -16,7 +16,24 @@
       "description": "Original Painting",
       "featured": 1,
       "hero": 1,
-      "status": "Available"
+      "status": "Available",
+      "shopifyHandle": "the-quiet-within"
+    },
+    {
+      "title": "Wild Companion",
+      "src": "images/paintings/02-wild-companion.jpg",
+      "w": 890,
+      "h": 1196,
+      "palette": [
+        "#1A0300",
+        "#372A27",
+        "#5A6347",
+        "#B87B73",
+        "#B8A796"
+      ],
+      "shopifyHandle": "wild-companion-1",
+      "hero": 2,
+      "featured": 2
     }
   ]
 }
