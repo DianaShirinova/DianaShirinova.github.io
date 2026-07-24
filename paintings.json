@@ -644,6 +644,90 @@
       "listing": "print",
       "shopifyHandle": "island-bloom-1",
       "hero": 3
+    },
+    {
+      "title": "Aloha Road",
+      "src": "images/paintings/33-aloha-road.jpg",
+      "w": 2400,
+      "h": 2399,
+      "palette": [
+        "#342B27",
+        "#55595A",
+        "#767B7B",
+        "#B9A695",
+        "#DBC8B4"
+      ],
+      "description": "Aloha Road\n\nEvery great island adventure begins with an open road.\n\nAloha Road celebrates the timeless spirit of exploration through the iconic vintage surf van—a symbol of freedom, sunshine, and the simple joy of discovering new places. Parked as if waiting for its next journey, the classic green-and-cream bus invites memories of coastal drives, surfboards on the roof, and golden sunsets shared with friends.\n\nInspired by the relaxed rhythm of Hawaii, this painting captures more than a vehicle; it reflects a lifestyle built around slowing down, embracing spontaneity, and enjoying every mile along the way. Its clean lines, soft coastal palette, and minimalist composition create a nostalgic yet contemporary feel that fits effortlessly into modern interiors.\n\nBlending mid-century charm with a tropical aesthetic, Aloha Road brings warmth, adventure, and island nostalgia into any home. It is a reminder that the best destinations are often found when we simply choose to keep driving toward the horizon.",
+      "status": "Available",
+      "shopifyHandle": "aloha-road",
+      "photos": [
+        {
+          "src": "images/paintings/33-aloha-road.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/33-aloha-road-alt1.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/33-aloha-road-alt2.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/33-aloha-road-alt3.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/33-aloha-road-alt4.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/33-aloha-road-alt5.jpg",
+          "label": "In the interior"
+        }
+      ]
+    },
+    {
+      "title": "Aloha Road",
+      "src": "images/paintings/34-aloha-road.jpg",
+      "w": 2400,
+      "h": 2399,
+      "palette": [
+        "#342B27",
+        "#55595A",
+        "#767B7A",
+        "#B9A695",
+        "#DBC8B4"
+      ],
+      "description": "Aloha Road\n\nEvery great island adventure begins with an open road.\n\nAloha Road celebrates the timeless spirit of exploration through the iconic vintage surf van—a symbol of freedom, sunshine, and the simple joy of discovering new places. Parked as if waiting for its next journey, the classic green-and-cream bus invites memories of coastal drives, surfboards on the roof, and golden sunsets shared with friends.\n\nInspired by the relaxed rhythm of Hawaii, this painting captures more than a vehicle; it reflects a lifestyle built around slowing down, embracing spontaneity, and enjoying every mile along the way. Its clean lines, soft coastal palette, and minimalist composition create a nostalgic yet contemporary feel that fits effortlessly into modern interiors.\n\nBlending mid-century charm with a tropical aesthetic, Aloha Road brings warmth, adventure, and island nostalgia into any home. It is a reminder that the best destinations are often found when we simply choose to keep driving toward the horizon.",
+      "listing": "print",
+      "shopifyHandle": "aloha-road-copy",
+      "photos": [
+        {
+          "src": "images/paintings/34-aloha-road.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/34-aloha-road-alt1.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/34-aloha-road-alt2.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/34-aloha-road-alt3.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/34-aloha-road-alt4.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/34-aloha-road-alt5.jpg",
+          "label": "In the interior"
+        }
+      ]
     }
   ]
 }
