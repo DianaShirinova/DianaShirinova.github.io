@@ -75,8 +75,8 @@
   .section-eyebrow{font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
   .section-title{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);line-height:1.08;margin-bottom:6rem;color:var(--cream)}
   .section-title em{font-style:italic;color:var(--rose)}
-  .gallery-grid{columns:3 300px;column-gap:3.8rem}
-  .gallery-card{break-inside:avoid;margin-bottom:3.8rem;position:relative;overflow:hidden;cursor:pointer;background:var(--surface);border:1px solid var(--border);transition:transform .35s ease,box-shadow .35s ease}
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:3.8rem}
+  .gallery-card{position:relative;overflow:hidden;cursor:pointer;background:var(--surface);border:1px solid var(--border);transition:transform .35s ease,box-shadow .35s ease}
   .gallery-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(0,0,0,0.65)}
   .gallery-card img{width:100%;height:auto;display:block;transition:transform .5s ease,filter .4s ease;filter:brightness(.92) saturate(.95)}
   .gallery-card:hover img{transform:scale(1.04);filter:brightness(1) saturate(1.05)}
@@ -146,7 +146,7 @@
   footer span{color:var(--gold)}
   @keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
   @keyframes floatIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-  @media(max-width:768px){nav[aria-label="Primary"]{padding:1rem 1.5rem}.nav-links{display:none}.nav-burger{display:flex}.hero{padding:7rem 1.5rem 3rem}.hero-floats{display:none}#gallery{padding:7rem 1.4rem}.gallery-grid{columns:2 150px;column-gap:1.6rem}.gallery-card{margin-bottom:1.6rem}.about-inner{grid-template-columns:1fr;gap:3rem}#about,#contact{padding:8rem 1.5rem}footer{flex-direction:column;gap:.5rem;text-align:center}}
+  @media(max-width:768px){nav[aria-label="Primary"]{padding:1rem 1.5rem}.nav-links{display:none}.nav-burger{display:flex}.hero{padding:7rem 1.5rem 3rem}.hero-floats{display:none}#gallery{padding:7rem 1.4rem}.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.6rem}.about-inner{grid-template-columns:1fr;gap:3rem}#about,#contact{padding:8rem 1.5rem}footer{flex-direction:column;gap:.5rem;text-align:center}}
 
 
   /* ── About photo ── */
