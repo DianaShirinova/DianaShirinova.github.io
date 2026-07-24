@@ -16,7 +16,8 @@
       "description": "Original Painting",
       "featured": 1,
       "hero": 1,
-      "status": "Available"
+      "status": "Available",
+      "shopifyHandle": "the-quiet-within"
     }
   ]
 }
