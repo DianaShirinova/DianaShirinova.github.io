@@ -70,7 +70,7 @@
       "description": "Some beauty asks to be noticed.\nOther beauty simply exists—quietly, confidently, without seeking attention.\nIsland Bloom is a celebration of that quiet confidence.\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
       "status": "Available",
       "shopifyHandle": "island-bloom",
-      "featured": 2
+      "featured": 1
     },
     {
       "title": "Island Waters",
@@ -310,7 +310,8 @@
         "#E4CBA9"
       ],
       "description": "Island Symbols\nEvery island has its own language—spoken not through words, but through shapes, colors, and memories.\nIsland Symbols is a modern visual collection of tropical life, bringing together familiar elements of the islands in a playful geometric composition. The sun, palms, ocean, birds, flowers, fish, fruit, and handcrafted forms become a series of simple icons that celebrate the beauty of everyday moments.\nInspired by mid-century design and the relaxed spirit of Hawaii, each panel tells a small story while contributing to a larger rhythm of color and balance. The warm earth tones, soft pinks, ocean blues, and lush greens evoke long summer days, gentle trade winds, and the timeless connection between land and sea.\nRather than depicting a single landscape, Island Symbols captures the essence of island living—a place where nature, culture, and quiet joy exist in perfect harmony.\nA contemporary celebration of tropical life, designed to bring warmth, color, and a sense of effortless coastal living into any home.",
-      "status": "Sold"
+      "status": "Sold",
+      "hero": 1
     },
     {
       "title": "Soft Horizon",
@@ -452,7 +453,7 @@
         }
       ],
       "hero": 2,
-      "featured": 1
+      "featured": 2
     },
     {
       "title": "The Coastal rider",
@@ -588,7 +589,7 @@
         }
       ],
       "hero": 2,
-      "featured": 5
+      "featured": 3
     },
     {
       "title": "The Quiet Within",
@@ -684,7 +685,8 @@
           "src": "images/paintings/33-aloha-road-alt5.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "featured": 5
     },
     {
       "title": "Aloha Road",
