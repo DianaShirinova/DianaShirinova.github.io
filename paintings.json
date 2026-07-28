@@ -53,8 +53,7 @@
         "#BCC8C7"
       ],
       "description": "Unbridled\nFreedom is rarely loud.\nMore often, it is found in quiet choices—in following an open horizon, trusting your own path, and moving forward without asking for permission.\nUnbridled is a reflection of that spirit.\nThe horse is more than a companion; it represents instinct, resilience, and the courage to keep moving. Together, the figures become a symbol of a life lived with authenticity—where strength is gentle, confidence is quiet, and freedom comes from within.\nInspired by the timeless connection between people, nature, and the open landscape, this painting invites the viewer to remember what it feels like to move through the world without fear or pretense.\nSometimes the greatest freedom is simply being true to yourself.",
-      "status": "Sold",
-      "featured": 1
+      "status": "Sold"
     },
     {
       "title": "Island Bloom",
@@ -71,7 +70,7 @@
       "description": "Some beauty asks to be noticed.\nOther beauty simply exists—quietly, confidently, without seeking attention.\nIsland Bloom is a celebration of that quiet confidence.\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
       "status": "Available",
       "shopifyHandle": "island-bloom",
-      "featured": 2
+      "featured": 1
     },
     {
       "title": "Island Waters",
@@ -131,8 +130,7 @@
         "#E9D3A6"
       ],
       "description": "Chasing the Swell\nEvery wave begins long before it reaches the shore.\nIt starts beyond the horizon, gathering strength with quiet purpose, inviting those willing to meet it.\nChasing the Swell captures the anticipation that exists before the first ride—the moment when possibility outweighs certainty. Carrying the boards with calm confidence, the figure moves toward the ocean knowing that every day on the water is different, and that is exactly what makes it worthwhile.\nInspired by the rhythm of coastal life, this painting is about trusting the journey rather than trying to control it. The sea teaches patience, resilience, and the joy of beginning again with every tide.\nSome horizons are not meant to be watched.\nThey are meant to be followed.",
-      "status": "Private Collection",
-      "featured": 3
+      "status": "Private Collection"
     },
     {
       "title": "Golden Hour",
@@ -453,7 +451,8 @@
           "label": "In the interior"
         }
       ],
-      "hero": 2
+      "hero": 2,
+      "featured": 2
     },
     {
       "title": "The Coastal rider",
@@ -588,7 +587,8 @@
           "label": "In the interior"
         }
       ],
-      "hero": 2
+      "hero": 2,
+      "featured": 3
     },
     {
       "title": "The Quiet Within",
@@ -642,7 +642,8 @@
       ],
       "description": "Island Bloom\n\nSome beauty asks to be noticed.\n\nOther beauty simply exists—quietly, confidently, without seeking attention.\n\nIsland Bloom is a celebration of that quiet confidence.\n\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\n\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\n\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
       "listing": "print",
-      "shopifyHandle": "island-bloom-1"
+      "shopifyHandle": "island-bloom-1",
+      "hero": 3
     },
     {
       "title": "Aloha Road",
@@ -684,7 +685,8 @@
           "src": "images/paintings/33-aloha-road-alt5.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "featured": 5
     },
     {
       "title": "Aloha Road",
