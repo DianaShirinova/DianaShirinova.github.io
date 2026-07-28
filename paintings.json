@@ -70,7 +70,7 @@
       "description": "Some beauty asks to be noticed.\nOther beauty simply exists—quietly, confidently, without seeking attention.\nIsland Bloom is a celebration of that quiet confidence.\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
       "status": "Available",
       "shopifyHandle": "island-bloom",
-      "featured": 1
+      "featured": 2
     },
     {
       "title": "Island Waters",
@@ -452,7 +452,7 @@
         }
       ],
       "hero": 2,
-      "featured": 2
+      "featured": 1
     },
     {
       "title": "The Coastal rider",
@@ -588,7 +588,7 @@
         }
       ],
       "hero": 2,
-      "featured": 3
+      "featured": 5
     },
     {
       "title": "The Quiet Within",
@@ -642,8 +642,7 @@
       ],
       "description": "Island Bloom\n\nSome beauty asks to be noticed.\n\nOther beauty simply exists—quietly, confidently, without seeking attention.\n\nIsland Bloom is a celebration of that quiet confidence.\n\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\n\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\n\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
       "listing": "print",
-      "shopifyHandle": "island-bloom-1",
-      "hero": 3
+      "shopifyHandle": "island-bloom-1"
     },
     {
       "title": "Aloha Road",
@@ -685,8 +684,7 @@
           "src": "images/paintings/33-aloha-road-alt5.jpg",
           "label": "In the interior"
         }
-      ],
-      "featured": 5
+      ]
     },
     {
       "title": "Aloha Road",
