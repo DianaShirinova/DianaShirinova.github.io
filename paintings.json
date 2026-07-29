@@ -70,7 +70,17 @@
       "description": "Some beauty asks to be noticed.\nOther beauty simply exists—quietly, confidently, without seeking attention.\nIsland Bloom is a celebration of that quiet confidence.\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
       "status": "Available",
       "shopifyHandle": "island-bloom",
-      "featured": 1
+      "featured": 1,
+      "photos": [
+        {
+          "src": "images/paintings/04-island-bloom.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/04-island-bloom-alt1.jpg",
+          "label": "In the interior"
+        }
+      ]
     },
     {
       "title": "Island Waters",
@@ -385,7 +395,8 @@
         "#E8E8E7"
       ],
       "description": "Island Grace\nThere is a quiet confidence that comes from moving through life with kindness and ease. It asks for nothing, yet leaves a lasting impression.\nIsland Grace captures that gentle spirit in a serene portrait surrounded by two white birds gliding effortlessly across an open sky. Symbols of peace, freedom, and hope, they echo the calm expression of the figure, whose soft gaze and delicate blossom create a feeling of quiet harmony.\nThe muted palette of warm blush tones, soft gray-blue, and earthy browns evokes the tranquility of tropical mornings, where the air is still, the light is gentle, and every moment invites reflection. Rather than depicting movement, the painting celebrates presence—the beauty of simply existing in balance with the world around us.\nBlending contemporary portraiture with a modern tropical aesthetic, Island Grace brings serenity, warmth, and timeless elegance into any space. It is a reminder that true grace is not found in grand gestures, but in the quiet way we carry ourselves through life.",
-      "status": "Private Collection"
+      "status": "Private Collection",
+      "hero": 3
     },
     {
       "title": "Whispering Palms",
@@ -451,6 +462,7 @@
           "label": "In the interior"
         }
       ],
+      "hero": 2,
       "featured": 2
     },
     {
@@ -586,6 +598,7 @@
           "label": "In the interior"
         }
       ],
+      "hero": 2,
       "featured": 3
     },
     {
