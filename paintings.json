@@ -464,8 +464,7 @@
         }
       ],
       "hero": 2,
-      "featured": 2,
-      "listing": "print"
+      "featured": 2
     },
     {
       "title": "The Coastal rider",
@@ -601,8 +600,7 @@
         }
       ],
       "hero": 2,
-      "featured": 3,
-      "listing": "print"
+      "featured": 3
     },
     {
       "title": "The Quiet Within",
