@@ -38,7 +38,8 @@
           "src": "images/paintings/02-01-the-quiet-within-alt4.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "listing": "print"
     },
     {
       "title": "Unbridled",
@@ -462,8 +463,7 @@
         }
       ],
       "hero": 2,
-      "featured": 2,
-      "listing": "print"
+      "featured": 2
     },
     {
       "title": "The Coastal rider",
@@ -478,7 +478,6 @@
         "#E3B38C"
       ],
       "description": "The Coastal rider\n\nSome people chase waves. Others simply belong to them.\n\nWith a surfboard tucked under one arm and the quiet confidence of someone who knows the rhythm of the sea, The Coastal Rider captures a life shaped by salt air, warm light, and unhurried mornings. The oversized hat, weathered stars, and soft earth tones blend the spirit of the American West with the freedom of the coastline, creating a portrait that feels both familiar and timeless.\n\nThis piece is a celebration of those who carry the ocean with them wherever they go—a reminder that adventure doesn’t always begin with movement. Sometimes it begins with standing still, listening to the tide, and knowing exactly where you belong.",
-      "listing": "print",
       "shopifyHandle": "the-coastal-rider",
       "photos": [
         {
@@ -509,7 +508,8 @@
           "src": "images/paintings/28-the-coastal-rider-alt6.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "listing": "print"
     },
     {
       "title": "Wild Companion",
