@@ -21,7 +21,7 @@
 
 /* Announcement banner — auto-hides itself once the market date has passed (HST) */
 (function(){
-  if (new Date() <= new Date('2026-08-09T06:00:00-10:00')) {
+  if (new Date() <= new Date('2026-09-06T06:00:00-10:00')) {
     document.body.classList.add('has-announce');
   } else {
     var a = document.getElementById('announce');
@@ -402,7 +402,7 @@ var copyYearEl = document.getElementById('copyYear');
 if (copyYearEl) copyYearEl.textContent = new Date().getFullYear();
 
 /* ── After the market date, remove the market section and its nav link ── */
-if (new Date() > new Date('2026-08-09T06:00:00-10:00')) {
+if (new Date() > new Date('2026-09-06T06:00:00-10:00')) {
   ['market', 'navMarket'].forEach(function(id){
     var el = document.getElementById(id);
     if (el) el.remove();
