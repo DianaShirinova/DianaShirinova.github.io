@@ -312,7 +312,10 @@ function closeCartDrawer(){
 
 function renderBuyButton(p){
   lbBuy.innerHTML = '';
-  if (p.status === 'Sold' || p.status === 'Private Collection'){
+  /* Sold/Private Collection блокирует только продажу оригинала. Если у картины есть
+     печатный товар (listing==='print'), сам принт продолжает продаваться отдельно —
+     статус оригинала на него не влияет. */
+  if (p.listing !== 'print' && (p.status === 'Sold' || p.status === 'Private Collection')){
     var tag = document.createElement('span');
     tag.className = 'pill pill--' + p.status.toLowerCase().split(' ')[0] + ' buy-status-pill';
     tag.textContent = p.status;
