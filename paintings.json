@@ -2,46 +2,6 @@
   "_comment": "Коллекция сайта dianashirinova.com. Управляется через admin.html — руками лучше не править. featured: порядок в Featured Collection (1..6), hero: порядок в шапке (1..3), status: подпись на бейдже. description: текст под картиной в лайтбоксе. shopifyHandle: handle товара в Shopify (из /products/<handle>) — если задан, на сайте появляется кнопка Buy Print. Файлы картин лежат в images/paintings/.",
   "paintings": [
     {
-      "title": "The Quiet Within",
-      "src": "images/paintings/02-01-the-quiet-within.jpg",
-      "w": 1802,
-      "h": 2400,
-      "palette": [
-        "#463A37",
-        "#864B28",
-        "#856A5A",
-        "#AC9477",
-        "#C9B6A5"
-      ],
-      "status": "Available",
-      "shopifyHandle": "the-quiet-within-1",
-      "featured": 4,
-      "description": "## The Quiet Within\n\nThere are moments when the world becomes unexpectedly quiet.\n\nNot because life has slowed, but because, for an instant, we stop resisting it. The noise fades into the background. The light feels softer. We remember that peace is not something we find—it is something we uncover.\n\n*The Quiet Within* is a reflection of that moment.\n\nInspired by the warmth of tropical light and the calm rhythm of nature, this painting is an invitation to pause. To breathe. To reconnect with the still place that exists beneath expectations, distractions, and constant movement.\n\nEvery viewer brings a different story to the canvas. This work does not ask for interpretation. It simply offers space—for reflection, for presence, and for silence.\n\nSometimes the most meaningful conversations happen without words.",
-      "photos": [
-        {
-          "src": "images/paintings/02-01-the-quiet-within.jpg",
-          "label": "Original"
-        },
-        {
-          "src": "images/paintings/02-01-the-quiet-within-alt1.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/02-01-the-quiet-within-alt2.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/02-01-the-quiet-within-alt3.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/02-01-the-quiet-within-alt4.jpg",
-          "label": "In the interior"
-        }
-      ],
-      "listing": "print"
-    },
-    {
       "title": "Unbridled",
       "src": "images/paintings/03-unbridled.jpg",
       "w": 2400,
@@ -416,59 +376,6 @@
     },
     {
       "title": "The Coastal rider",
-      "src": "images/paintings/27-the-coastal-rider.jpg",
-      "w": 881,
-      "h": 1172,
-      "palette": [
-        "#3B1B09",
-        "#694926",
-        "#A86649",
-        "#9B958B",
-        "#E3B38C"
-      ],
-      "description": "The Coastal rider\n\nSome people chase waves. Others simply belong to them.\n\nWith a surfboard tucked under one arm and the quiet confidence of someone who knows the rhythm of the sea, The Coastal Rider captures a life shaped by salt air, warm light, and unhurried mornings. The oversized hat, weathered stars, and soft earth tones blend the spirit of the American West with the freedom of the coastline, creating a portrait that feels both familiar and timeless.\n\nThis piece is a celebration of those who carry the ocean with them wherever they go—a reminder that adventure doesn’t always begin with movement. Sometimes it begins with standing still, listening to the tide, and knowing exactly where you belong.",
-      "status": "Available",
-      "shopifyHandle": "the-coastal-rider-1",
-      "photos": [
-        {
-          "src": "images/paintings/27-the-coastal-rider.jpg",
-          "label": "Original"
-        },
-        {
-          "src": "images/paintings/27-the-coastal-rider-alt1.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/27-the-coastal-rider-alt2.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/27-the-coastal-rider-alt3.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/27-the-coastal-rider-alt4.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/27-the-coastal-rider-alt5.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/27-the-coastal-rider-alt6.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/27-the-coastal-rider-alt7.jpg",
-          "label": "In the interior"
-        }
-      ],
-      "hero": 2,
-      "featured": 2,
-      "listing": "print"
-    },
-    {
-      "title": "The Coastal rider",
       "src": "images/paintings/28-the-coastal-rider.jpg",
       "w": 881,
       "h": 1172,
@@ -512,48 +419,6 @@
         }
       ],
       "listing": "print"
-    },
-    {
-      "title": "Wild Companion",
-      "src": "images/paintings/29-wild-companion.jpg",
-      "w": 874,
-      "h": 1169,
-      "palette": [
-        "#874729",
-        "#B66747",
-        "#87855B",
-        "#F6BD78",
-        "#F7D5B5"
-      ],
-      "description": "Wild Companion\n\nNot everything wild is meant to be feared.\n\nWild Companion explores the quiet relationship between humanity and the untamed world. The shark, often seen as a symbol of danger, becomes something entirely different—a companion carried with care, strength, and respect.\n\nThrough bold shapes, warm coastal colors, and minimalist composition, the painting invites us to reconsider what we call wild. Sometimes the greatest connections are found where fear once lived.\n\nA celebration of trust, curiosity, and the enduring bond between people and the sea.",
-      "listing": "print",
-      "shopifyHandle": "wild-companion-1",
-      "photos": [
-        {
-          "src": "images/paintings/29-wild-companion.jpg",
-          "label": "Original"
-        },
-        {
-          "src": "images/paintings/29-wild-companion-alt1.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/29-wild-companion-alt2.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/29-wild-companion-alt3.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/29-wild-companion-alt4.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/29-wild-companion-alt5.jpg",
-          "label": "In the interior"
-        }
-      ]
     },
     {
       "title": "Wild Companion",
