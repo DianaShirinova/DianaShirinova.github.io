@@ -349,17 +349,16 @@
     {
       "title": "The Coastal rider",
       "src": "images/paintings/28-the-coastal-rider.jpg",
-      "w": 1265,
-      "h": 1581,
+      "w": 881,
+      "h": 1172,
       "palette": [
-        "#2F1D12",
-        "#5A4429",
-        "#8C583A",
-        "#8E9292",
-        "#C4AA8B"
+        "#3B1B09",
+        "#694926",
+        "#A86649",
+        "#9B958B",
+        "#E3B38C"
       ],
       "description": "The Coastal rider\n\nSome people chase waves. Others simply belong to them.\n\nWith a surfboard tucked under one arm and the quiet confidence of someone who knows the rhythm of the sea, The Coastal Rider captures a life shaped by salt air, warm light, and unhurried mornings. The oversized hat, weathered stars, and soft earth tones blend the spirit of the American West with the freedom of the coastline, creating a portrait that feels both familiar and timeless.\n\nThis piece is a celebration of those who carry the ocean with them wherever they go—a reminder that adventure doesn’t always begin with movement. Sometimes it begins with standing still, listening to the tide, and knowing exactly where you belong.",
-      "shopifyHandle": "the-coastal-rider",
       "photos": [
         {
           "src": "images/paintings/28-the-coastal-rider.jpg",
@@ -390,22 +389,23 @@
           "label": "In the interior"
         }
       ],
-      "listing": "print"
+      "status": "Available"
     },
     {
       "title": "Wild Companion",
       "src": "images/paintings/30-wild-companion.jpg",
-      "w": 1210,
-      "h": 1513,
+      "w": 1161,
+      "h": 1516,
       "palette": [
-        "#2B231C",
-        "#662728",
-        "#586347",
-        "#CC9758",
+        "#2A231B",
+        "#662828",
+        "#596447",
+        "#CC9759",
         "#C8B298"
       ],
       "description": "Wild Companion\n\nNot everything wild is meant to be feared.\n\nWild Companion explores the quiet relationship between humanity and the untamed world. The shark, often seen as a symbol of danger, becomes something entirely different—a companion carried with care, strength, and respect.\n\nThrough bold shapes, warm coastal colors, and minimalist composition, the painting invites us to reconsider what we call wild. Sometimes the greatest connections are found where fear once lived.\n\nA celebration of trust, curiosity, and the enduring bond between people and the sea.",
       "status": "Available",
+      "shopifyHandle": "wild-companion",
       "photos": [
         {
           "src": "images/paintings/30-wild-companion.jpg",
@@ -433,7 +433,8 @@
         }
       ],
       "hero": 2,
-      "featured": 3
+      "featured": 3,
+      "listing": "print"
     },
     {
       "title": "The Quiet Within",
@@ -499,6 +500,7 @@
       ],
       "description": "Aloha Road\n\nEvery great island adventure begins with an open road.\n\nAloha Road celebrates the timeless spirit of exploration through the iconic vintage surf van—a symbol of freedom, sunshine, and the simple joy of discovering new places. Parked as if waiting for its next journey, the classic green-and-cream bus invites memories of coastal drives, surfboards on the roof, and golden sunsets shared with friends.\n\nInspired by the relaxed rhythm of Hawaii, this painting captures more than a vehicle; it reflects a lifestyle built around slowing down, embracing spontaneity, and enjoying every mile along the way. Its clean lines, soft coastal palette, and minimalist composition create a nostalgic yet contemporary feel that fits effortlessly into modern interiors.\n\nBlending mid-century charm with a tropical aesthetic, Aloha Road brings warmth, adventure, and island nostalgia into any home. It is a reminder that the best destinations are often found when we simply choose to keep driving toward the horizon.",
       "status": "Available",
+      "shopifyHandle": "aloha-road-print",
       "photos": [
         {
           "src": "images/paintings/33-aloha-road.jpg",
@@ -526,7 +528,6 @@
         }
       ],
       "featured": 5,
-      "shopifyHandle": "aloha-road-print",
       "listing": "print"
     }
   ]
