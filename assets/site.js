@@ -72,7 +72,9 @@ function makePalette(idx, cls){
 var SHOP_DOMAIN      = 'dianashirinova.myshopify.com';
 var STOREFRONT_TOKEN = '92704dcda310a6bb51e98406105f014f';
 var INSTAGRAM = 'https://www.instagram.com/DianaShirinova_art';
-var EMAIL     = 'hello@dianashirinova.com';
+var EMAIL_USER   = 'hello';
+var EMAIL_DOMAIN = 'dianashirinova.com';
+var EMAIL        = EMAIL_USER + '@' + EMAIL_DOMAIN;
 
 var SHOPIFY_API_VERSION = '2025-01';
 function shopifyGraphQL(query, variables){
@@ -732,6 +734,22 @@ function initPaintings(onReady){
   }
   document.querySelectorAll('.js-commission').forEach(function(btn){
     btn.addEventListener('click', openCommission);
+  });
+})();
+/* ── Email links: href is filled in here (not present in the HTML/JS source as
+   literal text) so plain-text scrapers crawling the static files can't harvest it. ── */
+(function(){
+  document.querySelectorAll('.js-email-link').forEach(function(a){
+    var href = 'mailto:' + EMAIL;
+    var subject = a.getAttribute('data-subject');
+    var body = a.getAttribute('data-body');
+    var params = [];
+    if (subject) params.push('subject=' + encodeURIComponent(subject));
+    if (body) params.push('body=' + encodeURIComponent(body));
+    if (params.length) href += '?' + params.join('&');
+    a.href = href;
+    a.removeAttribute('data-subject');
+    a.removeAttribute('data-body');
   });
 })();
 /* ── Pacific light: the page background drifts from dawn to dusk as you scroll ── */
