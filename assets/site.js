@@ -663,7 +663,7 @@ function buildGallery(predicate, opts){
     view.addEventListener('click', function(e){ e.stopPropagation(); openLightbox(i); });
 
     var prints = null;
-    if (p.shopifyHandle && !opts.hidePrintAction){
+    if (p.shopifyHandle && (!opts.hidePrintAction || (p.listing === 'print' && p.alsoOriginal))){
       prints = document.createElement('button');
       prints.className = 'card-act card-act--prints';
       prints.type = 'button';
