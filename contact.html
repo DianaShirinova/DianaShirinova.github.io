@@ -113,7 +113,7 @@
     </form>
 
     <div class="contact-grid" style="margin-top:2.6rem">
-      <a href="mailto:hello@dianashirinova.com" class="btn-line">Email</a>
+      <a href="#" class="btn-line js-email-link" rel="nofollow" aria-label="Email Diana">Email</a>
       <a href="https://www.instagram.com/DianaShirinova_art" target="_blank" rel="noopener" class="btn-line">Instagram</a>
       <button class="btn-line btn-line--rose js-commission" type="button">Commission Inquiry</button>
     </div>
@@ -140,7 +140,7 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=3" defer></script>
+<script src="assets/site.js?v=4" defer></script>
 <script defer>
 document.getElementById('contactForm').addEventListener('submit', function(e){
   e.preventDefault();
@@ -152,7 +152,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
   var lines = ['Name: ' + (name || '—'), 'Email: ' + email, 'Phone: ' + (phone || '—'), '', comment];
   var body = encodeURIComponent(lines.join('\n'));
   var subject = encodeURIComponent('Message from dianashirinova.com');
-  window.location.href = 'mailto:hello@dianashirinova.com?subject=' + subject + '&body=' + body;
+  window.location.href = 'mailto:' + EMAIL + '?subject=' + subject + '&body=' + body;
 });
 </script>
 </body>
