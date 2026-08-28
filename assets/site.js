@@ -314,24 +314,35 @@ function renderBuyButton(p){
   lbBuy.innerHTML = '';
   /* Sold/Private Collection блокирует только продажу оригинала. Если у картины есть
      печатный товар (listing==='print'), сам принт продолжает продаваться отдельно —
-     статус оригинала на него не влияет. */
-  if (p.listing !== 'print' && (p.status === 'Sold' || p.status === 'Private Collection')){
+     статус оригинала на него не влияет, но покупателю стоит явно об этом сказать. */
+  var isDualListed = p.listing === 'print' && (p.status === 'Sold' || p.status === 'Private Collection');
+  if (!isDualListed && p.listing !== 'print' && (p.status === 'Sold' || p.status === 'Private Collection')){
     var tag = document.createElement('span');
     tag.className = 'pill pill--' + p.status.toLowerCase().split(' ')[0] + ' buy-status-pill';
     tag.textContent = p.status;
     lbBuy.appendChild(tag);
     return;
   }
+  if (isDualListed){
+    var note = document.createElement('p');
+    note.className = 'buy-original-note';
+    note.textContent = 'Original: ' + p.status + ' — available as a Fine Art Print:';
+    lbBuy.appendChild(note);
+  }
   var handle = p.shopifyHandle;
   if (!handle || !SHOP_DOMAIN || !STOREFRONT_TOKEN) return;
-  lbBuy.innerHTML = '<p class="buy-status">Loading&hellip;</p>';
+  var loading = document.createElement('p');
+  loading.className = 'buy-status';
+  loading.textContent = 'Loading\u2026';
+  lbBuy.appendChild(loading);
   shopifyGraphQL(PRODUCT_QUERY, { handle: handle }).then(function(res){
     var product = res && res.data && res.data.product;
-    if (!product || !product.availableForSale){ lbBuy.innerHTML = ''; return; }
+    if (!product || !product.availableForSale){ loading.remove(); return; }
+    loading.remove();
     buildBuyPanel(product);
   }).catch(function(err){
     console.error('Shopify product fetch failed:', handle, err);
-    lbBuy.innerHTML = '';
+    loading.remove();
   });
 }
 
@@ -399,7 +410,6 @@ function buildBuyPanel(product){
       });
   });
 
-  lbBuy.innerHTML = '';
   lbBuy.appendChild(wrap);
 }
 

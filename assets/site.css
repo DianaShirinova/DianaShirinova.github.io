@@ -75,7 +75,7 @@
   .section-eyebrow{font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
   .section-title{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);line-height:1.08;margin-bottom:6rem;color:var(--cream)}
   .section-title em{font-style:italic;color:var(--rose)}
-  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:3.8rem}
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:3.8rem;align-items:start}
   .gallery-card{position:relative;overflow:hidden;cursor:pointer;background:var(--surface);border:1px solid var(--border);transition:transform .35s ease,box-shadow .35s ease}
   .gallery-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(0,0,0,0.65)}
   .gallery-card img{width:100%;height:auto;display:block;transition:transform .5s ease,filter .4s ease;filter:brightness(.92) saturate(.95)}
@@ -125,6 +125,7 @@
   .buy-cta{align-self:flex-start}
   .buy-cta:disabled{opacity:.5;cursor:wait}
   .buy-status{font-size:.8rem;color:var(--muted);min-height:1.1em;margin:0}
+  .buy-original-note{font-size:.78rem;letter-spacing:.04em;color:var(--rose);margin:0 0 .8rem;text-transform:uppercase}
   #lightbox-inquire{align-self:flex-start;margin-top:auto;padding-top:1.3rem}
   #lightbox-prev,#lightbox-next{position:absolute;top:50%;transform:translateY(-50%);z-index:501;background:rgba(255,255,255,.07);border:1px solid var(--border);color:var(--cream);font-size:1.5rem;width:3rem;height:3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
   #lightbox-prev:hover,#lightbox-next:hover{background:rgba(255,255,255,.15)}
