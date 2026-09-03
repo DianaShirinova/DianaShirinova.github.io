@@ -17,7 +17,7 @@
       "status": "Sold",
       "listing": "print",
       "alsoOriginal": true,
-      "faaUrl": "https://fineartamerica.com/featured/unbridled-diana-shirinova.html"
+      "shopifyHandle": "the-quiet-within-market"
     },
     {
       "title": "Island Waters",
@@ -231,21 +231,6 @@
       "alsoOriginal": true
     },
     {
-      "title": "Island Mosaic",
-      "src": "images/paintings/17-island-mosaic.jpg",
-      "w": 2400,
-      "h": 2399,
-      "palette": [
-        "#532307",
-        "#675C53",
-        "#B68367",
-        "#84948C",
-        "#BAA796"
-      ],
-      "description": "Island Mosaic\nEvery island tells its story through simple things.\nIsland Mosaic brings together the symbols of tropical life into a playful, modern composition inspired by Hawaii's landscapes and traditions. Palm trees, rolling waves, tropical flowers, sea turtles, fish, pottery, fruit, sunshine, and hand-drawn motifs become a visual collection of memories—each square representing a small piece of island living.\nThe balanced geometric layout gives the artwork a timeless, mid-century feel while the soft coastal palette evokes warm afternoons, ocean breezes, and the relaxed rhythm of life by the sea. Every element stands on its own, yet together they create a harmonious celebration of nature, culture, and everyday beauty.\nRather than depicting a single place or moment, Island Mosaic captures the feeling of an island itself—a place where the ocean, tropical gardens, wildlife, and handcrafted traditions exist in effortless harmony.\nA joyful celebration of coastal living, designed to bring warmth, color, and the spirit of the islands into any space.",
-      "status": "Sold"
-    },
-    {
       "title": "Coastal Daydream",
       "src": "images/paintings/18-coastal-daydream.jpg",
       "w": 2400,
@@ -280,22 +265,6 @@
       "listing": "print",
       "alsoOriginal": true,
       "shopifyHandle": "the-quiet-within-market"
-    },
-    {
-      "title": "Island Symbols",
-      "src": "images/paintings/20-island-symbols.jpg",
-      "w": 2400,
-      "h": 2399,
-      "palette": [
-        "#471A03",
-        "#2A4D37",
-        "#9B634C",
-        "#BAA795",
-        "#E4CBA9"
-      ],
-      "description": "Island Symbols\nEvery island has its own language—spoken not through words, but through shapes, colors, and memories.\nIsland Symbols is a modern visual collection of tropical life, bringing together familiar elements of the islands in a playful geometric composition. The sun, palms, ocean, birds, flowers, fish, fruit, and handcrafted forms become a series of simple icons that celebrate the beauty of everyday moments.\nInspired by mid-century design and the relaxed spirit of Hawaii, each panel tells a small story while contributing to a larger rhythm of color and balance. The warm earth tones, soft pinks, ocean blues, and lush greens evoke long summer days, gentle trade winds, and the timeless connection between land and sea.\nRather than depicting a single landscape, Island Symbols captures the essence of island living—a place where nature, culture, and quiet joy exist in perfect harmony.\nA contemporary celebration of tropical life, designed to bring warmth, color, and a sense of effortless coastal living into any home.",
-      "status": "Sold",
-      "hero": 1
     },
     {
       "title": "Soft Horizon",
