@@ -69,6 +69,13 @@ function makePalette(idx, cls){
    *.myshopify.com domain, not the custom domain. Until both are filled in,
    print purchases simply don't render — nothing breaks. No external Shopify
    script is loaded — this talks to the Storefront GraphQL API directly. */
+/* ── ВЫКЛЮЧАТЕЛЬ SHOPIFY ──
+   false = принты продаются только через Fine Art America. Корзина и панель покупки
+   Shopify не показываются, запросы к Storefront API не уходят. Весь код Shopify ниже
+   сохранён и рабочий — чтобы вернуть продажу через Shopify, поставь true и убедись,
+   что у картин проставлены верные shopifyHandle. */
+var SHOPIFY_ENABLED = false;
+
 var SHOP_DOMAIN      = 'dianashirinova.myshopify.com';
 var STOREFRONT_TOKEN = '92704dcda310a6bb51e98406105f014f';
 var INSTAGRAM = 'https://www.instagram.com/DianaShirinova_art';
@@ -301,6 +308,15 @@ function closeCartDrawer(){
   var toggle = document.getElementById('cart-toggle');
   var closeBtn = document.getElementById('cart-drawer-close');
   var backdrop = document.getElementById('cart-backdrop');
+  if (!SHOPIFY_ENABLED){
+    /* Корзина без Shopify бессмысленна — убираем её со всех страниц,
+       не трогая разметку в HTML. */
+    ['cart-toggle', 'cart-drawer', 'cart-backdrop'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    return;
+  }
   if (toggle) toggle.addEventListener('click', openCartDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeCartDrawer);
   if (backdrop) backdrop.addEventListener('click', closeCartDrawer);
@@ -325,6 +341,27 @@ function productMatchesPainting(product, p){
   return b.indexOf(a) !== -1 || a.indexOf(b) !== -1;
 }
 
+/* Есть ли у картины рабочий способ купить принт прямо сейчас.
+   Используется карточками и фильтром prints.html, чтобы на страницу не попадали
+   работы, у которых купить нечего. */
+function hasPrintPurchase(p){
+  return !!(p && (p.faaUrl || (SHOPIFY_ENABLED && p.shopifyHandle)));
+}
+
+/* Fine Art America — прямая ссылка на товар этой картины. Работает независимо
+   от Shopify: для работ без товара в Shopify это единственный способ купить принт. */
+function appendFaaLink(p){
+  if (!p || !p.faaUrl) return null;
+  var a = document.createElement('a');
+  a.className = 'btn-line faa-link';
+  a.href = p.faaUrl;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.textContent = 'Prints on Fine Art America \u2192';
+  lbBuy.appendChild(a);
+  return a;
+}
+
 function renderBuyButton(p){
   lbBuy.innerHTML = '';
   /* Sold/Private Collection блокирует только продажу оригинала. Если у картины есть
@@ -336,6 +373,7 @@ function renderBuyButton(p){
     tag.className = 'pill pill--' + p.status.toLowerCase().split(' ')[0] + ' buy-status-pill';
     tag.textContent = p.status;
     lbBuy.appendChild(tag);
+    appendFaaLink(p);
     return;
   }
   if (isDualListed){
@@ -345,11 +383,12 @@ function renderBuyButton(p){
     lbBuy.appendChild(note);
   }
   var handle = p.shopifyHandle;
-  if (!handle || !SHOP_DOMAIN || !STOREFRONT_TOKEN) return;
+  if (!SHOPIFY_ENABLED || !handle || !SHOP_DOMAIN || !STOREFRONT_TOKEN){ appendFaaLink(p); return; }
   var loading = document.createElement('p');
   loading.className = 'buy-status';
   loading.textContent = 'Loading\u2026';
   lbBuy.appendChild(loading);
+  var faa = appendFaaLink(p);
   shopifyGraphQL(PRODUCT_QUERY, { handle: handle }).then(function(res){
     var product = res && res.data && res.data.product;
     if (!product || !product.availableForSale){ loading.remove(); return; }
@@ -360,14 +399,17 @@ function renderBuyButton(p){
       console.warn('Shopify handle mismatch — buy panel hidden. Painting:', p.title,
                    '| handle:', handle, '| product:', product.title);
       loading.remove();
-      var soon = document.createElement('p');
-      soon.className = 'buy-status';
-      soon.textContent = 'Print of this piece is not available online yet — please ask Diana.';
-      lbBuy.appendChild(soon);
+      if (!faa){
+        var soon = document.createElement('p');
+        soon.className = 'buy-status';
+        soon.textContent = 'Print of this piece is not available online yet — please ask Diana.';
+        lbBuy.appendChild(soon);
+      }
       return;
     }
     loading.remove();
     buildBuyPanel(product);
+    if (faa) lbBuy.appendChild(faa);   /* ссылка на FAA остаётся под панелью Shopify */
   }).catch(function(err){
     console.error('Shopify product fetch failed:', handle, err);
     loading.remove();
@@ -640,7 +682,7 @@ function buildFeatured(){
     view.addEventListener('click', function(){ openLightbox(f.i); });
 
     var prints = null;
-    if (p.shopifyHandle){
+    if (hasPrintPurchase(p)){
       prints = document.createElement('button');
       prints.className = 'feat-link feat-link--prints';
       prints.type = 'button';
@@ -704,7 +746,7 @@ function buildGallery(predicate, opts){
     view.addEventListener('click', function(e){ e.stopPropagation(); openLightbox(i); });
 
     var prints = null;
-    if (p.shopifyHandle && (!opts.hidePrintAction || (p.listing === 'print' && p.alsoOriginal))){
+    if (hasPrintPurchase(p) && (!opts.hidePrintAction || (p.listing === 'print' && p.alsoOriginal))){
       prints = document.createElement('button');
       prints.className = 'card-act card-act--prints';
       prints.type = 'button';

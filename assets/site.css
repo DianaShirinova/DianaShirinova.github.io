@@ -126,6 +126,7 @@
   .buy-cta:disabled{opacity:.5;cursor:wait}
   .buy-status{font-size:.8rem;color:var(--muted);min-height:1.1em;margin:0}
   .buy-original-note{font-size:.78rem;letter-spacing:.04em;color:var(--rose);margin:0 0 .8rem;text-transform:uppercase}
+  .faa-link{margin-top:.9rem;font-size:.72rem;padding:.7rem 1.4rem}
   #lightbox-inquire{align-self:flex-start;margin-top:auto;padding-top:1.3rem}
   #lightbox-prev,#lightbox-next{position:absolute;top:50%;transform:translateY(-50%);z-index:501;background:rgba(255,255,255,.07);border:1px solid var(--border);color:var(--cream);font-size:1.5rem;width:3rem;height:3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
   #lightbox-prev:hover,#lightbox-next:hover{background:rgba(255,255,255,.15)}
