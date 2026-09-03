@@ -310,6 +310,21 @@ function closeCartDrawer(){
   cartInit();
 })();
 
+/* Сверка названия картины с названием товара Shopify — страховка от чужого handle.
+   Совпадением считается вхождение одного слага в другой, поэтому товары вида
+   "Aloha Road — Fine Art Print" проходят, а "The Quiet Within" для "Aloha Road" — нет. */
+function slugTitle(s){
+  return String(s || '').toLowerCase()
+    .replace(/['\u2019]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+function productMatchesPainting(product, p){
+  var a = slugTitle(p && p.title), b = slugTitle(product && product.title);
+  if (!a || !b) return false;
+  return b.indexOf(a) !== -1 || a.indexOf(b) !== -1;
+}
+
 function renderBuyButton(p){
   lbBuy.innerHTML = '';
   /* Sold/Private Collection блокирует только продажу оригинала. Если у картины есть
@@ -338,6 +353,19 @@ function renderBuyButton(p){
   shopifyGraphQL(PRODUCT_QUERY, { handle: handle }).then(function(res){
     var product = res && res.data && res.data.product;
     if (!product || !product.availableForSale){ loading.remove(); return; }
+    /* Защита от неверного handle: товар Shopify должен соответствовать этой картине.
+       Если названия расходятся — панель покупки не показывается, чтобы покупатель
+       не положил в корзину чужую работу. */
+    if (!productMatchesPainting(product, p)){
+      console.warn('Shopify handle mismatch — buy panel hidden. Painting:', p.title,
+                   '| handle:', handle, '| product:', product.title);
+      loading.remove();
+      var soon = document.createElement('p');
+      soon.className = 'buy-status';
+      soon.textContent = 'Print of this piece is not available online yet — please ask Diana.';
+      lbBuy.appendChild(soon);
+      return;
+    }
     loading.remove();
     buildBuyPanel(product);
   }).catch(function(err){
