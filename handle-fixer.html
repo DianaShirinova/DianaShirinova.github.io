@@ -112,6 +112,23 @@
         продающая чужую работу. Как появится товар в Shopify, вернёшь галочку в кабинете.
       </p>
     </section>
+
+    <section class="card">
+      <h2>Шаг 3 — ссылки <em>Fine Art America</em></h2>
+      <p class="hint" style="margin-bottom:1rem">
+        Адрес на FAA собирается из названия: <code>/featured/название-diana-shirinova.html</code>.
+        Нажми «Подставить всем», затем пройди по ссылкам «открыть ↗»: страница открылась — всё верно,
+        404 — поправь адрес руками или очисти поле. Одинаковые названия помечены отдельно: для них
+        FAA почти наверняка выдал разные адреса.
+      </p>
+      <div class="toolbar">
+        <button class="btn" id="btnFaaGuess">Подставить всем</button>
+        <button class="btn btn--ghost" id="btnFaaClear">Очистить все</button>
+        <span class="spacer"></span>
+        <span class="status-line" id="faaStatus"></span>
+      </div>
+      <div id="faaRows"></div>
+    </section>
   </div>
 
 </div>
@@ -229,8 +246,47 @@ function renderRows(){
 
 function start(){
   autoMatch();
+  if (!FAA.length) FAA = DATA.paintings.map(function(p){ return p.faaUrl || ''; });
   $('work').style.display = 'block';
-  renderSummary(); renderRows();
+  renderSummary(); renderRows(); renderFaa();
+}
+
+/* ── Fine Art America ── */
+var FAA = [];
+function faaGuessFor(title){
+  return 'https://fineartamerica.com/featured/' + slugTitle(title) + '-diana-shirinova.html';
+}
+function duplicateTitles(){
+  var seen = {}, dup = {};
+  DATA.paintings.forEach(function(p){
+    var k = slugTitle(p.title);
+    if (seen[k]) dup[k] = true; else seen[k] = true;
+  });
+  return dup;
+}
+function renderFaa(){
+  var host = $('faaRows');
+  host.innerHTML = '';
+  var dup = duplicateTitles();
+  var filled = 0;
+  DATA.paintings.forEach(function(p, i){
+    if (FAA[i]) filled++;
+    var row = document.createElement('div');
+    row.className = 'row ' + (FAA[i] ? 's-warn' : 's-none');
+    row.innerHTML =
+      '<div><div class="row-title">' + esc(p.title) +
+        (dup[slugTitle(p.title)] ? ' <span class="verdict v-warn">дубль названия</span>' : '') +
+        '</div></div>' +
+      '<div><input type="text" value="' + esc(FAA[i] || '') + '" placeholder="ссылка не задана"></div>' +
+      '<div><a class="verdict v-ok" target="_blank" rel="noopener" href="' + esc(FAA[i] || '#') + '"' +
+        (FAA[i] ? '' : ' style="visibility:hidden"') + '>открыть &#8599;</a></div>';
+    row.querySelector('input').addEventListener('change', function(e){
+      FAA[i] = e.target.value.trim();
+      renderFaa();
+    });
+    host.appendChild(row);
+  });
+  $('faaStatus').textContent = 'заполнено ' + filled + ' из ' + DATA.paintings.length;
 }
 
 $('btnLoad').addEventListener('click', function(){
@@ -284,17 +340,27 @@ $('btnOnlyProblems').addEventListener('click', function(){
   renderRows();
 });
 
-/* ── выгрузка: меняем ТОЛЬКО shopifyHandle / listing / alsoOriginal ── */
+$('btnFaaGuess').addEventListener('click', function(){
+  FAA = DATA.paintings.map(function(p, i){ return FAA[i] || faaGuessFor(p.title); });
+  renderFaa();
+});
+$('btnFaaClear').addEventListener('click', function(){
+  if (!confirm('Очистить все ссылки Fine Art America?')) return;
+  FAA = DATA.paintings.map(function(){ return ''; });
+  renderFaa();
+});
+
+/* ── выгрузка: меняем ТОЛЬКО shopifyHandle / faaUrl / listing / alsoOriginal ── */
 $('btnDownload').addEventListener('click', function(){
   var out = JSON.parse(JSON.stringify(DATA));
   out.paintings.forEach(function(p, i){
-    var h = CHOICE[i];
-    if (h){
-      p.shopifyHandle = h;
-      p.listing = 'print';
+    var h = CHOICE[i], f = FAA[i];
+    if (h) p.shopifyHandle = h; else delete p.shopifyHandle;
+    if (f) p.faaUrl = f; else delete p.faaUrl;
+    if (h || f){
+      p.listing = 'print';       /* есть хоть один способ купить принт */
     } else {
-      delete p.shopifyHandle;
-      delete p.listing;
+      delete p.listing;          /* принт купить негде — картина уходит в Originals */
       delete p.alsoOriginal;
     }
   });
