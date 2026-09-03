@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Handles Shopify — Diana Shirinova</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500&display=swap">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0d0d0b;--surface:#161612;--surface2:#1d1d18;--border:rgba(255,255,255,.08);
+    --gold:#c8a96e;--rose:#d4847a;--sage:#8aab87;--cream:#f0e8d8;
+    --muted:rgba(240,232,216,.5);--faint:rgba(240,232,216,.28);
+    --serif:"DM Serif Display",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  }
+  body{background:var(--bg);color:var(--cream);font-family:var(--sans);font-size:15px;line-height:1.5;padding-bottom:5rem}
+  header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;
+    padding:1.6rem 2rem;border-bottom:1px solid var(--border)}
+  .logo{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--gold)}
+  .logo small{font-family:var(--sans);font-style:normal;font-size:.7rem;letter-spacing:.25em;
+    text-transform:uppercase;color:var(--muted);margin-left:.9rem}
+  .wrap{max-width:1000px;margin:0 auto;padding:2rem}
+  .card{background:var(--surface);border:1px solid var(--border);padding:1.6rem;margin-bottom:1.6rem}
+  h2{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin-bottom:.9rem}
+  h2 em{font-style:italic;color:var(--rose)}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.4rem;border:1px solid var(--gold);
+    background:none;color:var(--gold);font-family:var(--sans);font-size:.74rem;letter-spacing:.16em;
+    text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,opacity .2s}
+  .btn:hover{background:var(--gold);color:var(--bg)}
+  .btn--rose{border-color:var(--rose);color:var(--rose)}
+  .btn--rose:hover{background:var(--rose);color:var(--bg)}
+  .btn--ghost{border-color:var(--border);color:var(--muted)}
+  .btn--ghost:hover{background:rgba(255,255,255,.06);color:var(--cream)}
+  .btn:disabled{opacity:.35;cursor:not-allowed}
+  .btn:disabled:hover{background:none;color:var(--gold)}
+  .hint{font-size:.8rem;color:var(--faint);line-height:1.7}
+  .status-line{font-size:.82rem;color:var(--muted);min-height:1.2em}
+  .status-line.ok{color:var(--sage)}
+  .status-line.err{color:var(--rose)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-bottom:1.2rem}
+  .toolbar .spacer{flex:1}
+  .legend{display:flex;flex-wrap:wrap;gap:1.2rem;font-size:.76rem;color:var(--muted);margin-bottom:1rem}
+  .dot{display:inline-block;width:.6rem;height:.6rem;margin-right:.4rem;border-radius:50%}
+  .dot--ok{background:var(--sage)}.dot--warn{background:var(--gold)}.dot--none{background:var(--rose)}
+  .row{display:grid;grid-template-columns:1fr 1.1fr auto;gap:1rem;align-items:center;
+    background:var(--surface);border:1px solid var(--border);border-left-width:3px;
+    padding:.75rem 1rem;margin-bottom:.55rem}
+  .row.s-ok{border-left-color:var(--sage)}
+  .row.s-warn{border-left-color:var(--gold)}
+  .row.s-none{border-left-color:var(--rose)}
+  .row-title{font-family:var(--serif);font-style:italic;font-size:1.02rem}
+  .row-sub{font-size:.72rem;color:var(--faint);margin-top:.15rem;word-break:break-all}
+  select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--cream);
+    font-family:var(--sans);font-size:.86rem;padding:.45rem .6rem;outline:none}
+  select:focus{border-color:var(--gold)}
+  .verdict{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+  .v-ok{color:var(--sage)}.v-warn{color:var(--gold)}.v-none{color:var(--rose)}
+  .dropzone{border:1px dashed var(--border);background:var(--surface2);padding:1.4rem;text-align:center;
+    font-size:.8rem;color:var(--faint);cursor:pointer;transition:border-color .2s}
+  .dropzone:hover,.dropzone.over{border-color:var(--gold);color:var(--muted)}
+  input[type=file]{display:none}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:.82rem;color:var(--gold)}
+  .summary{font-size:.86rem;line-height:1.9;margin-bottom:1rem}
+  @media(max-width:760px){ .row{grid-template-columns:1fr} .wrap{padding:1.2rem} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Diana Shirinova <small>Handles Shopify</small></div>
+  <span class="hint">Правит только shopifyHandle / listing — остальное не трогает</span>
+</header>
+
+<div class="wrap">
+
+  <section class="card" id="loadCard">
+    <h2>Шаг 1 — загрузить <em>коллекцию</em> и товары</h2>
+    <p class="hint" style="margin-bottom:1rem">
+      Нажми кнопку: страница возьмёт <code>paintings.json</code> с сайта и список товаров из Shopify,
+      затем сопоставит их по названию. Если браузер не даст прочитать файл с сайта — просто перетащи
+      сюда <code>paintings.json</code> из репозитория.
+    </p>
+    <div style="display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem">
+      <button class="btn" id="btnLoad">Загрузить всё</button>
+      <span class="status-line" id="loadStatus"></span>
+    </div>
+    <div class="dropzone" id="dropJson">Перетащи сюда paintings.json (если автозагрузка не сработала)</div>
+    <input type="file" id="fileJson" accept="application/json,.json">
+  </section>
+
+  <div id="work" style="display:none">
+    <section class="card">
+      <h2>Шаг 2 — проверить <em>совпадения</em></h2>
+      <div class="summary" id="summary"></div>
+      <div class="legend">
+        <span><i class="dot dot--ok"></i>точное совпадение названия</span>
+        <span><i class="dot dot--warn"></i>похоже, но проверь</span>
+        <span><i class="dot dot--none"></i>товар не найден — принт снимется с продажи</span>
+      </div>
+      <div class="toolbar">
+        <button class="btn btn--ghost" id="btnOnlyProblems">Показать только проблемные</button>
+        <span class="spacer"></span>
+        <button class="btn btn--rose" id="btnDownload">Скачать исправленный paintings.json</button>
+      </div>
+      <div id="rows"></div>
+      <p class="hint" style="margin-top:1.2rem">
+        «Товар не найден» = у картины удалятся <code>shopifyHandle</code> и <code>listing</code>.
+        Она уйдёт со страницы Fine Art Prints в Original Artwork — это лучше, чем кнопка,
+        продающая чужую работу. Как появится товар в Shopify, вернёшь галочку в кабинете.
+      </p>
+    </section>
+  </div>
+
+</div>
+
+<script>
+'use strict';
+var SHOP_DOMAIN = 'dianashirinova.myshopify.com';
+var STOREFRONT_TOKEN = '92704dcda310a6bb51e98406105f014f';
+var API_VERSION = '2025-01';
+
+var DATA = null;      /* весь разобранный paintings.json */
+var PRODUCTS = [];    /* [{title, handle, availableForSale}] */
+var CHOICE = [];      /* выбранный handle по индексу картины ('' = нет товара) */
+var ONLY_PROBLEMS = false;
+
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function slugTitle(s){
+  return String(s || '').toLowerCase()
+    .replace(/['\u2019]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+function setLoad(msg, cls){
+  var el = $('loadStatus');
+  el.textContent = msg;
+  el.className = 'status-line' + (cls ? ' ' + cls : '');
+}
+
+/* ── товары из Shopify (публичный Storefront-токен) ── */
+function fetchProducts(){
+  var query = '{ products(first: 250){ edges{ node{ title handle availableForSale } } } }';
+  return fetch('https://' + SHOP_DOMAIN + '/api/' + API_VERSION + '/graphql.json', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json',
+               'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN },
+    body: JSON.stringify({ query: query })
+  }).then(function(r){ return r.json(); }).then(function(res){
+    if (res.errors) throw new Error(res.errors[0] ? res.errors[0].message : 'Shopify вернул ошибку');
+    var edges = res && res.data && res.data.products && res.data.products.edges;
+    if (!edges) throw new Error('Shopify не вернул список товаров.');
+    return edges.map(function(e){ return e.node; });
+  });
+}
+
+/* ── коллекция с сайта ── */
+function fetchCollection(){
+  return fetch('https://dianashirinova.com/paintings.json?v=' + Date.now(), { cache: 'no-store' })
+    .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+}
+
+/* ── сопоставление ── */
+function autoMatch(){
+  CHOICE = DATA.paintings.map(function(p){
+    var a = slugTitle(p.title);
+    var exact = PRODUCTS.filter(function(pr){ return slugTitle(pr.title) === a; })[0];
+    if (exact) return exact.handle;
+    var partial = PRODUCTS.filter(function(pr){
+      var b = slugTitle(pr.title);
+      return b && a && (b.indexOf(a) !== -1 || a.indexOf(b) !== -1);
+    })[0];
+    return partial ? partial.handle : '';
+  });
+}
+function verdictOf(i){
+  var h = CHOICE[i];
+  if (!h) return 'none';
+  var pr = PRODUCTS.filter(function(x){ return x.handle === h; })[0];
+  if (!pr) return 'none';
+  return slugTitle(pr.title) === slugTitle(DATA.paintings[i].title) ? 'ok' : 'warn';
+}
+
+function renderSummary(){
+  var n = { ok: 0, warn: 0, none: 0 };
+  DATA.paintings.forEach(function(p, i){ n[verdictOf(i)]++; });
+  $('summary').innerHTML =
+    'Картин в коллекции: <b>' + DATA.paintings.length + '</b> · товаров в Shopify: <b>' + PRODUCTS.length + '</b><br>' +
+    '<span class="v-ok">' + n.ok + ' точных</span> · ' +
+    '<span class="v-warn">' + n.warn + ' похожих</span> · ' +
+    '<span class="v-none">' + n.none + ' без товара</span>';
+}
+
+function renderRows(){
+  var host = $('rows');
+  host.innerHTML = '';
+  DATA.paintings.forEach(function(p, i){
+    var v = verdictOf(i);
+    if (ONLY_PROBLEMS && v === 'ok') return;
+    var row = document.createElement('div');
+    row.className = 'row s-' + v;
+
+    var opts = ['<option value="">— товара нет, снять с продажи —</option>'];
+    PRODUCTS.forEach(function(pr){
+      opts.push('<option value="' + esc(pr.handle) + '"' + (CHOICE[i] === pr.handle ? ' selected' : '') + '>' +
+        esc(pr.title) + (pr.availableForSale ? '' : ' (нет в наличии)') + '</option>');
+    });
+
+    row.innerHTML =
+      '<div><div class="row-title">' + esc(p.title) + '</div>' +
+        '<div class="row-sub">было: ' + esc(p.shopifyHandle || '—') + '</div></div>' +
+      '<div><select>' + opts.join('') + '</select>' +
+        '<div class="row-sub">станет: ' + esc(CHOICE[i] || '— без принта —') + '</div></div>' +
+      '<div class="verdict v-' + v + '">' +
+        (v === 'ok' ? 'совпало' : v === 'warn' ? 'проверь' : 'нет товара') + '</div>';
+
+    row.querySelector('select').addEventListener('change', function(e){
+      CHOICE[i] = e.target.value;
+      renderSummary(); renderRows();
+    });
+    host.appendChild(row);
+  });
+  if (!host.children.length){
+    host.innerHTML = '<p class="hint">Проблемных совпадений нет — всё сошлось.</p>';
+  }
+}
+
+function start(){
+  autoMatch();
+  $('work').style.display = 'block';
+  renderSummary(); renderRows();
+}
+
+$('btnLoad').addEventListener('click', function(){
+  var btn = $('btnLoad');
+  btn.disabled = true;
+  setLoad('Читаю Shopify и коллекцию…');
+  Promise.all([ fetchProducts(), fetchCollection() ]).then(function(r){
+    PRODUCTS = r[0];
+    DATA = r[1];
+    if (!DATA || !DATA.paintings) throw new Error('В paintings.json нет массива paintings.');
+    setLoad('Загружено: ' + PRODUCTS.length + ' товаров, ' + DATA.paintings.length + ' картин.', 'ok');
+    start();
+  }).catch(function(err){
+    setLoad(err.message + ' — попробуй перетащить paintings.json вручную.', 'err');
+  }).finally(function(){ btn.disabled = false; });
+});
+
+/* ── ручная загрузка файла ── */
+function readJsonFile(file){
+  var fr = new FileReader();
+  fr.onload = function(){
+    try {
+      DATA = JSON.parse(fr.result);
+      if (!DATA.paintings) throw new Error('нет массива paintings');
+    } catch(e){ return setLoad('Не удалось прочитать файл: ' + e.message, 'err'); }
+    if (PRODUCTS.length){ setLoad('Файл принят.', 'ok'); return start(); }
+    setLoad('Файл принят, тяну товары из Shopify…');
+    fetchProducts().then(function(list){
+      PRODUCTS = list;
+      setLoad('Загружено: ' + PRODUCTS.length + ' товаров, ' + DATA.paintings.length + ' картин.', 'ok');
+      start();
+    }).catch(function(err){ setLoad('Shopify: ' + err.message, 'err'); });
+  };
+  fr.readAsText(file);
+}
+$('dropJson').addEventListener('click', function(){ $('fileJson').click(); });
+$('fileJson').addEventListener('change', function(e){ if (e.target.files[0]) readJsonFile(e.target.files[0]); });
+['dragover','dragenter'].forEach(function(ev){
+  $('dropJson').addEventListener(ev, function(e){ e.preventDefault(); this.classList.add('over'); });
+});
+['dragleave','drop'].forEach(function(ev){
+  $('dropJson').addEventListener(ev, function(e){ e.preventDefault(); this.classList.remove('over'); });
+});
+$('dropJson').addEventListener('drop', function(e){
+  if (e.dataTransfer.files[0]) readJsonFile(e.dataTransfer.files[0]);
+});
+
+$('btnOnlyProblems').addEventListener('click', function(){
+  ONLY_PROBLEMS = !ONLY_PROBLEMS;
+  this.textContent = ONLY_PROBLEMS ? 'Показать все' : 'Показать только проблемные';
+  renderRows();
+});
+
+/* ── выгрузка: меняем ТОЛЬКО shopifyHandle / listing / alsoOriginal ── */
+$('btnDownload').addEventListener('click', function(){
+  var out = JSON.parse(JSON.stringify(DATA));
+  out.paintings.forEach(function(p, i){
+    var h = CHOICE[i];
+    if (h){
+      p.shopifyHandle = h;
+      p.listing = 'print';
+    } else {
+      delete p.shopifyHandle;
+      delete p.listing;
+      delete p.alsoOriginal;
+    }
+  });
+  var blob = new Blob([JSON.stringify(out, null, 2) + '\n'], { type: 'application/json' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'paintings.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+</script>
+</body>
+</html>
