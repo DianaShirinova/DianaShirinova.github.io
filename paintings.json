@@ -17,19 +17,20 @@
       "status": "Sold",
       "listing": "print",
       "alsoOriginal": true,
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/unbridled-diana-shirinova.html"
     },
     {
       "title": "Island Waters",
       "src": "images/paintings/05-island-waters.jpg",
-      "w": 1524,
-      "h": 1136,
+      "w": 2400,
+      "h": 2399,
       "palette": [
-        "#4A1A06",
-        "#6B4437",
-        "#A96955",
+        "#4A1A07",
+        "#AA644A",
         "#889787",
-        "#DAC5B4"
+        "#BBA897",
+        "#E3CAB5"
       ],
       "description": "Island Waters\nThe ocean speaks in quiet ways.\nIn the gentle movement of the tide, in the shifting light beneath the surface, and in the life it carries with effortless grace.\n\nIsland Waters is a celebration of that quiet rhythm. Inspired by the colors and simplicity of tropical coastal life, this painting reflects the peaceful connection between nature and the sea. The fish becomes more than a subject—it becomes a symbol of abundance, balance, and the enduring beauty found in the everyday.\n\nPainted with clean lines and a contemporary palette, the work captures the calm spirit of island living, where time slows, the horizon stretches endlessly, and the ocean is both a companion and a way of life.\n\nSometimes all we need is a reminder that life's greatest treasures have always been close to the water.",
       "status": "Sold"
@@ -50,7 +51,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "the-quiet-within-market",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/ride-the-tide-diana-shirinova.html"
     },
     {
       "title": "Hibiscus Light",
@@ -68,7 +70,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "the-quiet-within-market",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/hibiscus-light-diana-shirinova.html"
     },
     {
       "title": "Chasing the Swell",
@@ -86,7 +89,8 @@
       "status": "Private Collection",
       "listing": "print",
       "shopifyHandle": "the-quiet-within-market",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/chasing-the-swell-diana-shirinova.html"
     },
     {
       "title": "Golden Hour",
@@ -104,7 +108,8 @@
       "status": "Sold",
       "listing": "print",
       "alsoOriginal": true,
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/golden-hour-diana-shirinova.html"
     },
     {
       "title": "Under Tropical Skies",
@@ -122,7 +127,8 @@
       "status": "Sold",
       "listing": "print",
       "alsoOriginal": true,
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/under-tropical-skies-diana-shirinova.html"
     },
     {
       "title": "Tropical Treasures",
@@ -139,7 +145,8 @@
       "description": "Tropical Treasures\nThe most meaningful treasures are rarely the ones we keep.\nThey are the moments we collect—the warmth of the sun, the scent of blooming hibiscus, the taste of fresh fruit, the sound of waves, and the quiet joy of life lived close to nature.\nTropical Treasures is a celebration of those simple gifts. Each element tells its own story, yet together they create a portrait of island life—vibrant, unhurried, and deeply connected to the sea. A palm reaching toward the sky, tropical blooms, ocean harvest, surf culture, and the colors of endless summer become symbols of gratitude for the beauty found in everyday moments.\nInspired by the rhythm of the tropics, this painting reminds us that paradise is not defined by luxury, but by the richness of ordinary days shared with nature.\nThe greatest treasures are the ones that become part of the way we live.",
       "status": "Sold",
       "listing": "print",
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/tropical-treasures-diana-shirinova.html"
     },
     {
       "title": "Breathe",
@@ -157,7 +164,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "the-quiet-within-market",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/breathe-diana-shirinova.html"
     },
     {
       "title": "Island Pause",
@@ -175,7 +183,8 @@
       "status": "Sold",
       "listing": "print",
       "alsoOriginal": true,
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/island-pause-diana-shirinova.html"
     },
     {
       "title": "Moonlit Canopy",
@@ -193,7 +202,8 @@
       "status": "Sold",
       "listing": "print",
       "alsoOriginal": true,
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/moonlit-canopy-diana-shirinova.html"
     },
     {
       "title": "Blooming Quiet",
@@ -210,7 +220,8 @@
       "description": "Blooming Quiet\nSome of the most beautiful things never ask to be noticed.\nBlooming Quiet is a celebration of gentle strength and quiet presence. Against a warm earth-toned sky, delicate blossoms drift like soft memories, surrounding the figure with an atmosphere of calm and quiet wonder. There is no movement to chase—only the feeling of being completely at peace.\nThe flowing garment echoes the lightness of petals carried by a warm island breeze, while the rich, natural palette reflects the warmth of tropical evenings and sunlit earth. Every element invites the viewer to slow down and appreciate the beauty found in simplicity.\nInspired by Hawaii's effortless harmony between nature and everyday life, this painting reminds us that stillness is not empty—it is where grace quietly unfolds.\nA timeless expression of serenity, warmth, and the quiet beauty that surrounds us every day.",
       "status": "Sold",
       "listing": "print",
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/blooming-quiet-diana-shirinova.html"
     },
     {
       "title": "Surfside Serenity",
@@ -228,7 +239,23 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "the-quiet-within-market",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/surfside-serenity-diana-shirinova.html"
+    },
+    {
+      "title": "Island Mosaic",
+      "src": "images/paintings/17-island-mosaic.jpg",
+      "w": 2400,
+      "h": 2399,
+      "palette": [
+        "#532307",
+        "#675C53",
+        "#B68367",
+        "#84948C",
+        "#BAA796"
+      ],
+      "description": "Island Mosaic\nEvery island tells its story through simple things.\nIsland Mosaic brings together the symbols of tropical life into a playful, modern composition inspired by Hawaii's landscapes and traditions. Palm trees, rolling waves, tropical flowers, sea turtles, fish, pottery, fruit, sunshine, and hand-drawn motifs become a visual collection of memories—each square representing a small piece of island living.\nThe balanced geometric layout gives the artwork a timeless, mid-century feel while the soft coastal palette evokes warm afternoons, ocean breezes, and the relaxed rhythm of life by the sea. Every element stands on its own, yet together they create a harmonious celebration of nature, culture, and everyday beauty.\nRather than depicting a single place or moment, Island Mosaic captures the feeling of an island itself—a place where the ocean, tropical gardens, wildlife, and handcrafted traditions exist in effortless harmony.\nA joyful celebration of coastal living, designed to bring warmth, color, and the spirit of the islands into any space.",
+      "status": "Sold"
     },
     {
       "title": "Coastal Daydream",
@@ -246,7 +273,8 @@
       "status": "Sold",
       "listing": "print",
       "alsoOriginal": true,
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/coastal-daydream-diana-shirinova.html"
     },
     {
       "title": "Hibiscus Bloom",
@@ -264,7 +292,24 @@
       "status": "Sold",
       "listing": "print",
       "alsoOriginal": true,
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/hibiscus-bloom-diana-shirinova.html"
+    },
+    {
+      "title": "Island Symbols",
+      "src": "images/paintings/20-island-symbols.jpg",
+      "w": 2400,
+      "h": 2399,
+      "palette": [
+        "#471A03",
+        "#2A4D37",
+        "#9B634C",
+        "#BAA795",
+        "#E4CBA9"
+      ],
+      "description": "Island Symbols\nEvery island has its own language—spoken not through words, but through shapes, colors, and memories.\nIsland Symbols is a modern visual collection of tropical life, bringing together familiar elements of the islands in a playful geometric composition. The sun, palms, ocean, birds, flowers, fish, fruit, and handcrafted forms become a series of simple icons that celebrate the beauty of everyday moments.\nInspired by mid-century design and the relaxed spirit of Hawaii, each panel tells a small story while contributing to a larger rhythm of color and balance. The warm earth tones, soft pinks, ocean blues, and lush greens evoke long summer days, gentle trade winds, and the timeless connection between land and sea.\nRather than depicting a single landscape, Island Symbols captures the essence of island living—a place where nature, culture, and quiet joy exist in perfect harmony.\nA contemporary celebration of tropical life, designed to bring warmth, color, and a sense of effortless coastal living into any home.",
+      "status": "Sold",
+      "hero": 1
     },
     {
       "title": "Soft Horizon",
@@ -282,7 +327,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "the-quiet-within-market",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/soft-horizon-diana-shirinova.html"
     },
     {
       "title": "Golden Swell",
@@ -299,7 +345,8 @@
       "description": "Golden Swell\nThere is a moment before stepping into the water when everything feels possible. The board rests nearby, the breeze carries the scent of salt, and the ocean quietly waits.\nGolden Swell captures that anticipation through a calm, contemplative figure framed by tropical leaves and a sunlit surfboard. Painted in warm earth tones and soft coastal blues, the composition reflects the effortless rhythm of island life—where adventure is balanced by stillness, and every wave begins with a quiet pause.\nRather than portraying action, the painting celebrates the peaceful moments that surround it. It is about slowing down, listening to the ocean, and finding confidence in simply being present.\nWith its contemporary tropical aesthetic and clean, modern forms, Golden Swell brings warmth, light, and a sense of relaxed coastal living into any space. It serves as a gentle reminder that some of life's most meaningful journeys begin long before the first wave is caught.",
       "listing": "print",
       "shopifyHandle": "the-quiet-within-market",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/golden-swell-diana-shirinova.html"
     },
     {
       "title": "Golden Skies",
@@ -317,7 +364,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "the-quiet-within-market",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/golden-skies-diana-shirinova.html"
     },
     {
       "title": "Island Bloom",
@@ -353,7 +401,8 @@
       "status": "Private Collection",
       "listing": "print",
       "shopifyHandle": "the-quiet-within-market",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/island-grace-diana-shirinova.html"
     },
     {
       "title": "Whispering Palms",
@@ -371,7 +420,8 @@
       "status": "Sold",
       "listing": "print",
       "alsoOriginal": true,
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/whispering-palms-diana-shirinova.html"
     },
     {
       "title": "The Coastal rider",
@@ -416,10 +466,10 @@
           "label": "In the interior"
         }
       ],
-      "shopifyHandle": "the-coastal-rider-art-print",
+      "shopifyHandle": "the-quiet-within-market",
       "listing": "print",
       "alsoOriginal": true,
-      "status": "Available by Inquiry"
+      "faaUrl": "https://fineartamerica.com/featured/the-coastal-rider-diana-shirinova.html"
     },
     {
       "title": "Wild Companion",
@@ -465,7 +515,8 @@
       "featured": 3,
       "listing": "print",
       "alsoOriginal": true,
-      "shopifyHandle": "the-quiet-within-market"
+      "shopifyHandle": "the-quiet-within-market",
+      "faaUrl": "https://fineartamerica.com/featured/wild-companion-diana-shirinova.html"
     },
     {
       "title": "The Quiet Within",
@@ -500,7 +551,8 @@
       ],
       "shopifyHandle": "the-quiet-within-market",
       "listing": "print",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/the-quiet-within-diana-shirinova.html"
     },
     {
       "title": "Island Bloom",
@@ -518,8 +570,7 @@
       "shopifyHandle": "the-quiet-within-market",
       "listing": "print",
       "alsoOriginal": true,
-      "status": "Available by Inquiry",
-      "featured": 1
+      "status": "Available"
     },
     {
       "title": "Aloha Road",
@@ -564,7 +615,8 @@
       "featured": 5,
       "shopifyHandle": "the-quiet-within-market",
       "listing": "print",
-      "alsoOriginal": true
+      "alsoOriginal": true,
+      "faaUrl": "https://fineartamerica.com/featured/aloha-road-diana-shirinova.html"
     }
   ]
 }
