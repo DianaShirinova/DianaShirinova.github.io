@@ -115,7 +115,9 @@
   #lightbox-desc{font-size:.9rem;line-height:1.85;color:var(--muted);font-weight:300;white-space:pre-line}
   #lightbox-desc:empty{display:none}
   #lightbox-buy:empty{display:none}
-  .buy-panel{display:flex;flex-direction:column;gap:.9rem}
+  .buy-panel{display:flex;flex-direction:column;gap:.9rem;padding-top:1rem;margin-top:1rem;border-top:1px solid var(--border)}
+  .buy-panel:first-child{padding-top:0;margin-top:0;border-top:none}
+  .buy-section-label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0}
   .buy-price{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--gold)}
   .buy-sizes{display:flex;flex-wrap:wrap;gap:.5rem}
   .buy-size{background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--sans);
@@ -126,7 +128,6 @@
   .buy-cta:disabled{opacity:.5;cursor:wait}
   .buy-status{font-size:.8rem;color:var(--muted);min-height:1.1em;margin:0}
   .buy-original-note{font-size:.78rem;letter-spacing:.04em;color:var(--rose);margin:0 0 .8rem;text-transform:uppercase}
-  .faa-link{margin-top:.9rem;font-size:.72rem;padding:.7rem 1.4rem}
   #lightbox-inquire{align-self:flex-start;margin-top:auto;padding-top:1.3rem}
   #lightbox-prev,#lightbox-next{position:absolute;top:50%;transform:translateY(-50%);z-index:501;background:rgba(255,255,255,.07);border:1px solid var(--border);color:var(--cream);font-size:1.5rem;width:3rem;height:3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
   #lightbox-prev:hover,#lightbox-next:hover{background:rgba(255,255,255,.15)}

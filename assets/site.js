@@ -70,11 +70,10 @@ function makePalette(idx, cls){
    print purchases simply don't render — nothing breaks. No external Shopify
    script is loaded — this talks to the Storefront GraphQL API directly. */
 /* ── ВЫКЛЮЧАТЕЛЬ SHOPIFY ──
-   false = принты продаются только через Fine Art America. Корзина и панель покупки
-   Shopify не показываются, запросы к Storefront API не уходят. Весь код Shopify ниже
-   сохранён и рабочий — чтобы вернуть продажу через Shopify, поставь true и убедись,
-   что у картин проставлены верные shopifyHandle. */
-var SHOPIFY_ENABLED = false;
+   Продажа принтов идёт через Shopify. Fine Art America больше не используется —
+   весь код и данные, связанные с FAA, удалены. Поставь false только если нужно
+   временно скрыть корзину и панель покупки на всём сайте. */
+var SHOPIFY_ENABLED = true;
 
 var SHOP_DOMAIN      = 'dianashirinova.myshopify.com';
 var STOREFRONT_TOKEN = '92704dcda310a6bb51e98406105f014f';
@@ -345,50 +344,18 @@ function productMatchesPainting(product, p){
    Используется карточками и фильтром prints.html, чтобы на страницу не попадали
    работы, у которых купить нечего. */
 function hasPrintPurchase(p){
-  return !!(p && (p.faaUrl || (SHOPIFY_ENABLED && p.shopifyHandle)));
+  return !!(p && SHOPIFY_ENABLED && p.shopifyHandle);
 }
 
-/* Fine Art America — прямая ссылка на товар этой картины. Работает независимо
-   от Shopify: для работ без товара в Shopify это единственный способ купить принт. */
-function appendFaaLink(p){
-  if (!p || !p.faaUrl) return null;
-  var a = document.createElement('a');
-  a.className = 'btn-line faa-link';
-  a.href = p.faaUrl;
-  a.target = '_blank';
-  a.rel = 'noopener';
-  a.textContent = 'Prints on Fine Art America \u2192';
-  lbBuy.appendChild(a);
-  return a;
-}
-
-function renderBuyButton(p){
-  lbBuy.innerHTML = '';
-  /* Sold/Private Collection блокирует только продажу оригинала. Если у картины есть
-     печатный товар (listing==='print'), сам принт продолжает продаваться отдельно —
-     статус оригинала на него не влияет, но покупателю стоит явно об этом сказать. */
-  var isDualListed = p.listing === 'print' && (p.status === 'Sold' || p.status === 'Private Collection');
-  if (!isDualListed && p.listing !== 'print' && (p.status === 'Sold' || p.status === 'Private Collection')){
-    var tag = document.createElement('span');
-    tag.className = 'pill pill--' + p.status.toLowerCase().split(' ')[0] + ' buy-status-pill';
-    tag.textContent = p.status;
-    lbBuy.appendChild(tag);
-    appendFaaLink(p);
-    return;
-  }
-  if (isDualListed){
-    var note = document.createElement('p');
-    note.className = 'buy-original-note';
-    note.textContent = 'Original: ' + p.status + ' — available as a Fine Art Print:';
-    lbBuy.appendChild(note);
-  }
-  var handle = p.shopifyHandle;
-  if (!SHOPIFY_ENABLED || !handle || !SHOP_DOMAIN || !STOREFRONT_TOKEN){ appendFaaLink(p); return; }
+/* Загружает товар Shopify по handle, проверяет, что он действительно относится к этой
+   картине (title-match guard), и рисует под меткой label отдельную панель покупки.
+   Используется и для оригинала (originalShopifyHandle), и для принта (shopifyHandle) —
+   картина может продавать оба сразу, каждый как отдельный товар/handle. */
+function renderProductSection(handle, label, p, mismatchMsg){
   var loading = document.createElement('p');
   loading.className = 'buy-status';
   loading.textContent = 'Loading\u2026';
   lbBuy.appendChild(loading);
-  var faa = appendFaaLink(p);
   shopifyGraphQL(PRODUCT_QUERY, { handle: handle }).then(function(res){
     var product = res && res.data && res.data.product;
     if (!product || !product.availableForSale){ loading.remove(); return; }
@@ -399,30 +366,71 @@ function renderBuyButton(p){
       console.warn('Shopify handle mismatch — buy panel hidden. Painting:', p.title,
                    '| handle:', handle, '| product:', product.title);
       loading.remove();
-      if (!faa){
-        var soon = document.createElement('p');
-        soon.className = 'buy-status';
-        soon.textContent = 'Print of this piece is not available online yet — please ask Diana.';
-        lbBuy.appendChild(soon);
-      }
+      var soon = document.createElement('p');
+      soon.className = 'buy-status';
+      soon.textContent = mismatchMsg;
+      lbBuy.appendChild(soon);
       return;
     }
     loading.remove();
-    buildBuyPanel(product);
-    if (faa) lbBuy.appendChild(faa);   /* ссылка на FAA остаётся под панелью Shopify */
+    buildBuyPanel(product, label);
   }).catch(function(err){
     console.error('Shopify product fetch failed:', handle, err);
     loading.remove();
   });
 }
 
-function buildBuyPanel(product){
+function renderBuyButton(p){
+  lbBuy.innerHTML = '';
+  if (!SHOPIFY_ENABLED || !SHOP_DOMAIN || !STOREFRONT_TOKEN) return;
+
+  var originalSold = p.status === 'Sold' || p.status === 'Private Collection';
+  var hasOriginal = !!p.originalShopifyHandle && !originalSold;
+  var hasPrint = p.listing === 'print' && !!p.shopifyHandle;
+
+  /* Ни оригинала в продаже, ни принта — просто статус, купить нечего. */
+  if (!hasOriginal && !hasPrint){
+    if (originalSold){
+      var tag = document.createElement('span');
+      tag.className = 'pill pill--' + p.status.toLowerCase().split(' ')[0] + ' buy-status-pill';
+      tag.textContent = p.status;
+      lbBuy.appendChild(tag);
+    }
+    return;
+  }
+
+  /* Оригинал продан/в частной коллекции, но принт всё ещё продаётся — поясняем. */
+  if (!hasOriginal && originalSold && hasPrint){
+    var note = document.createElement('p');
+    note.className = 'buy-original-note';
+    note.textContent = 'Original: ' + p.status + ' — available as a Fine Art Print:';
+    lbBuy.appendChild(note);
+  }
+
+  if (hasOriginal){
+    renderProductSection(p.originalShopifyHandle, 'Original', p,
+      'The original is not available online yet \u2014 please ask Diana.');
+  }
+  if (hasPrint){
+    renderProductSection(p.shopifyHandle, 'Fine Art Print', p,
+      'Print of this piece is not available online yet \u2014 please ask Diana.');
+  }
+}
+
+function buildBuyPanel(product, sectionLabel){
   var variants = product.variants.edges.map(function(e){ return e.node; }).filter(function(v){ return v.availableForSale; });
-  if (!variants.length){ lbBuy.innerHTML = ''; return; }
+  if (!variants.length) return;
   var picked = variants[0];
 
   var wrap = document.createElement('div');
   wrap.className = 'buy-panel';
+
+  if (sectionLabel){
+    var heading = document.createElement('p');
+    heading.className = 'buy-section-label';
+    heading.textContent = sectionLabel;
+    wrap.appendChild(heading);
+  }
 
   var price = document.createElement('div');
   price.className = 'buy-price';
