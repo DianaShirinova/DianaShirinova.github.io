@@ -754,7 +754,7 @@ function buildGallery(predicate, opts){
     view.addEventListener('click', function(e){ e.stopPropagation(); openLightbox(i); });
 
     var prints = null;
-    if (hasPrintPurchase(p) && (!opts.hidePrintAction || (p.listing === 'print' && p.alsoOriginal))){
+    if (hasPrintPurchase(p) && (!opts.hidePrintAction || p.listing === 'print')){
       prints = document.createElement('button');
       prints.className = 'card-act card-act--prints';
       prints.type = 'button';
