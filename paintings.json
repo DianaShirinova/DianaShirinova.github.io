@@ -87,7 +87,7 @@
       "status": "Private Collection",
       "listing": "print",
       "shopifyHandle": "chasing-the-swell-art-print",
-      "showOriginal": true
+      "showOriginal": false
     },
     {
       "title": "Golden Hour",
@@ -526,7 +526,7 @@
       "featured": 2,
       "listing": "print",
       "shopifyHandle": "island-bloom-art-print",
-      "showOriginal": true
+      "showOriginal": false
     },
     {
       "title": "Aloha Road",
