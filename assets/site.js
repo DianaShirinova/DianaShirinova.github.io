@@ -352,14 +352,22 @@ function hasPrintPurchase(p){
    картине (title-match guard), и рисует под меткой label отдельную панель покупки.
    Используется и для оригинала (originalShopifyHandle), и для принта (shopifyHandle) —
    картина может продавать оба сразу, каждый как отдельный товар/handle. */
-function renderProductSection(handle, label, p, mismatchMsg){
+function renderProductSection(handle, label, p, mismatchMsg, notFoundMsg){
   var loading = document.createElement('p');
   loading.className = 'buy-status';
   loading.textContent = 'Loading\u2026';
   lbBuy.appendChild(loading);
   shopifyGraphQL(PRODUCT_QUERY, { handle: handle }).then(function(res){
     var product = res && res.data && res.data.product;
-    if (!product || !product.availableForSale){ loading.remove(); return; }
+    if (!product || !product.availableForSale){
+      console.warn('Shopify product not found or unavailable. Painting:', p.title, '| handle:', handle);
+      loading.remove();
+      var missing = document.createElement('p');
+      missing.className = 'buy-status';
+      missing.textContent = notFoundMsg;
+      lbBuy.appendChild(missing);
+      return;
+    }
     /* Защита от неверного handle: товар Shopify должен соответствовать этой картине.
        Если названия расходятся — панель покупки не показывается, чтобы покупатель
        не положил в корзину чужую работу. */
@@ -378,6 +386,10 @@ function renderProductSection(handle, label, p, mismatchMsg){
   }).catch(function(err){
     console.error('Shopify product fetch failed:', handle, err);
     loading.remove();
+    var failed = document.createElement('p');
+    failed.className = 'buy-status';
+    failed.textContent = notFoundMsg;
+    lbBuy.appendChild(failed);
   });
 }
 
@@ -400,9 +412,9 @@ function renderBuyButton(p){
     return;
   }
 
-  /* На Originals не дублируем полную панель принта — только цена оригинала
-     и ссылка на его страницу среди Fine Art Prints. */
-  if (!hasOriginal && originalSold && hasPrint && !PRINT_AS_LINK){
+  /* Пояснение «оригинал продан» нужно рядом со ссылкой на Prints (на Originals),
+     а не на самой странице Prints — там и так весь контекст про принт. */
+  if (!hasOriginal && originalSold && hasPrint && PRINT_AS_LINK){
     var note = document.createElement('p');
     note.className = 'buy-original-note';
     note.textContent = 'Original: ' + p.status + ' — available as a Fine Art Print:';
@@ -411,6 +423,7 @@ function renderBuyButton(p){
 
   if (hasOriginal){
     renderProductSection(p.originalShopifyHandle, 'Original', p,
+      'The original is not available online yet \u2014 please ask Diana.',
       'The original is not available online yet \u2014 please ask Diana.');
   }
   if (hasPrint){
@@ -422,6 +435,7 @@ function renderBuyButton(p){
       lbBuy.appendChild(link);
     } else {
       renderProductSection(p.shopifyHandle, 'Fine Art Print', p,
+        'Print of this piece is not available online yet \u2014 please ask Diana.',
         'Print of this piece is not available online yet \u2014 please ask Diana.');
     }
   }
