@@ -17,7 +17,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "unbridled-art-print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 4
     },
     {
       "title": "Island Waters",
@@ -51,7 +52,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "ride-the-tide-print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 6
     },
     {
       "title": "Hibiscus Light",
@@ -69,7 +71,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "hibiscus-light-art-print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 7
     },
     {
       "title": "Chasing the Swell",
@@ -87,7 +90,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "chasing-the-swell-art-print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 8
     },
     {
       "title": "Golden Hour",
@@ -105,7 +109,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "golden-hour-art-print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 9
     },
     {
       "title": "Under Tropical Skies",
@@ -123,7 +128,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "under-tropical-skies-art-print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 10
     },
     {
       "title": "Tropical Treasures",
@@ -157,7 +163,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "breathe-art-print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 11
     },
     {
       "title": "Island Pause",
@@ -211,7 +218,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "blooming-quiet-art-print",
-      "showOriginal": false
+      "showOriginal": false,
+      "featured": 12
     },
     {
       "title": "Surfside Serenity",
@@ -245,7 +253,8 @@
       "description": "Coastal Daydream\nSome dreams feel as if they belong to the ocean.\nCoastal Daydream captures the quiet anticipation of a perfect day by the sea. A classic surfboard stands nearby, ready for the next wave, while soft tropical leaves and warm sunlight frame a moment of peaceful reflection. Rather than rushing toward adventure, the figure pauses to enjoy the calm that comes before it.\nThe cool blue garment echoes the colors of clear coastal waters, contrasting beautifully with the warm pink sky and sandy tones of the surfboard. The composition balances simplicity with elegance, creating an atmosphere that feels both modern and timeless.\nInspired by Hawaii's relaxed coastal lifestyle, this painting celebrates the beauty of slowing down, breathing deeply, and finding joy in life's simplest moments. It is a reminder that some of the best memories begin long before the first wave is caught.\nA serene tribute to sunshine, ocean air, and the timeless spirit of island living.",
       "status": "Sold",
       "listing": "print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 13
     },
     {
       "title": "Hibiscus Bloom",
@@ -263,7 +272,8 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "hibiscus-bloom-art-print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 14
     },
     {
       "title": "Soft Horizon",
@@ -280,7 +290,8 @@
       "description": "Soft Horizon\nThere is a quiet kind of beauty that asks for nothing. It simply exists—gentle, grounded, and completely at peace with itself.\nSoft Horizon captures that feeling in a moment of stillness. With her head slightly tilted and a single white blossom resting in her hair, the figure radiates calm confidence and quiet warmth. The flowing, textured garment creates a sense of movement, while the rich earth-toned background evokes the warmth of tropical evenings as daylight slowly fades.\nInspired by island life and the beauty of slowing down, the painting celebrates simplicity over perfection. Every brushstroke is intentional, inviting the viewer to pause, breathe, and appreciate the comfort found in quiet moments.\nBlending contemporary portraiture with a modern tropical palette, Soft Horizon brings warmth, serenity, and timeless elegance to any space—a gentle reminder that peace often lives in life's simplest moments.",
       "status": "Sold",
       "listing": "print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 15
     },
     {
       "title": "Golden Swell",
@@ -313,7 +324,8 @@
       "description": "Golden Skies\nSome light comes from above. Some is carried within us.\nGolden Skies is a celebration of quiet optimism—a portrait of someone who chooses to look toward the light, even in stillness. Framed by warm golden stars against an earthy sky, the figure appears calm and open, wrapped in flowing white forms that suggest movement, freedom, and grace.\n\nThe rich palette of soft browns, warm creams, and luminous gold creates a feeling of comfort and grounding, while the celestial symbols evoke hope, possibility, and gentle wonder. Rather than depicting a destination, the painting captures a state of mind: one where peace is found by embracing the present and trusting what lies ahead.\n\nBlending contemporary portraiture with a modern tropical sensibility, Golden Skies brings warmth, elegance, and quiet inspiration into any home. It is a reminder that even the smallest light can illuminate the path forward, and that serenity often begins within.",
       "status": "Sold",
       "listing": "print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 16
     },
     {
       "title": "Island Bloom",
@@ -347,7 +359,8 @@
       "description": "Island Grace\nThere is a quiet confidence that comes from moving through life with kindness and ease. It asks for nothing, yet leaves a lasting impression.\nIsland Grace captures that gentle spirit in a serene portrait surrounded by two white birds gliding effortlessly across an open sky. Symbols of peace, freedom, and hope, they echo the calm expression of the figure, whose soft gaze and delicate blossom create a feeling of quiet harmony.\nThe muted palette of warm blush tones, soft gray-blue, and earthy browns evokes the tranquility of tropical mornings, where the air is still, the light is gentle, and every moment invites reflection. Rather than depicting movement, the painting celebrates presence—the beauty of simply existing in balance with the world around us.\nBlending contemporary portraiture with a modern tropical aesthetic, Island Grace brings serenity, warmth, and timeless elegance into any space. It is a reminder that true grace is not found in grand gestures, but in the quiet way we carry ourselves through life.",
       "status": "Private Collection",
       "listing": "print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 17
     },
     {
       "title": "Whispering Palms",
@@ -364,7 +377,8 @@
       "description": "Whispering Palms\nSome moments don't need words. A quiet glance, gentle light, and the rustle of palms overhead can say everything.\nWhispering Palms captures the peaceful rhythm of island life through a graceful portrait framed by bold tropical leaves. The soft blush tones of the flowing garment contrast beautifully with the deep green foliage, creating a sense of warmth, balance, and effortless elegance. Delicate pearl-like earrings and a thoughtful expression add a quiet sophistication, while the organic forms surrounding the figure evoke the calm embrace of nature.\n\nInspired by the slower pace of tropical living, this painting celebrates reflection, inner peace, and the beauty found in simple moments. It invites the viewer to pause, breathe deeply, and reconnect with the gentle harmony that nature offers.\n\nBlending contemporary portraiture with a modern tropical aesthetic, Whispering Palms brings serenity, warmth, and timeless style into any home. It is a reminder that life's most meaningful conversations are often carried on the breeze beneath the palms.",
       "status": "Sold",
       "listing": "print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 18
     },
     {
       "title": "The Coastal rider",
@@ -460,8 +474,7 @@
       "hero": 2,
       "featured": 3,
       "listing": "print",
-      "showOriginal": true,
-      "shopifyHandle": "wild-companion-2-art-print"
+      "showOriginal": true
     },
     {
       "title": "The Quiet Within",
@@ -495,7 +508,9 @@
         }
       ],
       "listing": "print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 19,
+      "status": "Available"
     },
     {
       "title": "Island Bloom",
