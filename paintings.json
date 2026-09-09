@@ -460,7 +460,8 @@
       "hero": 2,
       "featured": 3,
       "listing": "print",
-      "showOriginal": true
+      "showOriginal": true,
+      "shopifyHandle": "wild-companion-2-art-print"
     },
     {
       "title": "The Quiet Within",
