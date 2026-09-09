@@ -32,6 +32,7 @@
 /* ── Artworks live in paintings.json — managed via the admin panel ── */
 var PAINTINGS = [], PALETTES = [], FEATURED = [], HERO_IDX = [];
 var GALLERY_FILTER = null; /* set by buildGallery(predicate); lightbox nav (prev/next) respects it too */
+var PRINT_AS_LINK = false; /* originals.html: show the print as a plain link instead of a full buy panel */
 
 function deriveCollections(){
   PALETTES = PAINTINGS.map(function(p){ return p.palette || []; });
@@ -399,8 +400,9 @@ function renderBuyButton(p){
     return;
   }
 
-  /* Оригинал продан/в частной коллекции, но принт всё ещё продаётся — поясняем. */
-  if (!hasOriginal && originalSold && hasPrint){
+  /* На Originals не дублируем полную панель принта — только цена оригинала
+     и ссылка на его страницу среди Fine Art Prints. */
+  if (!hasOriginal && originalSold && hasPrint && !PRINT_AS_LINK){
     var note = document.createElement('p');
     note.className = 'buy-original-note';
     note.textContent = 'Original: ' + p.status + ' — available as a Fine Art Print:';
@@ -412,8 +414,16 @@ function renderBuyButton(p){
       'The original is not available online yet \u2014 please ask Diana.');
   }
   if (hasPrint){
-    renderProductSection(p.shopifyHandle, 'Fine Art Print', p,
-      'Print of this piece is not available online yet \u2014 please ask Diana.');
+    if (PRINT_AS_LINK){
+      var link = document.createElement('a');
+      link.className = 'btn-line buy-print-link';
+      link.href = 'prints.html#' + paintingSlug(p);
+      link.textContent = 'Fine Art Print \u2192';
+      lbBuy.appendChild(link);
+    } else {
+      renderProductSection(p.shopifyHandle, 'Fine Art Print', p,
+        'Print of this piece is not available online yet \u2014 please ask Diana.');
+    }
   }
 }
 
@@ -522,6 +532,27 @@ function setLbPalette(idx){
     d.style.background = c;
     lbPal.appendChild(d);
   });
+}
+
+/* Стабильный идентификатор картины для ссылок вида prints.html#slug — берём из
+   имени файла (оно уже уникально в images/paintings/), а не из title (может
+   повторяться, как было с Island Bloom). */
+function paintingSlug(p){
+  var base = p.src.split('/').pop();
+  return base.replace(/\.[a-z0-9]+$/i, '');
+}
+/* Если в адресе есть #slug конкретной картины — открыть её лайтбокс сразу после
+   построения галереи. Используется ссылкой «Fine Art Print →» с Originals,
+   которая ведёт на prints.html#slug той же картины. */
+function openFromHash(){
+  var slug = (window.location.hash || '').replace(/^#/, '');
+  if (!slug) return;
+  for (var i = 0; i < PAINTINGS.length; i++){
+    if (paintingSlug(PAINTINGS[i]) === slug && (!GALLERY_FILTER || GALLERY_FILTER(PAINTINGS[i]))){
+      openLightbox(i);
+      return;
+    }
+  }
 }
 
 function getPhotos(idx){
@@ -713,6 +744,7 @@ function buildFeatured(){
 function buildGallery(predicate, opts){
   opts = opts || {};
   GALLERY_FILTER = predicate || null;
+  PRINT_AS_LINK = !!opts.printAsLink;
   var grid = document.getElementById('galleryGrid');
   if (!grid) return;
   grid.innerHTML = '';
