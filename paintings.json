@@ -526,7 +526,7 @@
       "featured": 2,
       "listing": "print",
       "shopifyHandle": "island-bloom-art-print",
-      "showOriginal": false
+      "showOriginal": true
     },
     {
       "title": "Aloha Road",
