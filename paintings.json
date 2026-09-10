@@ -617,9 +617,9 @@
           "label": "In the interior"
         }
       ],
-      "featured": 20,
-      "hero": 1,
-      "status": "Available"
+      "status": "Available",
+      "featured": 1,
+      "hero": 1
     }
   ]
 }
