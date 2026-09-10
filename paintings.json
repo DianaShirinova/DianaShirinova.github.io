@@ -615,7 +615,10 @@
           "src": "images/paintings/palms-alt5.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "status": "Available",
+      "featured": 1,
+      "hero": 1
     }
   ]
 }
