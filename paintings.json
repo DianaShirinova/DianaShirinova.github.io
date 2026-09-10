@@ -578,12 +578,12 @@
     {
       "title": "36 Palms",
       "src": "images/paintings/palms.jpg",
-      "w": 1602,
-      "h": 1604,
+      "w": 1581,
+      "h": 1592,
       "palette": [
         "#281618",
-        "#896956",
-        "#CB7775",
+        "#A84B3B",
+        "#CB7875",
         "#99A4A4",
         "#EAB975"
       ],
@@ -615,10 +615,7 @@
           "src": "images/paintings/palms-alt5.jpg",
           "label": "In the interior"
         }
-      ],
-      "status": "Available",
-      "featured": 1,
-      "hero": 1
+      ]
     }
   ]
 }
