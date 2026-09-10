@@ -545,6 +545,7 @@
         "#DBC8B4"
       ],
       "description": "Aloha Road\n\nEvery great island adventure begins with an open road.\n\nAloha Road celebrates the timeless spirit of exploration through the iconic vintage surf van—a symbol of freedom, sunshine, and the simple joy of discovering new places. Parked as if waiting for its next journey, the classic green-and-cream bus invites memories of coastal drives, surfboards on the roof, and golden sunsets shared with friends.\n\nInspired by the relaxed rhythm of Hawaii, this painting captures more than a vehicle; it reflects a lifestyle built around slowing down, embracing spontaneity, and enjoying every mile along the way. Its clean lines, soft coastal palette, and minimalist composition create a nostalgic yet contemporary feel that fits effortlessly into modern interiors.\n\nBlending mid-century charm with a tropical aesthetic, Aloha Road brings warmth, adventure, and island nostalgia into any home. It is a reminder that the best destinations are often found when we simply choose to keep driving toward the horizon.",
+      "status": "Available",
       "photos": [
         {
           "src": "images/paintings/33-aloha-road.jpg",
@@ -573,6 +574,48 @@
       ],
       "featured": 5,
       "showOriginal": true
+    },
+    {
+      "title": "36 Palms",
+      "src": "images/paintings/palms.jpg",
+      "w": 1602,
+      "h": 1604,
+      "palette": [
+        "#281618",
+        "#896956",
+        "#CB7775",
+        "#99A4A4",
+        "#EAB975"
+      ],
+      "description": "36 Palms\n\nA contemporary celebration of the palm tree as an enduring symbol of tropical life. Thirty-six palm silhouettes are arranged in a rhythmic grid, each one shifting in color against a different ground, creating a playful balance of repetition, contrast, and visual harmony.\n\nInspired by the graphic language of modern art, 36 Palms transforms a familiar island symbol into a bold, collectible composition. Its warm palette and rhythmic structure bring energy and a distinctly tropical sense of place to contemporary interiors.\n\nOriginal painting: 36 × 36 in.",
+      "originalShopifyHandle": "36-palms",
+      "showOriginal": true,
+      "photos": [
+        {
+          "src": "images/paintings/palms.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/palms-alt1.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/palms-alt2.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/palms-alt3.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/palms-alt4.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/palms-alt5.jpg",
+          "label": "In the interior"
+        }
+      ]
     }
   ]
 }
