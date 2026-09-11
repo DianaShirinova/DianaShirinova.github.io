@@ -32,6 +32,10 @@
 /* ── Artworks live in paintings.json — managed via the admin panel ── */
 var PAINTINGS = [], PALETTES = [], FEATURED = [], HERO_IDX = [];
 var GALLERY_FILTER = null; /* set by buildGallery(predicate); lightbox nav (prev/next) respects it too */
+/* Which Shopify handle the lightbox buy panel should use — set per page before site.js runs:
+   window.BUY_CONTEXT = 'original' (originals.html) or 'print' (prints.html). Unset (e.g. index.html)
+   falls back to originalShopifyHandle first, then shopifyHandle. */
+var BUY_CONTEXT = window.BUY_CONTEXT || null;
 
 function deriveCollections(){
   PALETTES = PAINTINGS.map(function(p){ return p.palette || []; });
@@ -448,7 +452,10 @@ function updateLightboxPanel(idx){
   var p = PAINTINGS[idx];
   lbTitle.textContent = p.title;
   lbDesc.textContent = p.description || '';
-  renderBuyButton(p.shopifyHandle);
+  var buyHandle = BUY_CONTEXT === 'original' ? (p.originalShopifyHandle || null)
+                : BUY_CONTEXT === 'print' ? (p.shopifyHandle || null)
+                : (p.originalShopifyHandle || p.shopifyHandle || null);
+  renderBuyButton(buyHandle);
   if (lbInquire){
     lbInquire.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Original Inquiry: ' + p.title) +
       '&body=' + encodeURIComponent('Aloha Diana, I\'d love to know more about the original of "' + p.title + '".');
