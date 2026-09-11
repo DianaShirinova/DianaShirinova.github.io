@@ -76,7 +76,6 @@ function makePalette(idx, cls){
 var SHOP_DOMAIN      = 'dianashirinova.myshopify.com';
 var STOREFRONT_TOKEN = '92704dcda310a6bb51e98406105f014f';
 var INSTAGRAM = 'https://www.instagram.com/DianaShirinova_art';
-var EMAIL     = 'hello@dianashirinova.com';
 
 var SHOPIFY_API_VERSION = '2025-01';
 function shopifyGraphQL(query, variables){
@@ -418,7 +417,6 @@ var lbDesc = document.getElementById('lightbox-desc');
 var lbPal = document.getElementById('lightbox-palette');
 var lbThumbs = document.getElementById('lightbox-thumbs');
 var lbBuy = document.getElementById('lightbox-buy');
-var lbInquire = document.getElementById('lightbox-inquire');
 var lbClose = document.getElementById('lightbox-close');
 var lastFocused = null;
 
@@ -456,10 +454,6 @@ function updateLightboxPanel(idx){
                 : BUY_CONTEXT === 'print' ? (p.shopifyHandle || null)
                 : (p.originalShopifyHandle || p.shopifyHandle || null);
   renderBuyButton(buyHandle);
-  if (lbInquire){
-    lbInquire.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Original Inquiry: ' + p.title) +
-      '&body=' + encodeURIComponent('Aloha Diana, I\'d love to know more about the original of "' + p.title + '".');
-  }
 }
 
 function buildThumbs(idx){
@@ -745,19 +739,6 @@ function initPaintings(onReady){
     });
 }
 
-/* ── Commission inquiry (email) ── */
-(function(){
-  function openCommission(){
-    var s = encodeURIComponent('Commission Inquiry');
-    var b = encodeURIComponent(
-      'Hello Diana,\n\nI would like to inquire about commissioning an original painting.' +
-      '\n\nPlease let me know your availability.\n\nThank you!');
-    window.location.href = 'mailto:' + EMAIL + '?subject=' + s + '&body=' + b;
-  }
-  document.querySelectorAll('.js-commission').forEach(function(btn){
-    btn.addEventListener('click', openCommission);
-  });
-})();
 /* ── Pacific light: the page background drifts from dawn to dusk as you scroll ── */
 (function(){
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
