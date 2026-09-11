@@ -21,7 +21,7 @@
 
 /* Announcement banner — auto-hides itself once the market date has passed (HST) */
 (function(){
-  if (new Date() <= new Date('2026-09-06T06:00:00-10:00')) {
+  if (new Date() <= new Date('2026-08-09T06:00:00-10:00')) {
     document.body.classList.add('has-announce');
   } else {
     var a = document.getElementById('announce');
@@ -32,7 +32,6 @@
 /* ── Artworks live in paintings.json — managed via the admin panel ── */
 var PAINTINGS = [], PALETTES = [], FEATURED = [], HERO_IDX = [];
 var GALLERY_FILTER = null; /* set by buildGallery(predicate); lightbox nav (prev/next) respects it too */
-var PRINT_AS_LINK = false; /* originals.html: show the print as a plain link instead of a full buy panel */
 
 function deriveCollections(){
   PALETTES = PAINTINGS.map(function(p){ return p.palette || []; });
@@ -70,18 +69,10 @@ function makePalette(idx, cls){
    *.myshopify.com domain, not the custom domain. Until both are filled in,
    print purchases simply don't render — nothing breaks. No external Shopify
    script is loaded — this talks to the Storefront GraphQL API directly. */
-/* ── ВЫКЛЮЧАТЕЛЬ SHOPIFY ──
-   Продажа принтов идёт через Shopify. Fine Art America больше не используется —
-   весь код и данные, связанные с FAA, удалены. Поставь false только если нужно
-   временно скрыть корзину и панель покупки на всём сайте. */
-var SHOPIFY_ENABLED = true;
-
 var SHOP_DOMAIN      = 'dianashirinova.myshopify.com';
 var STOREFRONT_TOKEN = '92704dcda310a6bb51e98406105f014f';
 var INSTAGRAM = 'https://www.instagram.com/DianaShirinova_art';
-var EMAIL_USER   = 'hello';
-var EMAIL_DOMAIN = 'dianashirinova.com';
-var EMAIL        = EMAIL_USER + '@' + EMAIL_DOMAIN;
+var EMAIL     = 'hello@dianashirinova.com';
 
 var SHOPIFY_API_VERSION = '2025-01';
 function shopifyGraphQL(query, variables){
@@ -308,15 +299,6 @@ function closeCartDrawer(){
   var toggle = document.getElementById('cart-toggle');
   var closeBtn = document.getElementById('cart-drawer-close');
   var backdrop = document.getElementById('cart-backdrop');
-  if (!SHOPIFY_ENABLED){
-    /* Корзина без Shopify бессмысленна — убираем её со всех страниц,
-       не трогая разметку в HTML. */
-    ['cart-toggle', 'cart-drawer', 'cart-backdrop'].forEach(function(id){
-      var el = document.getElementById(id);
-      if (el) el.remove();
-    });
-    return;
-  }
   if (toggle) toggle.addEventListener('click', openCartDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeCartDrawer);
   if (backdrop) backdrop.addEventListener('click', closeCartDrawer);
@@ -326,135 +308,27 @@ function closeCartDrawer(){
   cartInit();
 })();
 
-/* Сверка названия картины с названием товара Shopify — страховка от чужого handle.
-   Совпадением считается вхождение одного слага в другой, поэтому товары вида
-   "Aloha Road — Fine Art Print" проходят, а "The Quiet Within" для "Aloha Road" — нет. */
-function slugTitle(s){
-  return String(s || '').toLowerCase()
-    .replace(/['\u2019]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-function productMatchesPainting(product, p){
-  var a = slugTitle(p && p.title), b = slugTitle(product && product.title);
-  if (!a || !b) return false;
-  return b.indexOf(a) !== -1 || a.indexOf(b) !== -1;
-}
-
-/* Есть ли у картины рабочий способ купить принт прямо сейчас.
-   Используется карточками и фильтром prints.html, чтобы на страницу не попадали
-   работы, у которых купить нечего. */
-function hasPrintPurchase(p){
-  return !!(p && SHOPIFY_ENABLED && p.shopifyHandle);
-}
-
-/* Загружает товар Shopify по handle, проверяет, что он действительно относится к этой
-   картине (title-match guard), и рисует под меткой label отдельную панель покупки.
-   Используется и для оригинала (originalShopifyHandle), и для принта (shopifyHandle) —
-   картина может продавать оба сразу, каждый как отдельный товар/handle. */
-function renderProductSection(handle, label, p, mismatchMsg, notFoundMsg){
-  var loading = document.createElement('p');
-  loading.className = 'buy-status';
-  loading.textContent = 'Loading\u2026';
-  lbBuy.appendChild(loading);
+function renderBuyButton(handle){
+  lbBuy.innerHTML = '';
+  if (!handle || !SHOP_DOMAIN || !STOREFRONT_TOKEN) return;
+  lbBuy.innerHTML = '<p class="buy-status">Loading&hellip;</p>';
   shopifyGraphQL(PRODUCT_QUERY, { handle: handle }).then(function(res){
     var product = res && res.data && res.data.product;
-    if (!product || !product.availableForSale){
-      console.warn('Shopify product not found or unavailable. Painting:', p.title, '| handle:', handle);
-      loading.remove();
-      var missing = document.createElement('p');
-      missing.className = 'buy-status';
-      missing.textContent = notFoundMsg;
-      lbBuy.appendChild(missing);
-      return;
-    }
-    /* Защита от неверного handle: товар Shopify должен соответствовать этой картине.
-       Если названия расходятся — панель покупки не показывается, чтобы покупатель
-       не положил в корзину чужую работу. */
-    if (!productMatchesPainting(product, p)){
-      console.warn('Shopify handle mismatch — buy panel hidden. Painting:', p.title,
-                   '| handle:', handle, '| product:', product.title);
-      loading.remove();
-      var soon = document.createElement('p');
-      soon.className = 'buy-status';
-      soon.textContent = mismatchMsg;
-      lbBuy.appendChild(soon);
-      return;
-    }
-    loading.remove();
-    buildBuyPanel(product, label);
+    if (!product || !product.availableForSale){ lbBuy.innerHTML = ''; return; }
+    buildBuyPanel(product);
   }).catch(function(err){
     console.error('Shopify product fetch failed:', handle, err);
-    loading.remove();
-    var failed = document.createElement('p');
-    failed.className = 'buy-status';
-    failed.textContent = notFoundMsg;
-    lbBuy.appendChild(failed);
+    lbBuy.innerHTML = '';
   });
 }
 
-function renderBuyButton(p){
-  lbBuy.innerHTML = '';
-  if (!SHOPIFY_ENABLED || !SHOP_DOMAIN || !STOREFRONT_TOKEN) return;
-
-  var originalSold = p.status === 'Sold' || p.status === 'Private Collection';
-  var hasOriginal = !!p.originalShopifyHandle && !originalSold;
-  var hasPrint = p.listing === 'print' && !!p.shopifyHandle;
-
-  /* Ни оригинала в продаже, ни принта — просто статус, купить нечего. */
-  if (!hasOriginal && !hasPrint){
-    if (originalSold){
-      var tag = document.createElement('span');
-      tag.className = 'pill pill--' + p.status.toLowerCase().split(' ')[0] + ' buy-status-pill';
-      tag.textContent = p.status;
-      lbBuy.appendChild(tag);
-    }
-    return;
-  }
-
-  /* Пояснение «оригинал продан» нужно рядом со ссылкой на Prints (на Originals),
-     а не на самой странице Prints — там и так весь контекст про принт. */
-  if (!hasOriginal && originalSold && hasPrint && PRINT_AS_LINK){
-    var note = document.createElement('p');
-    note.className = 'buy-original-note';
-    note.textContent = 'Original: ' + p.status + ' — available as a Fine Art Print:';
-    lbBuy.appendChild(note);
-  }
-
-  if (hasOriginal){
-    renderProductSection(p.originalShopifyHandle, 'Original', p,
-      'The original is not available online yet \u2014 please ask Diana.',
-      'The original is not available online yet \u2014 please ask Diana.');
-  }
-  if (hasPrint){
-    if (PRINT_AS_LINK){
-      var link = document.createElement('a');
-      link.className = 'btn-line buy-print-link';
-      link.href = 'prints.html#' + paintingSlug(p);
-      link.textContent = 'Fine Art Print \u2192';
-      lbBuy.appendChild(link);
-    } else {
-      renderProductSection(p.shopifyHandle, 'Fine Art Print', p,
-        'Print of this piece is not available online yet \u2014 please ask Diana.',
-        'Print of this piece is not available online yet \u2014 please ask Diana.');
-    }
-  }
-}
-
-function buildBuyPanel(product, sectionLabel){
+function buildBuyPanel(product){
   var variants = product.variants.edges.map(function(e){ return e.node; }).filter(function(v){ return v.availableForSale; });
-  if (!variants.length) return;
+  if (!variants.length){ lbBuy.innerHTML = ''; return; }
   var picked = variants[0];
 
   var wrap = document.createElement('div');
   wrap.className = 'buy-panel';
-
-  if (sectionLabel){
-    var heading = document.createElement('p');
-    heading.className = 'buy-section-label';
-    heading.textContent = sectionLabel;
-    wrap.appendChild(heading);
-  }
 
   var price = document.createElement('div');
   price.className = 'buy-price';
@@ -485,7 +359,10 @@ function buildBuyPanel(product, sectionLabel){
     });
   }
   variants.forEach(function(v){
-    var label = v.selectedOptions.map(function(o){ return o.value; }).join(' / ') || 'Print';
+    var label = v.selectedOptions
+      .map(function(o){ return o.value; })
+      .filter(function(val){ return val !== 'Default Title'; })
+      .join(' / ') || 'Original';
     var opt = document.createElement('button');
     opt.type = 'button';
     opt.className = 'buy-size';
@@ -512,6 +389,7 @@ function buildBuyPanel(product, sectionLabel){
       });
   });
 
+  lbBuy.innerHTML = '';
   lbBuy.appendChild(wrap);
 }
 
@@ -519,7 +397,7 @@ var copyYearEl = document.getElementById('copyYear');
 if (copyYearEl) copyYearEl.textContent = new Date().getFullYear();
 
 /* ── After the market date, remove the market section and its nav link ── */
-if (new Date() > new Date('2026-09-06T06:00:00-10:00')) {
+if (new Date() > new Date('2026-08-09T06:00:00-10:00')) {
   ['market', 'navMarket'].forEach(function(id){
     var el = document.getElementById(id);
     if (el) el.remove();
@@ -535,6 +413,7 @@ var lbDesc = document.getElementById('lightbox-desc');
 var lbPal = document.getElementById('lightbox-palette');
 var lbThumbs = document.getElementById('lightbox-thumbs');
 var lbBuy = document.getElementById('lightbox-buy');
+var lbInquire = document.getElementById('lightbox-inquire');
 var lbClose = document.getElementById('lightbox-close');
 var lastFocused = null;
 
@@ -546,27 +425,6 @@ function setLbPalette(idx){
     d.style.background = c;
     lbPal.appendChild(d);
   });
-}
-
-/* Стабильный идентификатор картины для ссылок вида prints.html#slug — берём из
-   имени файла (оно уже уникально в images/paintings/), а не из title (может
-   повторяться, как было с Island Bloom). */
-function paintingSlug(p){
-  var base = p.src.split('/').pop();
-  return base.replace(/\.[a-z0-9]+$/i, '');
-}
-/* Если в адресе есть #slug конкретной картины — открыть её лайтбокс сразу после
-   построения галереи. Используется ссылкой «Fine Art Print →» с Originals,
-   которая ведёт на prints.html#slug той же картины. */
-function openFromHash(){
-  var slug = (window.location.hash || '').replace(/^#/, '');
-  if (!slug) return;
-  for (var i = 0; i < PAINTINGS.length; i++){
-    if (paintingSlug(PAINTINGS[i]) === slug && (!GALLERY_FILTER || GALLERY_FILTER(PAINTINGS[i]))){
-      openLightbox(i);
-      return;
-    }
-  }
 }
 
 function getPhotos(idx){
@@ -589,7 +447,9 @@ function updateLightboxPanel(idx){
   var p = PAINTINGS[idx];
   lbTitle.textContent = p.title;
   lbDesc.textContent = p.description || '';
-  renderBuyButton(p);
+  renderBuyButton(p.shopifyHandle);
+  lbInquire.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Original Inquiry: ' + p.title) +
+    '&body=' + encodeURIComponent('Aloha Diana, I\'d love to know more about the original of "' + p.title + '".');
 }
 
 function buildThumbs(idx){
@@ -735,7 +595,7 @@ function buildFeatured(){
     view.addEventListener('click', function(){ openLightbox(f.i); });
 
     var prints = null;
-    if (hasPrintPurchase(p)){
+    if (p.shopifyHandle){
       prints = document.createElement('button');
       prints.className = 'feat-link feat-link--prints';
       prints.type = 'button';
@@ -758,16 +618,11 @@ function buildFeatured(){
 function buildGallery(predicate, opts){
   opts = opts || {};
   GALLERY_FILTER = predicate || null;
-  PRINT_AS_LINK = !!opts.printAsLink;
   var grid = document.getElementById('galleryGrid');
   if (!grid) return;
   grid.innerHTML = '';
-  var idxs = PAINTINGS
-    .map(function(p, i){ return i; })
-    .filter(function(i){ return !GALLERY_FILTER || GALLERY_FILTER(PAINTINGS[i]); });
-  if (opts.sortBy) idxs.sort(function(a, b){ return opts.sortBy(PAINTINGS[a], PAINTINGS[b]); });
-  idxs.forEach(function(i){
-    var p = PAINTINGS[i];
+  PAINTINGS.forEach(function(p, i){
+    if (GALLERY_FILTER && !GALLERY_FILTER(p)) return;
     var card = document.createElement('div');
     card.className = 'gallery-card';
     card.setAttribute('role', 'button');
@@ -800,7 +655,7 @@ function buildGallery(predicate, opts){
     view.addEventListener('click', function(e){ e.stopPropagation(); openLightbox(i); });
 
     var prints = null;
-    if (hasPrintPurchase(p) && (!opts.hidePrintAction || p.listing === 'print')){
+    if (p.shopifyHandle && !opts.hidePrintAction){
       prints = document.createElement('button');
       prints.className = 'card-act card-act--prints';
       prints.type = 'button';
@@ -871,22 +726,6 @@ function initPaintings(onReady){
   }
   document.querySelectorAll('.js-commission').forEach(function(btn){
     btn.addEventListener('click', openCommission);
-  });
-})();
-/* ── Email links: href is filled in here (not present in the HTML/JS source as
-   literal text) so plain-text scrapers crawling the static files can't harvest it. ── */
-(function(){
-  document.querySelectorAll('.js-email-link').forEach(function(a){
-    var href = 'mailto:' + EMAIL;
-    var subject = a.getAttribute('data-subject');
-    var body = a.getAttribute('data-body');
-    var params = [];
-    if (subject) params.push('subject=' + encodeURIComponent(subject));
-    if (body) params.push('body=' + encodeURIComponent(body));
-    if (params.length) href += '?' + params.join('&');
-    a.href = href;
-    a.removeAttribute('data-subject');
-    a.removeAttribute('data-body');
   });
 })();
 /* ── Pacific light: the page background drifts from dawn to dusk as you scroll ── */
