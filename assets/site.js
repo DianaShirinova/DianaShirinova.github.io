@@ -21,7 +21,7 @@
 
 /* Announcement banner — auto-hides itself once the market date has passed (HST) */
 (function(){
-  if (new Date() <= new Date('2026-08-09T06:00:00-10:00')) {
+  if (new Date() <= new Date('2026-09-14T06:00:00-10:00')) {
     document.body.classList.add('has-announce');
   } else {
     var a = document.getElementById('announce');
@@ -309,6 +309,7 @@ function closeCartDrawer(){
 })();
 
 function renderBuyButton(handle){
+  if (!lbBuy) return;
   lbBuy.innerHTML = '';
   if (!handle || !SHOP_DOMAIN || !STOREFRONT_TOKEN) return;
   lbBuy.innerHTML = '<p class="buy-status">Loading&hellip;</p>';
@@ -397,7 +398,7 @@ var copyYearEl = document.getElementById('copyYear');
 if (copyYearEl) copyYearEl.textContent = new Date().getFullYear();
 
 /* ── After the market date, remove the market section and its nav link ── */
-if (new Date() > new Date('2026-08-09T06:00:00-10:00')) {
+if (new Date() > new Date('2026-09-14T06:00:00-10:00')) {
   ['market', 'navMarket'].forEach(function(id){
     var el = document.getElementById(id);
     if (el) el.remove();
@@ -448,8 +449,10 @@ function updateLightboxPanel(idx){
   lbTitle.textContent = p.title;
   lbDesc.textContent = p.description || '';
   renderBuyButton(p.shopifyHandle);
-  lbInquire.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Original Inquiry: ' + p.title) +
-    '&body=' + encodeURIComponent('Aloha Diana, I\'d love to know more about the original of "' + p.title + '".');
+  if (lbInquire){
+    lbInquire.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Original Inquiry: ' + p.title) +
+      '&body=' + encodeURIComponent('Aloha Diana, I\'d love to know more about the original of "' + p.title + '".');
+  }
 }
 
 function buildThumbs(idx){
@@ -502,12 +505,14 @@ function stepImg(dir){
   updateLightboxPanel(currentIdx);
 }
 
-document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-document.getElementById('lightbox-prev').addEventListener('click', function(){ stepImg(-1); });
-document.getElementById('lightbox-next').addEventListener('click', function(){ stepImg(1); });
-lb.addEventListener('click', function(e){ if(e.target === lb) closeLightbox(); });
+if (lbClose) lbClose.addEventListener('click', closeLightbox);
+var lbPrevBtn = document.getElementById('lightbox-prev');
+var lbNextBtn = document.getElementById('lightbox-next');
+if (lbPrevBtn) lbPrevBtn.addEventListener('click', function(){ stepImg(-1); });
+if (lbNextBtn) lbNextBtn.addEventListener('click', function(){ stepImg(1); });
+if (lb) lb.addEventListener('click', function(e){ if(e.target === lb) closeLightbox(); });
 document.addEventListener('keydown', function(e){
-  if(!lb.classList.contains('open')) return;
+  if(!lb || !lb.classList.contains('open')) return;
   if(e.key === 'Escape') closeLightbox();
   if(e.key === 'ArrowRight') stepImg(1);
   if(e.key === 'ArrowLeft') stepImg(-1);
