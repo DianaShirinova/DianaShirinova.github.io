@@ -574,7 +574,8 @@
         }
       ],
       "featured": 5,
-      "showOriginal": true
+      "showOriginal": true,
+      "originalShopifyHandle": "aloha-road"
     },
     {
       "title": "36 Palms",
