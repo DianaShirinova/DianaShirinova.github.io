@@ -626,6 +626,18 @@ function buildFeatured(){
   });
 }
 
+function statusRank(status){
+  if (status === 'Available') return 0;
+  if (status === 'Available by Inquiry') return 1;
+  return 2; /* Private Collection, Sold, or no status */
+}
+function sortByAvailability(indices){
+  /* Array#sort is spec-guaranteed stable, so ties keep their original relative order */
+  return indices.slice().sort(function(a, b){
+    return statusRank(PAINTINGS[a].status) - statusRank(PAINTINGS[b].status);
+  });
+}
+
 /* ── Gallery (masonry) ── */
 function buildGallery(predicate, opts){
   opts = opts || {};
@@ -633,8 +645,14 @@ function buildGallery(predicate, opts){
   var grid = document.getElementById('galleryGrid');
   if (!grid) return;
   grid.innerHTML = '';
+  var indices = [];
   PAINTINGS.forEach(function(p, i){
     if (GALLERY_FILTER && !GALLERY_FILTER(p)) return;
+    indices.push(i);
+  });
+  indices = sortByAvailability(indices);
+  indices.forEach(function(i, pos){
+    var p = PAINTINGS[i];
     var card = document.createElement('div');
     card.className = 'gallery-card';
     card.setAttribute('role', 'button');
@@ -654,7 +672,7 @@ function buildGallery(predicate, opts){
 
     var meta = document.createElement('div');
     meta.innerHTML = '<div class="card-title">' + p.title +
-      '</div><div class="card-num">No. ' + String(i + 1).padStart(2, '0') + '</div>';
+      '</div><div class="card-num">No. ' + String(pos + 1).padStart(2, '0') + '</div>';
     meta.appendChild(makePalette(i, 'card-palette'));
 
     var actions = document.createElement('div');
