@@ -508,9 +508,10 @@
           "label": "In the interior"
         }
       ],
+      "listing": "print",
       "showOriginal": true,
       "featured": 19,
-      "status": "Sold"
+      "status": "Available"
     },
     {
       "title": "Island Bloom",
@@ -620,6 +621,22 @@
       "status": "Available",
       "featured": 1,
       "hero": 1
+    },
+    {
+      "title": "Wavebound",
+      "src": "images/paintings/34-wavebound.jpg",
+      "w": 2268,
+      "h": 2400,
+      "palette": [
+        "#58141C",
+        "#9B683A",
+        "#C78352",
+        "#E9C373",
+        "#DACCB2"
+      ],
+      "description": "34\"x34\"",
+      "listing": "print",
+      "showOriginal": true
     }
   ]
 }
