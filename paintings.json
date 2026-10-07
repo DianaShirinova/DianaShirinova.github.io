@@ -620,6 +620,48 @@
       "status": "Available",
       "featured": 1,
       "hero": 1
+    },
+    {
+      "title": "Wavebound",
+      "src": "images/paintings/35-wavebound.jpg",
+      "w": 1219,
+      "h": 1290,
+      "palette": [
+        "#58141C",
+        "#A92E2A",
+        "#9C683B",
+        "#E9C373",
+        "#DBCCB3"
+      ],
+      "description": "A quiet portrait of the Western spirit, Wavebound brings together the freedom of the open road and the restless energy of the sea. A solitary cowboy carries his board beneath a wide-brimmed hat, caught between two worlds — the rugged landscape of the West and the endless pull of the ocean.\n\nBold shapes, warm tones, and simplified forms give the work a contemporary, almost dreamlike character. It is a portrait of movement, independence, and the feeling of always being drawn toward the next horizon.\n\nAcrylic on canvas.",
+      "shopifyHandle": "wavebound-1",
+      "originalShopifyHandle": "wavebound",
+      "listing": "print",
+      "showOriginal": true,
+      "photos": [
+        {
+          "src": "images/paintings/35-wavebound.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt1.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt2.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt3.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt4.jpg",
+          "label": "In the interior"
+        }
+      ],
+      "status": "Available",
+      "featured": 20
     }
   ]
 }
