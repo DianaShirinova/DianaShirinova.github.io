@@ -117,8 +117,8 @@
     <p id="lightbox-desc"></p>
   </aside>
 </div>
-<script src="assets/site.js?v=12" defer></script>
+<script src="assets/site.js?v=13" defer></script>
 <script>window.BUY_CONTEXT = 'print';</script>
-<script>document.addEventListener('DOMContentLoaded', function(){ initPaintings(function(){ buildGallery(function(p){ return !!p.shopifyHandle; }); }); });</script>
+<script>document.addEventListener('DOMContentLoaded', function(){ initPaintings(function(){ buildGallery(function(p){ return p.listing === 'print' && !!p.shopifyHandle; }); }); });</script>
 </body>
 </html>
