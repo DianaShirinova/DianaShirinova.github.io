@@ -19,14 +19,62 @@
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
 })();
 
-/* Announcement banner — auto-hides itself once the market date has passed (HST) */
+/* ── NEXT MARKET — the only place in the whole site where market info lives ──
+   Edit the line marked EDIT THIS LINE just below this comment. Nothing else.
+
+   No market coming up        →  null
+   A market coming up         →  an object with these six fields:
+
+       name    'Name of the art market'       name of the event
+       place   'Where it is held'             park, centre, street
+       dates   'Sat-Sun, Mar 7-8'             shown in the bar at the top
+       short   'March 7-8'                    shown in the Originals sentence
+       endsAt  '2027-03-09T06:00:00-10:00'    bar disappears after this moment
+                                              (Hawaii time: the -10:00 part)
+       url     'https://...'  or  ''          optional link, '' means no link
+
+   With a market set, the site shows the pink bar on every page and adds
+   "The next one is ..." to the Originals page. Both disappear on their own
+   once endsAt has passed, so nothing is left hanging if nobody edits this. ── */
+
+var MARKET = null;   /* ← EDIT THIS LINE */
+
+function marketIsLive(){
+  if (!MARKET || !MARKET.endsAt) return false;
+  return new Date() <= new Date(MARKET.endsAt);
+}
+
+/* Top announcement bar — built here, so no page has the text hard-coded */
 (function(){
-  if (new Date() <= new Date('2026-09-14T06:00:00-10:00')) {
-    document.body.classList.add('has-announce');
+  if (!marketIsLive()) return;
+  var bar = document.createElement(MARKET.url ? 'a' : 'div');
+  bar.id = 'announce';
+  bar.className = 'announce';
+  if (MARKET.url) bar.href = MARKET.url;
+  bar.textContent = 'Next Market — ' + MARKET.name +
+    (MARKET.place ? ', ' + MARKET.place : '') +
+    (MARKET.dates ? ' · ' + MARKET.dates : '') +
+    (MARKET.url ? ' →' : '');
+  document.body.insertBefore(bar, document.body.firstChild);
+  document.body.classList.add('has-announce');
+})();
+
+/* Originals page — one extra sentence, only while a market is coming up */
+(function(){
+  var slot = document.getElementById('marketNote');
+  if (!slot) return;
+  if (!marketIsLive()){ slot.remove(); return; }
+  var label = MARKET.name + (MARKET.short ? ', ' + MARKET.short : '');
+  slot.textContent = ' The next one is ';
+  if (MARKET.url){
+    var a = document.createElement('a');
+    a.href = MARKET.url;
+    a.textContent = label;
+    slot.appendChild(a);
   } else {
-    var a = document.getElementById('announce');
-    if (a) a.remove();
+    slot.appendChild(document.createTextNode(label));
   }
+  slot.appendChild(document.createTextNode('.'));
 })();
 
 /* ── Artworks live in paintings.json — managed via the admin panel ── */
@@ -295,7 +343,10 @@ function closeCartDrawer(){
   var d = document.getElementById('cart-drawer'), b = document.getElementById('cart-backdrop');
   if (d) d.classList.remove('open');
   if (b) b.classList.remove('open');
-  document.body.style.overflow = '';
+  /* The cart can be opened from inside the lightbox ("Add to Cart"). Only give
+     the page its scrollbar back if the lightbox isn't still covering it. */
+  var lbOpen = document.getElementById('lightbox');
+  if (!(lbOpen && lbOpen.classList.contains('open'))) document.body.style.overflow = '';
 }
 
 (function(){
@@ -399,14 +450,6 @@ function buildBuyPanel(product){
 
 var copyYearEl = document.getElementById('copyYear');
 if (copyYearEl) copyYearEl.textContent = new Date().getFullYear();
-
-/* ── After the market date, remove the market section and its nav link ── */
-if (new Date() > new Date('2026-09-14T06:00:00-10:00')) {
-  ['market', 'navMarket'].forEach(function(id){
-    var el = document.getElementById(id);
-    if (el) el.remove();
-  });
-}
 
 /* ── Lightbox (declared first so featured + gallery can call it) ── */
 var currentIdx = 0;
@@ -647,11 +690,12 @@ function buildGallery(predicate, opts){
   indices = sortByAvailability(indices);
   indices.forEach(function(i, pos){
     var p = PAINTINGS[i];
+    /* No role="button"/tabindex on the card itself: it contains real buttons,
+       and a focusable control inside a focusable control is invalid. Mouse
+       users still get the whole card as a click target; keyboard users reach
+       the "View Artwork" button below, and :focus-within reveals the overlay. */
     var card = document.createElement('div');
     card.className = 'gallery-card';
-    card.setAttribute('role', 'button');
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-label', 'View artwork: ' + p.title);
 
     var img = document.createElement('img');
     img.src = p.src;
@@ -703,9 +747,6 @@ function buildGallery(predicate, opts){
     }
 
     card.addEventListener('click', function(){ openLightbox(i); });
-    card.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLightbox(i); }
-    });
     grid.appendChild(card);
   });
 }
@@ -717,7 +758,6 @@ function buildGallery(predicate, opts){
      initPaintings(function(){ buildGallery(null, { showStatus:true, hidePrintAction:true }); }); // originals.html
    ── */
 function initPaintings(onReady){
-  deriveCollections();
   if (window.__PREVIEW_DATA){        /* preview mode: data injected by the admin panel */
     PAINTINGS = window.__PREVIEW_DATA.paintings || [];
     deriveCollections();
@@ -742,13 +782,15 @@ function initPaintings(onReady){
 /* ── Pacific light: the page background drifts from dawn to dusk as you scroll ── */
 (function(){
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  /* [progress, --bg rgb, --surface rgb]: dawn → midday → golden hour → dusk */
+  /* [progress, --bg rgb, --surface rgb]: dawn → midday → golden hour → dusk.
+     Soft-pink palette: every stop stays light, so dark text keeps its
+     contrast the whole way down the page. */
   var stops = [
-    [0.00, [15,21,38], [25,33,52]],
-    [0.40, [10,27,29], [16,41,43]],
-    [0.62, [32,22,10], [48,33,16]],
-    [0.88, [38,16,26], [54,24,38]],
-    [1.00, [38,16,26], [54,24,38]]
+    [0.00, [250,232,240], [255,245,249]],  /* dawn        — cool soft pink */
+    [0.40, [253,240,235], [255,249,246]],  /* midday      — warm blush     */
+    [0.62, [252,230,216], [255,243,235]],  /* golden hour — peach          */
+    [0.88, [247,214,228], [255,234,242]],  /* dusk        — rose           */
+    [1.00, [247,214,228], [255,234,242]]
   ];
   var root = document.documentElement, ticking = false;
   var glow = document.getElementById('sunGlow');
@@ -759,15 +801,16 @@ function initPaintings(onReady){
   }
   function setGlow(p){
     if (!glow) return;
-    /* the sun rises, peaks near midday, then reddens and sets */
+    /* The sun rises, peaks near midday, then warms and sets.
+       #sunGlow blends with `multiply`, so this tint *warms* the pink page
+       rather than lightening it — on a light theme `screen` does nothing. */
     var arc = Math.sin(Math.PI * Math.min(Math.max((p - 0.04) / 0.9, 0), 1));
     var warm = Math.min(Math.max((p - 0.55) / 0.35, 0), 1);
-    var r = 255, g = Math.round(200 - 65 * warm), b2 = Math.round(130 - 15 * warm);
-    var a = (0.26 * arc).toFixed(3);
+    var r = 255, g = Math.round(208 - 50 * warm), b2 = Math.round(176 - 56 * warm);
+    var a = (0.30 * arc).toFixed(3);
     glow.style.opacity = 1;
     glow.style.background = 'radial-gradient(ellipse 95% 60% at 50% 16%, rgba(' +
-      r + ',' + g + ',' + b2 + ',' + a + '), rgba(' +
-      r + ',' + g + ',' + b2 + ',0) 68%)';
+      r + ',' + g + ',' + b2 + ',' + a + '), rgba(255,255,255,0) 68%)';
   }
   function update(){
     ticking = false;
