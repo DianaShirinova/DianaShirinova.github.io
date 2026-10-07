@@ -754,8 +754,10 @@ function buildGallery(predicate, opts){
 /* ── Load the collection, then let the current page decide what to build.
    Call from each page's own small inline script, e.g.:
      initPaintings(function(){ buildFeatured(); buildHeroFloats(); });          // index.html
-     initPaintings(function(){ buildGallery(function(p){ return !!p.shopifyHandle; }); });  // prints.html
-     initPaintings(function(){ buildGallery(null, { showStatus:true, hidePrintAction:true }); }); // originals.html
+     initPaintings(function(){ buildGallery(function(p){ return p.listing === 'print' && !!p.shopifyHandle; }); });  // prints.html
+     initPaintings(function(){ buildGallery(function(p){ return p.showOriginal !== false; }, { showStatus:true, hidePrintAction:true }); }); // originals.html
+   The two switches in the admin panel ("Fine Art Print" and "Показывать в Original Artwork")
+   map to p.listing and p.showOriginal here — keep these filters in sync with the admin. 
    ── */
 function initPaintings(onReady){
   if (window.__PREVIEW_DATA){        /* preview mode: data injected by the admin panel */
