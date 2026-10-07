@@ -7,9 +7,9 @@
 <meta name="description" content="Get in touch with Diana Shirinova — original paintings, fine art prints and commission inquiries.">
 <meta name="author" content="Diana Shirinova">
 <link rel="canonical" href="https://dianashirinova.com/contact.html">
-<meta name="theme-color" content="#0d0d0b">
+<meta name="theme-color" content="#fae8f0">
 <meta name="p:domain_verify" content="3ba7b110c1aaa63d699c8e35913f19d3"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230d0d0b'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-style='italic' font-size='60' fill='%23c8a96e' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23fae8f0'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-style='italic' font-size='60' fill='%23a83c60' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diana Shirinova">
@@ -39,25 +39,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=7">
+<link rel="stylesheet" href="assets/site.css?v=8">
 </head>
 <body>
-<a id="announce" class="announce" href="index.html#market">Next Market &mdash; Waikiki Artfest, Kapiolani Park &middot; Sat&ndash;Sun, Sep 12&ndash;13 &rarr;</a>
 <div id="sunGlow" aria-hidden="true"></div>
 
 <nav aria-label="Primary">
-  <button id="mobile-menu-toggle" class="nav-burger" type="button" aria-label="Open menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-  </button>
   <a class="nav-logo" href="index.html" style="text-decoration:none">Diana Shirinova</a>
   <ul class="nav-links">
-    <li id="navMarket"><a href="index.html#market">Sep 12&ndash;13 Market</a></li>
     <li><a href="prints.html">Fine Art Prints</a></li>
     <li><a href="originals.html">Original Artwork</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="nav-actions">
+    <button id="mobile-menu-toggle" class="nav-burger" type="button" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
     <button id="cart-toggle" class="nav-cart" type="button" aria-label="Open cart">
       <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.1 11a2 2 0 0 1-2 1.8H9.1a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
       <span id="cart-badge" class="cart-badge">0</span>
@@ -98,7 +96,8 @@
         </div>
         <div class="form-field">
           <label for="cf-email">Email *</label>
-          <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required aria-describedby="cf-email-error">
+          <p id="cf-email-error" class="form-error" role="alert"></p>
         </div>
       </div>
       <div class="form-field">
@@ -139,20 +138,42 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=11" defer></script>
-<script defer>
-document.getElementById('contactForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  var name = document.getElementById('cf-name').value.trim();
-  var email = document.getElementById('cf-email').value.trim();
-  var phone = document.getElementById('cf-phone').value.trim();
-  var comment = document.getElementById('cf-comment').value.trim();
-  if (!email){ document.getElementById('cf-email').focus(); return; }
-  var lines = ['Name: ' + (name || '—'), 'Email: ' + email, 'Phone: ' + (phone || '—'), '', comment];
-  var body = encodeURIComponent(lines.join('\n'));
-  var subject = encodeURIComponent('Message from dianashirinova.com');
-  window.location.href = 'mailto:hello@dianashirinova.com?subject=' + subject + '&body=' + body;
-});
+<script src="assets/site.js?v=12" defer></script>
+<script>
+(function(){
+  var form     = document.getElementById('contactForm');
+  var emailEl  = document.getElementById('cf-email');
+  var errorEl  = document.getElementById('cf-email-error');
+  if (!form) return;
+
+  function clearError(){
+    errorEl.textContent = '';
+    emailEl.removeAttribute('aria-invalid');
+  }
+  function showError(msg){
+    errorEl.textContent = msg;
+    emailEl.setAttribute('aria-invalid', 'true');
+    emailEl.focus();
+  }
+  emailEl.addEventListener('input', clearError);
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name    = document.getElementById('cf-name').value.trim();
+    var email   = emailEl.value.trim();
+    var phone   = document.getElementById('cf-phone').value.trim();
+    var comment = document.getElementById('cf-comment').value.trim();
+
+    if (!email){ showError('Please enter your email so Diana can reply.'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showError('That email address doesn’t look right.'); return; }
+    clearError();
+
+    var lines = ['Name: ' + (name || '—'), 'Email: ' + email, 'Phone: ' + (phone || '—'), '', comment];
+    var body    = encodeURIComponent(lines.join('\n'));
+    var subject = encodeURIComponent('Message from dianashirinova.com');
+    window.location.href = 'mailto:hello@dianashirinova.com?subject=' + subject + '&body=' + body;
+  });
+})();
 </script>
 </body>
 </html>
