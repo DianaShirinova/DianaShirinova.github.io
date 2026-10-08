@@ -14,7 +14,6 @@
         "#BCC9C8"
       ],
       "description": "Unbridled\nFreedom is rarely loud.\nMore often, it is found in quiet choices—in following an open horizon, trusting your own path, and moving forward without asking for permission.\nUnbridled is a reflection of that spirit.\nThe horse is more than a companion; it represents instinct, resilience, and the courage to keep moving. Together, the figures become a symbol of a life lived with authenticity—where strength is gentle, confidence is quiet, and freedom comes from within.\nInspired by the timeless connection between people, nature, and the open landscape, this painting invites the viewer to remember what it feels like to move through the world without fear or pretense.\nSometimes the greatest freedom is simply being true to yourself.",
-      "status": "Sold",
       "listing": "print",
       "shopifyHandle": "unbridled-art-print",
       "showOriginal": true,
@@ -42,7 +41,6 @@
         "#E3C8B4"
       ],
       "description": "Island Waters\nThe ocean speaks in quiet ways.\nIn the gentle movement of the tide, in the shifting light beneath the surface, and in the life it carries with effortless grace.\n\nIsland Waters is a celebration of that quiet rhythm. Inspired by the colors and simplicity of tropical coastal life, this painting reflects the peaceful connection between nature and the sea. The fish becomes more than a subject—it becomes a symbol of abundance, balance, and the enduring beauty found in the everyday.\n\nPainted with clean lines and a contemporary palette, the work captures the calm spirit of island living, where time slows, the horizon stretches endlessly, and the ocean is both a companion and a way of life.\n\nSometimes all we need is a reminder that life's greatest treasures have always been close to the water.",
-      "status": "Sold",
       "showOriginal": true,
       "photos": [
         {
@@ -521,7 +519,7 @@
         "#E6E7E6"
       ],
       "description": "Island Grace\nThere is a quiet confidence that comes from moving through life with kindness and ease. It asks for nothing, yet leaves a lasting impression.\nIsland Grace captures that gentle spirit in a serene portrait surrounded by two white birds gliding effortlessly across an open sky. Symbols of peace, freedom, and hope, they echo the calm expression of the figure, whose soft gaze and delicate blossom create a feeling of quiet harmony.\nThe muted palette of warm blush tones, soft gray-blue, and earthy browns evokes the tranquility of tropical mornings, where the air is still, the light is gentle, and every moment invites reflection. Rather than depicting movement, the painting celebrates presence—the beauty of simply existing in balance with the world around us.\nBlending contemporary portraiture with a modern tropical aesthetic, Island Grace brings serenity, warmth, and timeless elegance into any space. It is a reminder that true grace is not found in grand gestures, but in the quiet way we carry ourselves through life.",
-      "status": "Private Collection",
+      "status": "Sold",
       "listing": "print",
       "showOriginal": true,
       "shopifyHandle": "island-grace",
@@ -630,8 +628,7 @@
         "#F7D6B4"
       ],
       "description": "Wild Companion\n\nNot everything wild is meant to be feared.\n\nWild Companion explores the quiet relationship between humanity and the untamed world. The shark, often seen as a symbol of danger, becomes something entirely different—a companion carried with care, strength, and respect.\n\nThrough bold shapes, warm coastal colors, and minimalist composition, the painting invites us to reconsider what we call wild. Sometimes the greatest connections are found where fear once lived.\n\nA celebration of trust, curiosity, and the enduring bond between people and the sea.",
-      "status": "Private Collection",
-      "hero": 2,
+      "status": "Sold",
       "listing": "print",
       "showOriginal": true,
       "shopifyHandle": "wild-companion-2-art-print",
@@ -761,6 +758,7 @@
       "status": "Sold",
       "showOriginal": true,
       "listing": "print",
+      "shopifyHandle": "aloha-road-1",
       "photos": [
         {
           "src": "images/paintings/33-aloha-road.jpg",
@@ -770,8 +768,7 @@
           "src": "images/paintings/33-aloha-road-alt1.jpg",
           "label": "In the interior"
         }
-      ],
-      "shopifyHandle": "aloha-road-1"
+      ]
     },
     {
       "title": "Island Outlaw",
