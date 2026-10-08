@@ -235,8 +235,8 @@
       ],
       "description": "Surfside Serenity\nSome places stay with us long after we've left them.\nSurfside Serenity captures the quiet joy of island living, where the ocean is never far away and every day carries the promise of warm sun and gentle waves. A vintage surfboard rests behind the figure like a familiar companion, while flowing forms and soft tropical colors evoke the calm rhythm of life by the sea.\n\nThe composition is intentionally simple, allowing space for the feeling itself—the warmth of salt air, the glow of afternoon light, and the peaceful confidence that comes from living close to nature. The flowing garment mirrors the movement of the ocean, while the soft palette reflects the timeless beauty of Hawaii's coastline.\n\nInspired by slow mornings, endless summers, and the effortless elegance of coastal life, this painting invites the viewer to pause, breathe deeply, and carry a little of that island peace home.\n\nA celebration of sunshine, simplicity, and the enduring spirit of the ocean.",
       "status": "Sold",
-      "listing": "print",
       "showOriginal": true,
+      "listing": "print",
       "shopifyHandle": "surfside-serenity-art-print"
     },
     {
@@ -294,7 +294,7 @@
       "listing": "print",
       "showOriginal": true,
       "featured": 15,
-      "shopifyHandle": "soft-horizon"
+      "shopifyHandle": "golden-skies"
     },
     {
       "title": "Golden Swell",
@@ -434,7 +434,7 @@
       "shopifyHandle": "the-coastal-rider-art-print",
       "listing": "print",
       "originalShopifyHandle": "the-coastal-rider",
-      "status": "Sold",
+      "status": "Available",
       "featured": 1,
       "hero": 3,
       "showOriginal": true
@@ -628,48 +628,6 @@
       "status": "Available",
       "featured": 1,
       "hero": 1
-    },
-    {
-      "title": "Wavebound",
-      "src": "images/paintings/35-wavebound.jpg",
-      "w": 1219,
-      "h": 1290,
-      "palette": [
-        "#58141C",
-        "#A92E2A",
-        "#9C683B",
-        "#E9C373",
-        "#DBCCB3"
-      ],
-      "description": "A quiet portrait of the Western spirit, Wavebound brings together the freedom of the open road and the restless energy of the sea. A solitary cowboy carries his board beneath a wide-brimmed hat, caught between two worlds — the rugged landscape of the West and the endless pull of the ocean.\n\nBold shapes, warm tones, and simplified forms give the work a contemporary, almost dreamlike character. It is a portrait of movement, independence, and the feeling of always being drawn toward the next horizon.\n\nAcrylic on canvas.",
-      "shopifyHandle": "wavebound-1",
-      "originalShopifyHandle": "wavebound",
-      "listing": "print",
-      "showOriginal": true,
-      "photos": [
-        {
-          "src": "images/paintings/35-wavebound.jpg",
-          "label": "Original"
-        },
-        {
-          "src": "images/paintings/35-wavebound-alt1.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/35-wavebound-alt2.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/35-wavebound-alt3.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/35-wavebound-alt4.jpg",
-          "label": "In the interior"
-        }
-      ],
-      "status": "Available",
-      "featured": 20
     }
   ]
 }
