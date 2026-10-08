@@ -218,7 +218,7 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "blooming-quiet-art-print",
-      "showOriginal": true,
+      "showOriginal": false,
       "featured": 12
     },
     {
@@ -235,8 +235,8 @@
       ],
       "description": "Surfside Serenity\nSome places stay with us long after we've left them.\nSurfside Serenity captures the quiet joy of island living, where the ocean is never far away and every day carries the promise of warm sun and gentle waves. A vintage surfboard rests behind the figure like a familiar companion, while flowing forms and soft tropical colors evoke the calm rhythm of life by the sea.\n\nThe composition is intentionally simple, allowing space for the feeling itself—the warmth of salt air, the glow of afternoon light, and the peaceful confidence that comes from living close to nature. The flowing garment mirrors the movement of the ocean, while the soft palette reflects the timeless beauty of Hawaii's coastline.\n\nInspired by slow mornings, endless summers, and the effortless elegance of coastal life, this painting invites the viewer to pause, breathe deeply, and carry a little of that island peace home.\n\nA celebration of sunshine, simplicity, and the enduring spirit of the ocean.",
       "status": "Sold",
-      "showOriginal": true,
       "listing": "print",
+      "showOriginal": true,
       "shopifyHandle": "surfside-serenity-art-print"
     },
     {
@@ -293,7 +293,8 @@
       "status": "Sold",
       "listing": "print",
       "showOriginal": true,
-      "featured": 15
+      "featured": 15,
+      "shopifyHandle": "soft-horizon"
     },
     {
       "title": "Golden Swell",
@@ -309,8 +310,7 @@
       ],
       "description": "Golden Swell\nThere is a moment before stepping into the water when everything feels possible. The board rests nearby, the breeze carries the scent of salt, and the ocean quietly waits.\nGolden Swell captures that anticipation through a calm, contemplative figure framed by tropical leaves and a sunlit surfboard. Painted in warm earth tones and soft coastal blues, the composition reflects the effortless rhythm of island life—where adventure is balanced by stillness, and every wave begins with a quiet pause.\nRather than portraying action, the painting celebrates the peaceful moments that surround it. It is about slowing down, listening to the ocean, and finding confidence in simply being present.\nWith its contemporary tropical aesthetic and clean, modern forms, Golden Swell brings warmth, light, and a sense of relaxed coastal living into any space. It serves as a gentle reminder that some of life's most meaningful journeys begin long before the first wave is caught.",
       "listing": "print",
-      "showOriginal": true,
-      "shopifyHandle": "golden-swell"
+      "showOriginal": true
     },
     {
       "title": "Golden Skies",
@@ -328,11 +328,10 @@
       "status": "Sold",
       "listing": "print",
       "showOriginal": true,
-      "featured": 16,
-      "shopifyHandle": "golden-skies"
+      "featured": 16
     },
     {
-      "title": "Island Bloom",
+      "title": "Her Own Light",
       "src": "images/paintings/24-island-bloom.jpg",
       "w": 2172,
       "h": 2898,
@@ -343,10 +342,11 @@
         "#A5A494",
         "#E8C466"
       ],
-      "description": "Island Bloom\nThe brightest kind of confidence is often the quietest. It doesn't seek attention—it simply glows.\nIsland Bloom captures that gentle radiance through a serene figure adorned with a vibrant tropical flower, surrounded by bold palm leaves that frame the composition like a peaceful island sanctuary. The flowing golden garment reflects the warmth of morning light, while the soft neutral background allows every color and gesture to breathe.\n\nInspired by the effortless beauty of tropical life, this painting celebrates the moments when we feel most connected to ourselves and the world around us. The vivid blossom symbolizes joy and renewal, while the calm expression invites the viewer to slow down and embrace the simple pleasures of sunshine, nature, and stillness.\n\nBlending contemporary portraiture with a modern tropical aesthetic, Island Bloom brings warmth, optimism, and timeless elegance into any home. It is a reminder that, like the flowers that bloom beneath the island sun, our brightest moments often come from simply being ourselves.",
+      "description": "Her Own Light\nThe brightest kind of confidence is often the quietest. It doesn't seek attention—it simply glows.\nIsland Bloom captures that gentle radiance through a serene figure adorned with a vibrant tropical flower, surrounded by bold palm leaves that frame the composition like a peaceful island sanctuary. The flowing golden garment reflects the warmth of morning light, while the soft neutral background allows every color and gesture to breathe.\n\nInspired by the effortless beauty of tropical life, this painting celebrates the moments when we feel most connected to ourselves and the world around us. The vivid blossom symbolizes joy and renewal, while the calm expression invites the viewer to slow down and embrace the simple pleasures of sunshine, nature, and stillness.\n\nBlending contemporary portraiture with a modern tropical aesthetic, Island Bloom brings warmth, optimism, and timeless elegance into any home. It is a reminder that, like the flowers that bloom beneath the island sun, our brightest moments often come from simply being ourselves.",
       "status": "Sold",
       "listing": "print",
-      "showOriginal": true
+      "showOriginal": true,
+      "shopifyHandle": "island-bloom-2"
     },
     {
       "title": "Island Grace",
@@ -364,8 +364,7 @@
       "status": "Private Collection",
       "listing": "print",
       "showOriginal": true,
-      "featured": 17,
-      "shopifyHandle": "island-grace"
+      "featured": 17
     },
     {
       "title": "Whispering Palms",
@@ -383,7 +382,8 @@
       "status": "Sold",
       "listing": "print",
       "showOriginal": true,
-      "featured": 18
+      "featured": 18,
+      "shopifyHandle": "whispering-palms"
     },
     {
       "title": "The Coastal rider",
@@ -431,7 +431,7 @@
       "shopifyHandle": "the-coastal-rider-art-print",
       "listing": "print",
       "originalShopifyHandle": "the-coastal-rider",
-      "status": "Available",
+      "status": "Sold",
       "featured": 1,
       "hero": 3,
       "showOriginal": true
@@ -625,6 +625,48 @@
       "status": "Available",
       "featured": 1,
       "hero": 1
+    },
+    {
+      "title": "Wavebound",
+      "src": "images/paintings/35-wavebound.jpg",
+      "w": 1219,
+      "h": 1290,
+      "palette": [
+        "#58141C",
+        "#A92E2A",
+        "#9C683B",
+        "#E9C373",
+        "#DBCCB3"
+      ],
+      "description": "A quiet portrait of the Western spirit, Wavebound brings together the freedom of the open road and the restless energy of the sea. A solitary cowboy carries his board beneath a wide-brimmed hat, caught between two worlds — the rugged landscape of the West and the endless pull of the ocean.\n\nBold shapes, warm tones, and simplified forms give the work a contemporary, almost dreamlike character. It is a portrait of movement, independence, and the feeling of always being drawn toward the next horizon.\n\nAcrylic on canvas.",
+      "shopifyHandle": "wavebound-1",
+      "originalShopifyHandle": "wavebound",
+      "listing": "print",
+      "showOriginal": true,
+      "photos": [
+        {
+          "src": "images/paintings/35-wavebound.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt1.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt2.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt3.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt4.jpg",
+          "label": "In the interior"
+        }
+      ],
+      "status": "Available",
+      "featured": 20
     }
   ]
 }
