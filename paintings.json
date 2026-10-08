@@ -463,7 +463,6 @@
           "label": "In the interior"
         }
       ],
-      "hero": 2,
       "listing": "print",
       "showOriginal": true,
       "shopifyHandle": "wild-companion-2-art-print"
@@ -517,10 +516,10 @@
       "description": "Island Bloom\n\nSome beauty asks to be noticed.\n\nOther beauty simply exists—quietly, confidently, without seeking attention.\n\nIsland Bloom is a celebration of that quiet confidence.\n\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\n\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\n\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
       "status": "Available",
       "originalShopifyHandle": "island-bloom-1",
-      "featured": 2,
       "listing": "print",
       "shopifyHandle": "island-bloom-art-print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 2
     },
     {
       "title": "Aloha Road",
@@ -652,7 +651,7 @@
       ],
       "status": "Available",
       "featured": 20,
-      "hero": 4
+      "hero": 1
     },
     {
       "title": "Island Outlaw",
