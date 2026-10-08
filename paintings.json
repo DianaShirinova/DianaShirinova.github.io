@@ -463,7 +463,6 @@
           "label": "In the interior"
         }
       ],
-      "hero": 2,
       "listing": "print",
       "showOriginal": true,
       "shopifyHandle": "wild-companion-2-art-print"
@@ -503,49 +502,6 @@
       "status": "Sold"
     },
     {
-      "title": "Wavebound",
-      "src": "images/paintings/35-wavebound.jpg",
-      "w": 1219,
-      "h": 1290,
-      "palette": [
-        "#58141C",
-        "#A92E2A",
-        "#9C683B",
-        "#E9C373",
-        "#DBCCB3"
-      ],
-      "description": "A quiet portrait of the Western spirit, Wavebound brings together the freedom of the open road and the restless energy of the sea. A solitary cowboy carries his board beneath a wide-brimmed hat, caught between two worlds — the rugged landscape of the West and the endless pull of the ocean.\n\nBold shapes, warm tones, and simplified forms give the work a contemporary, almost dreamlike character. It is a portrait of movement, independence, and the feeling of always being drawn toward the next horizon.\n\nAcrylic on canvas.",
-      "shopifyHandle": "wavebound-1",
-      "originalShopifyHandle": "wavebound",
-      "listing": "print",
-      "showOriginal": true,
-      "photos": [
-        {
-          "src": "images/paintings/35-wavebound.jpg",
-          "label": "Original"
-        },
-        {
-          "src": "images/paintings/35-wavebound-alt1.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/35-wavebound-alt2.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/35-wavebound-alt3.jpg",
-          "label": "In the interior"
-        },
-        {
-          "src": "images/paintings/35-wavebound-alt4.jpg",
-          "label": "In the interior"
-        }
-      ],
-      "status": "Available",
-      "featured": 20,
-      "hero": 4
-    },
-    {
       "title": "Island Bloom",
       "src": "images/paintings/32-island-bloom-1.jpg",
       "w": 3617,
@@ -560,10 +516,10 @@
       "description": "Island Bloom\n\nSome beauty asks to be noticed.\n\nOther beauty simply exists—quietly, confidently, without seeking attention.\n\nIsland Bloom is a celebration of that quiet confidence.\n\nThe hibiscus, a timeless symbol of the tropics, is not only an ornament but a reminder that strength and softness can exist together. Framed by warm light and earthy tones, the figure stands with calm self-assurance, grounded in nature and entirely at ease with herself.\n\nInspired by the gentle rhythm of island life, this painting invites us to slow down and appreciate beauty that feels effortless, authentic, and deeply rooted.\n\nLike a flower that blooms in its own season, we are not meant to rush. We are meant to become.",
       "status": "Available",
       "originalShopifyHandle": "island-bloom-1",
-      "featured": 2,
       "listing": "print",
       "shopifyHandle": "island-bloom-art-print",
-      "showOriginal": true
+      "showOriginal": true,
+      "featured": 2
     },
     {
       "title": "Aloha Road",
@@ -610,25 +566,6 @@
       "originalShopifyHandle": "aloha-road"
     },
     {
-      "title": "Island Outlaw",
-      "src": "images/paintings/36-island-outlaw.jpg",
-      "w": 1086,
-      "h": 1449,
-      "palette": [
-        "#37241D",
-        "#993625",
-        "#535B2D",
-        "#74849B",
-        "#DCB566"
-      ],
-      "description": "Island Outlaw\nA lone island outlaw stands beneath a string of colorful pennants, holding his prized catch close. Dressed in a weathered cowboy hat and star-covered green shirt, he carries the quiet confidence of someone who belongs to the islands but plays by his own rules.\nThe bold yellow sky, playful bunting, and oversized red crab create a world that feels both tropical and cinematic. There is humor in the character, but also a sense of mystery—his face hidden beneath the brim, leaving the viewer to imagine who he is and where he is headed.\nIsland Outlaw blends Hawaiian island life with the visual language of the American West, creating a playful contemporary character who feels like he stepped out of an island folk tale.",
-      "shopifyHandle": "island-outlaw",
-      "listing": "print",
-      "showOriginal": true,
-      "status": "Available",
-      "featured": 21
-    },
-    {
       "title": "36 Palms",
       "src": "images/paintings/palms.jpg",
       "w": 1254,
@@ -671,6 +608,68 @@
       ],
       "status": "Available",
       "featured": 1
+    },
+    {
+      "title": "Wavebound",
+      "src": "images/paintings/35-wavebound.jpg",
+      "w": 1219,
+      "h": 1290,
+      "palette": [
+        "#58141C",
+        "#A92E2A",
+        "#9C683B",
+        "#E9C373",
+        "#DBCCB3"
+      ],
+      "description": "A quiet portrait of the Western spirit, Wavebound brings together the freedom of the open road and the restless energy of the sea. A solitary cowboy carries his board beneath a wide-brimmed hat, caught between two worlds — the rugged landscape of the West and the endless pull of the ocean.\n\nBold shapes, warm tones, and simplified forms give the work a contemporary, almost dreamlike character. It is a portrait of movement, independence, and the feeling of always being drawn toward the next horizon.\n\nAcrylic on canvas.",
+      "shopifyHandle": "wavebound-1",
+      "originalShopifyHandle": "wavebound",
+      "listing": "print",
+      "showOriginal": true,
+      "photos": [
+        {
+          "src": "images/paintings/35-wavebound.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt1.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt2.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt3.jpg",
+          "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt4.jpg",
+          "label": "In the interior"
+        }
+      ],
+      "status": "Available",
+      "featured": 20,
+      "hero": 1
+    },
+    {
+      "title": "Island Outlaw",
+      "src": "images/paintings/36-island-outlaw.jpg",
+      "w": 1086,
+      "h": 1449,
+      "palette": [
+        "#37241D",
+        "#993625",
+        "#535B2D",
+        "#74849B",
+        "#DCB566"
+      ],
+      "description": "Island Outlaw\nA lone island outlaw stands beneath a string of colorful pennants, holding his prized catch close. Dressed in a weathered cowboy hat and star-covered green shirt, he carries the quiet confidence of someone who belongs to the islands but plays by his own rules.\nThe bold yellow sky, playful bunting, and oversized red crab create a world that feels both tropical and cinematic. There is humor in the character, but also a sense of mystery—his face hidden beneath the brim, leaving the viewer to imagine who he is and where he is headed.\nIsland Outlaw blends Hawaiian island life with the visual language of the American West, creating a playful contemporary character who feels like he stepped out of an island folk tale.",
+      "shopifyHandle": "island-outlaw",
+      "listing": "print",
+      "showOriginal": true,
+      "status": "Available",
+      "featured": 21
     }
   ]
 }
