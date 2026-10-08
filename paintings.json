@@ -693,17 +693,7 @@
       "showOriginal": true,
       "status": "Available",
       "featured": 20,
-      "hero": 4,
-      "photos": [
-        {
-          "src": "images/paintings/35-wavebound.jpg",
-          "label": "Original"
-        },
-        {
-          "src": "images/paintings/35-wavebound-alt1.jpg",
-          "label": "In the interior"
-        }
-      ]
+      "hero": 4
     },
     {
       "title": "Island Bloom",
@@ -751,7 +741,17 @@
       "status": "Sold",
       "showOriginal": true,
       "listing": "print",
-      "shopifyHandle": "aloha-road-1"
+      "shopifyHandle": "aloha-road-1",
+      "photos": [
+        {
+          "src": "images/paintings/33-aloha-road.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/33-aloha-road-alt1.jpg",
+          "label": "In the interior"
+        }
+      ]
     },
     {
       "title": "Island Outlaw",
