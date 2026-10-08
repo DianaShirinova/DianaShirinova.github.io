@@ -17,8 +17,7 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "unbridled-art-print",
-      "showOriginal": true,
-      "featured": 4
+      "showOriginal": true
     },
     {
       "title": "Island Waters",
@@ -52,8 +51,7 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "ride-the-tide-print",
-      "showOriginal": true,
-      "featured": 6
+      "showOriginal": true
     },
     {
       "title": "Hibiscus Light",
@@ -71,8 +69,7 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "hibiscus-light-art-print",
-      "showOriginal": true,
-      "featured": 7
+      "showOriginal": true
     },
     {
       "title": "Chasing the Swell",
@@ -90,8 +87,7 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "chasing-the-swell-art-print",
-      "showOriginal": true,
-      "featured": 8
+      "showOriginal": true
     },
     {
       "title": "Golden Hour",
@@ -109,8 +105,7 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "golden-hour-art-print",
-      "showOriginal": true,
-      "featured": 9
+      "showOriginal": true
     },
     {
       "title": "Under Tropical Skies",
@@ -128,8 +123,7 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "under-tropical-skies-art-print",
-      "showOriginal": true,
-      "featured": 10
+      "showOriginal": true
     },
     {
       "title": "Tropical Treasures",
@@ -163,8 +157,7 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "breathe-art-print",
-      "showOriginal": true,
-      "featured": 11
+      "showOriginal": true
     },
     {
       "title": "Island Pause",
@@ -218,8 +211,7 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "blooming-quiet-art-print",
-      "showOriginal": true,
-      "featured": 12
+      "showOriginal": true
     },
     {
       "title": "Surfside Serenity",
@@ -255,7 +247,6 @@
       "status": "Sold",
       "listing": "print",
       "showOriginal": true,
-      "featured": 13,
       "shopifyHandle": "coastal-daydream"
     },
     {
@@ -274,8 +265,7 @@
       "status": "Sold",
       "listing": "print",
       "shopifyHandle": "hibiscus-bloom-art-print",
-      "showOriginal": true,
-      "featured": 14
+      "showOriginal": true
     },
     {
       "title": "Soft Horizon",
@@ -293,7 +283,6 @@
       "status": "Sold",
       "listing": "print",
       "showOriginal": true,
-      "featured": 15,
       "shopifyHandle": "soft-horizon"
     },
     {
@@ -311,8 +300,7 @@
       "description": "Golden Swell\nThere is a moment before stepping into the water when everything feels possible. The board rests nearby, the breeze carries the scent of salt, and the ocean quietly waits.\nGolden Swell captures that anticipation through a calm, contemplative figure framed by tropical leaves and a sunlit surfboard. Painted in warm earth tones and soft coastal blues, the composition reflects the effortless rhythm of island life—where adventure is balanced by stillness, and every wave begins with a quiet pause.\nRather than portraying action, the painting celebrates the peaceful moments that surround it. It is about slowing down, listening to the ocean, and finding confidence in simply being present.\nWith its contemporary tropical aesthetic and clean, modern forms, Golden Swell brings warmth, light, and a sense of relaxed coastal living into any space. It serves as a gentle reminder that some of life's most meaningful journeys begin long before the first wave is caught.",
       "listing": "print",
       "showOriginal": true,
-      "shopifyHandle": "golden-swell",
-      "status": "Sold"
+      "shopifyHandle": "golden-swell"
     },
     {
       "title": "Golden Skies",
@@ -330,7 +318,6 @@
       "status": "Sold",
       "listing": "print",
       "showOriginal": true,
-      "featured": 16,
       "shopifyHandle": "golden-skies"
     },
     {
@@ -367,7 +354,6 @@
       "status": "Private Collection",
       "listing": "print",
       "showOriginal": true,
-      "featured": 17,
       "shopifyHandle": "island-grace"
     },
     {
@@ -386,7 +372,6 @@
       "status": "Sold",
       "listing": "print",
       "showOriginal": true,
-      "featured": 18,
       "shopifyHandle": "whispering-palms"
     },
     {
@@ -436,7 +421,6 @@
       "listing": "print",
       "originalShopifyHandle": "the-coastal-rider",
       "status": "Sold",
-      "featured": 1,
       "showOriginal": true
     },
     {
@@ -479,7 +463,7 @@
           "label": "In the interior"
         }
       ],
-      "featured": 3,
+      "hero": 2,
       "listing": "print",
       "showOriginal": true,
       "shopifyHandle": "wild-companion-2-art-print"
@@ -516,7 +500,6 @@
         }
       ],
       "showOriginal": true,
-      "featured": 19,
       "status": "Sold"
     },
     {
@@ -625,7 +608,8 @@
         }
       ],
       "status": "Available",
-      "featured": 1
+      "featured": 1,
+      "hero": 1
     },
     {
       "title": "Wavebound",
@@ -686,7 +670,8 @@
       "shopifyHandle": "island-outlaw",
       "listing": "print",
       "showOriginal": true,
-      "status": "Available"
+      "status": "Available",
+      "featured": 21
     }
   ]
 }
