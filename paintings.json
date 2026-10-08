@@ -436,7 +436,6 @@
       "originalShopifyHandle": "the-coastal-rider",
       "status": "Sold",
       "featured": 1,
-      "hero": 3,
       "showOriginal": true
     },
     {
@@ -669,7 +668,8 @@
         }
       ],
       "status": "Available",
-      "featured": 20
+      "featured": 20,
+      "hero": 4
     },
     {
       "title": "Island Outlaw",
@@ -686,7 +686,8 @@
       "description": "Island Outlaw\nA lone island outlaw stands beneath a string of colorful pennants, holding his prized catch close. Dressed in a weathered cowboy hat and star-covered green shirt, he carries the quiet confidence of someone who belongs to the islands but plays by his own rules.\nThe bold yellow sky, playful bunting, and oversized red crab create a world that feels both tropical and cinematic. There is humor in the character, but also a sense of mystery—his face hidden beneath the brim, leaving the viewer to imagine who he is and where he is headed.\nIsland Outlaw blends Hawaiian island life with the visual language of the American West, creating a playful contemporary character who feels like he stepped out of an island folk tale.",
       "shopifyHandle": "island-outlaw",
       "listing": "print",
-      "showOriginal": true
+      "showOriginal": true,
+      "status": "Available"
     }
   ]
 }
