@@ -436,6 +436,7 @@
       "originalShopifyHandle": "the-coastal-rider",
       "status": "Sold",
       "featured": 1,
+      "hero": 3,
       "showOriginal": true
     },
     {
