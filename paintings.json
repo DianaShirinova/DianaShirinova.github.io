@@ -836,8 +836,14 @@
         {
           "src": "images/paintings/37-beyond-the-break-alt1.jpg",
           "label": "In the interior"
+        },
+        {
+          "src": "images/paintings/37-beyond-the-break-alt2.jpg",
+          "label": "In the interior"
         }
-      ]
+      ],
+      "featured": 3,
+      "status": "Available"
     }
   ]
 }
