@@ -841,8 +841,8 @@
           "label": "In the interior"
         }
       ],
-      "status": "Available",
-      "featured": 3
+      "featured": 3,
+      "status": "Available"
     }
   ]
 }
