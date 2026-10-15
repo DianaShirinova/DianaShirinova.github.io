@@ -780,7 +780,8 @@
           "src": "images/paintings/36-island-outlaw-alt1.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "hero": 2
     },
     {
       "title": "36 Palms",
@@ -841,8 +842,9 @@
           "label": "In the interior"
         }
       ],
+      "status": "Available",
       "featured": 3,
-      "status": "Available"
+      "hero": 1
     }
   ]
 }
