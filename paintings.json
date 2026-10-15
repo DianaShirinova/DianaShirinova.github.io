@@ -632,7 +632,6 @@
       ],
       "description": "Wild Companion\n\nNot everything wild is meant to be feared.\n\nWild Companion explores the quiet relationship between humanity and the untamed world. The shark, often seen as a symbol of danger, becomes something entirely different—a companion carried with care, strength, and respect.\n\nThrough bold shapes, warm coastal colors, and minimalist composition, the painting invites us to reconsider what we call wild. Sometimes the greatest connections are found where fear once lived.\n\nA celebration of trust, curiosity, and the enduring bond between people and the sea.",
       "status": "Sold",
-      "hero": 2,
       "listing": "print",
       "showOriginal": true,
       "shopifyHandle": "wild-companion-2-art-print"
@@ -842,8 +841,8 @@
           "label": "In the interior"
         }
       ],
-      "featured": 3,
-      "status": "Available"
+      "status": "Available",
+      "featured": 3
     }
   ]
 }
