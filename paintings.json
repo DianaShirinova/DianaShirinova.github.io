@@ -810,6 +810,34 @@
           "label": "In the interior"
         }
       ]
+    },
+    {
+      "title": "Beyond the Break",
+      "src": "images/paintings/37-beyond-the-break.jpg",
+      "w": 2400,
+      "h": 2399,
+      "palette": [
+        "#443C26",
+        "#985C43",
+        "#AA7579",
+        "#BAA795",
+        "#E5C8A4"
+      ],
+      "description": "Where the ocean meets individuality, a quiet sense of strength emerges. In Beyond the Break, a woman stands beside her pink surfboard, framed by oversized tropical leaves and warm, sunlit tones. A hibiscus tucked behind her ear adds a delicate touch to an otherwise bold composition.\n\nBalancing the spirit of surf culture with contemporary portraiture, the painting captures a moment of stillness before the next wave — a reminder that the most meaningful journeys often begin just beyond the familiar.\n\nAn original acrylic painting celebrating independence, confidence, and the timeless pull of the ocean.",
+      "shopifyHandle": "beyond-the-break-1",
+      "originalShopifyHandle": "beyond-the-break",
+      "listing": "print",
+      "showOriginal": true,
+      "photos": [
+        {
+          "src": "images/paintings/37-beyond-the-break.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/37-beyond-the-break-alt1.jpg",
+          "label": "In the interior"
+        }
+      ]
     }
   ]
 }
