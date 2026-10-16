@@ -693,7 +693,17 @@
       "showOriginal": true,
       "status": "Available",
       "featured": 20,
-      "hero": 4
+      "hero": 4,
+      "photos": [
+        {
+          "src": "images/paintings/35-wavebound.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/35-wavebound-alt1.jpg",
+          "label": "In the interior"
+        }
+      ]
     },
     {
       "title": "Island Bloom",
@@ -799,7 +809,17 @@
       "originalShopifyHandle": "36-palms",
       "showOriginal": true,
       "status": "Available",
-      "featured": 1
+      "featured": 1,
+      "photos": [
+        {
+          "src": "images/paintings/palms.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/palms-alt1.jpg",
+          "label": "In the interior"
+        }
+      ]
     },
     {
       "title": "Beyond the Break",
