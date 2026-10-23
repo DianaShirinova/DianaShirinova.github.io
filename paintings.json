@@ -791,7 +791,8 @@
           "label": "In the interior"
         }
       ],
-      "hero": 2
+      "hero": 2,
+      "originalShopifyHandle": "island-outlaw-1"
     },
     {
       "title": "36 Palms",
@@ -852,7 +853,9 @@
           "label": "In the interior"
         }
       ],
-      "status": "Sold"
+      "status": "Available",
+      "featured": 3,
+      "hero": 1
     }
   ]
 }
