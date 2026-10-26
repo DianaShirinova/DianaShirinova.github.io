@@ -809,7 +809,7 @@
       "description": "36 Palms\n\nA contemporary celebration of the palm tree as an enduring symbol of tropical life. Thirty-six palm silhouettes are arranged in a rhythmic grid, each one shifting in color against a different ground, creating a playful balance of repetition, contrast, and visual harmony.\n\nInspired by the graphic language of modern art, 36 Palms transforms a familiar island symbol into a bold, collectible composition. Its warm palette and rhythmic structure bring energy and a distinctly tropical sense of place to contemporary interiors.\n\nOriginal painting: 36 × 36 in.",
       "originalShopifyHandle": "36-palms",
       "showOriginal": true,
-      "status": "Sold",
+      "status": "Available",
       "featured": 1,
       "photos": [
         {
@@ -853,9 +853,36 @@
           "label": "In the interior"
         }
       ],
-      "status": "Sold",
+      "status": "Available",
       "featured": 3,
       "hero": 1
+    },
+    {
+      "title": "After Hours",
+      "src": "images/paintings/38-after-hours.jpg",
+      "w": 1082,
+      "h": 1279,
+      "palette": [
+        "#251814",
+        "#57252A",
+        "#766B61",
+        "#BAA696",
+        "#F4C999"
+      ],
+      "description": "A quiet moment away from the spotlight. With a wide-brimmed hat, star-adorned sleeves, and bold striped trousers, this enigmatic figure blends Western character with contemporary style. Deep burgundy tones and graphic patterns create a cinematic atmosphere, capturing the confidence of someone who moves to their own rhythm. A portrait of individuality, quiet rebellion, and the beauty of being unapologetically yourself.",
+      "shopifyHandle": "after-hours",
+      "listing": "print",
+      "showOriginal": true,
+      "photos": [
+        {
+          "src": "images/paintings/38-after-hours.jpg",
+          "label": "Original"
+        },
+        {
+          "src": "images/paintings/38-after-hours-alt1.jpg",
+          "label": "In the interior"
+        }
+      ]
     }
   ]
 }
