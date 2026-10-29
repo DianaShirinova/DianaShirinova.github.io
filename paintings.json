@@ -693,7 +693,6 @@
       "showOriginal": true,
       "status": "Sold",
       "featured": 20,
-      "hero": 4,
       "photos": [
         {
           "src": "images/paintings/35-wavebound.jpg",
@@ -809,7 +808,7 @@
       "description": "36 Palms\n\nA contemporary celebration of the palm tree as an enduring symbol of tropical life. Thirty-six palm silhouettes are arranged in a rhythmic grid, each one shifting in color against a different ground, creating a playful balance of repetition, contrast, and visual harmony.\n\nInspired by the graphic language of modern art, 36 Palms transforms a familiar island symbol into a bold, collectible composition. Its warm palette and rhythmic structure bring energy and a distinctly tropical sense of place to contemporary interiors.\n\nOriginal painting: 36 × 36 in.",
       "originalShopifyHandle": "36-palms",
       "showOriginal": true,
-      "status": "Available",
+      "status": "Sold",
       "featured": 1,
       "photos": [
         {
@@ -853,7 +852,7 @@
           "label": "In the interior"
         }
       ],
-      "status": "Available",
+      "status": "Sold",
       "featured": 3,
       "hero": 1
     },
@@ -882,7 +881,9 @@
           "src": "images/paintings/38-after-hours-alt1.jpg",
           "label": "In the interior"
         }
-      ]
+      ],
+      "status": "Sold",
+      "featured": 4
     }
   ]
 }
