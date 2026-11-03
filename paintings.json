@@ -538,34 +538,6 @@
       ]
     },
     {
-      "title": "Whispering Palms",
-      "src": "images/paintings/26-whispering-palms.jpg",
-      "w": 1280,
-      "h": 1279,
-      "palette": [
-        "#3B2417",
-        "#4C5549",
-        "#A76B68",
-        "#B9A696",
-        "#E7D5B8"
-      ],
-      "description": "Whispering Palms\nSome moments don't need words. A quiet glance, gentle light, and the rustle of palms overhead can say everything.\nWhispering Palms captures the peaceful rhythm of island life through a graceful portrait framed by bold tropical leaves. The soft blush tones of the flowing garment contrast beautifully with the deep green foliage, creating a sense of warmth, balance, and effortless elegance. Delicate pearl-like earrings and a thoughtful expression add a quiet sophistication, while the organic forms surrounding the figure evoke the calm embrace of nature.\n\nInspired by the slower pace of tropical living, this painting celebrates reflection, inner peace, and the beauty found in simple moments. It invites the viewer to pause, breathe deeply, and reconnect with the gentle harmony that nature offers.\n\nBlending contemporary portraiture with a modern tropical aesthetic, Whispering Palms brings serenity, warmth, and timeless style into any home. It is a reminder that life's most meaningful conversations are often carried on the breeze beneath the palms.",
-      "status": "Sold",
-      "listing": "print",
-      "showOriginal": true,
-      "shopifyHandle": "whispering-palms",
-      "photos": [
-        {
-          "src": "images/paintings/26-whispering-palms.jpg",
-          "label": "Original"
-        },
-        {
-          "src": "images/paintings/26-whispering-palms-alt1.jpg",
-          "label": "In the interior"
-        }
-      ]
-    },
-    {
       "title": "The Coastal rider",
       "src": "images/paintings/28-the-coastal-rider.jpg",
       "w": 1280,
@@ -616,39 +588,33 @@
       "listing": "print",
       "originalShopifyHandle": "the-coastal-rider",
       "status": "Sold",
+      "showOriginal": true
+    },
+    {
+      "title": "Whispering Palms",
+      "src": "images/paintings/26-whispering-palms.jpg",
+      "w": 1280,
+      "h": 1279,
+      "palette": [
+        "#3B2417",
+        "#4C5549",
+        "#A76B68",
+        "#B9A696",
+        "#E7D5B8"
+      ],
+      "description": "Whispering Palms\nSome moments don't need words. A quiet glance, gentle light, and the rustle of palms overhead can say everything.\nWhispering Palms captures the peaceful rhythm of island life through a graceful portrait framed by bold tropical leaves. The soft blush tones of the flowing garment contrast beautifully with the deep green foliage, creating a sense of warmth, balance, and effortless elegance. Delicate pearl-like earrings and a thoughtful expression add a quiet sophistication, while the organic forms surrounding the figure evoke the calm embrace of nature.\n\nInspired by the slower pace of tropical living, this painting celebrates reflection, inner peace, and the beauty found in simple moments. It invites the viewer to pause, breathe deeply, and reconnect with the gentle harmony that nature offers.\n\nBlending contemporary portraiture with a modern tropical aesthetic, Whispering Palms brings serenity, warmth, and timeless style into any home. It is a reminder that life's most meaningful conversations are often carried on the breeze beneath the palms.",
+      "status": "Sold",
+      "listing": "print",
       "showOriginal": true,
-      "printPhotos": [
+      "shopifyHandle": "whispering-palms",
+      "photos": [
         {
-          "src": "images/paintings/28-the-coastal-rider-print1.jpg",
-          "label": "Print"
+          "src": "images/paintings/26-whispering-palms.jpg",
+          "label": "Original"
         },
         {
-          "src": "images/paintings/28-the-coastal-rider-print2.jpg",
-          "label": "Print"
-        },
-        {
-          "src": "images/paintings/28-the-coastal-rider-print3.jpg",
-          "label": "5x7"
-        },
-        {
-          "src": "images/paintings/28-the-coastal-rider-print4.jpg",
-          "label": "5x7m"
-        },
-        {
-          "src": "images/paintings/28-the-coastal-rider-print5.jpg",
-          "label": "8x10"
-        },
-        {
-          "src": "images/paintings/28-the-coastal-rider-print6.jpg",
-          "label": "8x10m"
-        },
-        {
-          "src": "images/paintings/28-the-coastal-rider-print7.jpg",
-          "label": "11x14"
-        },
-        {
-          "src": "images/paintings/28-the-coastal-rider-print8.jpg",
-          "label": "11x14m"
+          "src": "images/paintings/26-whispering-palms-alt1.jpg",
+          "label": "In the interior"
         }
       ]
     },
