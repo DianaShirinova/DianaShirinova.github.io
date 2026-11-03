@@ -588,7 +588,45 @@
       "listing": "print",
       "originalShopifyHandle": "the-coastal-rider",
       "status": "Sold",
-      "showOriginal": true
+      "showOriginal": true,
+      "printPhotos": [
+        {
+          "src": "images/paintings/28-the-coastal-rider-print1.png",
+          "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print1.jpg",
+          "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print2.jpg",
+          "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print3.jpg",
+          "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print4.jpg",
+          "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print5.jpg",
+          "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print6.jpg",
+          "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print7.jpg",
+          "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print8.jpg",
+          "label": "Print"
+        }
+      ]
     },
     {
       "title": "Whispering Palms",
