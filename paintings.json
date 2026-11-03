@@ -595,15 +595,19 @@
           "label": "Print"
         },
         {
-          "src": "images/paintings/28-the-coastal-rider-print1.jpg",
-          "label": "Print"
-        },
-        {
           "src": "images/paintings/28-the-coastal-rider-print2.jpg",
           "label": "Print"
         },
         {
+          "src": "images/paintings/28-the-coastal-rider-print6.jpg",
+          "label": "Print"
+        },
+        {
           "src": "images/paintings/28-the-coastal-rider-print3.jpg",
+          "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print1.jpg",
           "label": "Print"
         },
         {
@@ -612,10 +616,6 @@
         },
         {
           "src": "images/paintings/28-the-coastal-rider-print5.jpg",
-          "label": "Print"
-        },
-        {
-          "src": "images/paintings/28-the-coastal-rider-print6.jpg",
           "label": "Print"
         },
         {
