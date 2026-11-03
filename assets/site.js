@@ -478,7 +478,7 @@ function setLbPalette(idx){
 function getPhotos(idx){
   var p = PAINTINGS[idx];
   if (BUY_CONTEXT === 'print'){
-    return [{ src: p.src, label: '' }].concat(p.printPhotos || []);
+    return [{ src: p.printSrc || p.src, label: '' }].concat(p.printPhotos || []);
   }
   return (p.photos && p.photos.length) ? p.photos : [{ src: p.src, label: '' }];
 }
@@ -703,12 +703,13 @@ function buildGallery(predicate, opts){
     card.className = 'gallery-card';
 
     var img = document.createElement('img');
-    img.src = p.src;
+    var usePrint = BUY_CONTEXT === 'print' && p.printSrc;
+    img.src = usePrint ? p.printSrc : p.src;
     img.alt = p.title;
     img.loading = 'lazy';
     img.decoding = 'async';
-    img.width = p.w;
-    img.height = p.h;
+    img.width = usePrint ? (p.printW || p.w) : p.w;
+    img.height = usePrint ? (p.printH || p.h) : p.h;
 
     var overlay = document.createElement('div');
     overlay.className = 'card-overlay';
