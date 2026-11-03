@@ -478,7 +478,12 @@ function setLbPalette(idx){
 function getPhotos(idx){
   var p = PAINTINGS[idx];
   if (BUY_CONTEXT === 'print'){
-    return [{ src: p.printSrc || p.src, label: '' }].concat(p.printPhotos || []);
+    /* printPhotos (if any) are the whole print gallery, in the admin's order.
+       printSrc, if set, goes first; with no print photos at all, fall back to the painting. */
+    var list = (p.printPhotos || []).slice();
+    if (p.printSrc) list.unshift({ src: p.printSrc, label: '' });
+    if (!list.length) list.push({ src: p.src, label: '' });
+    return list;
   }
   return (p.photos && p.photos.length) ? p.photos : [{ src: p.src, label: '' }];
 }
@@ -703,13 +708,15 @@ function buildGallery(predicate, opts){
     card.className = 'gallery-card';
 
     var img = document.createElement('img');
-    var usePrint = BUY_CONTEXT === 'print' && p.printSrc;
-    img.src = usePrint ? p.printSrc : p.src;
+    var printCover = BUY_CONTEXT === 'print'
+      ? (p.printSrc || (p.printPhotos && p.printPhotos[0] && p.printPhotos[0].src) || null) : null;
+    var usePrint = !!printCover;
+    img.src = usePrint ? printCover : p.src;
     img.alt = p.title;
     img.loading = 'lazy';
     img.decoding = 'async';
-    img.width = usePrint ? (p.printW || p.w) : p.w;
-    img.height = usePrint ? (p.printH || p.h) : p.h;
+    if (!usePrint){ img.width = p.w; img.height = p.h; }
+    else if (p.printSrc && p.printW && p.printH){ img.width = p.printW; img.height = p.printH; }
 
     var overlay = document.createElement('div');
     overlay.className = 'card-overlay';
