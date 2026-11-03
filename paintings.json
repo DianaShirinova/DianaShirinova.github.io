@@ -619,8 +619,36 @@
       "showOriginal": true,
       "printPhotos": [
         {
-          "src": "images/paintings/28-the-coastal-rider-print1.png",
+          "src": "images/paintings/28-the-coastal-rider-print1.jpg",
           "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print2.jpg",
+          "label": "Print"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print3.jpg",
+          "label": "5x7"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print4.jpg",
+          "label": "5x7m"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print5.jpg",
+          "label": "8x10"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print6.jpg",
+          "label": "8x10m"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print7.jpg",
+          "label": "11x14"
+        },
+        {
+          "src": "images/paintings/28-the-coastal-rider-print8.jpg",
+          "label": "11x14m"
         }
       ]
     },
